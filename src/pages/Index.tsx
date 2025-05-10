@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Star, Package, Truck } from 'lucide-react';
@@ -13,29 +14,29 @@ const Index = () => {
   const featuredProducts = [
     {
       id: 1,
-      title: "Housse Premium pour Matelas Queen",
+      title: "Housse de Protection pour Matelas en Plastique Epais - Déménagement, Transport et Rangement - 140x200 cm",
       image: "/lovable-uploads/fe0be2fb-2a8e-4ec4-ad8e-a59455d65874.png",
-      price: 24.99,
-      rating: 4.8,
+      price: 23.90,
+      rating: 4.5,
       reviews: 127,
       amazonUrl: "https://amazon.com",
     },
     {
       id: 2,
-      title: "Protection Matelas King Size",
-      image: "/lovable-uploads/37318197-cad1-42a4-ab26-25d470ce4a67.png",
-      price: 29.99,
-      rating: 4.7,
-      reviews: 94,
+      title: "Housse de Protection Matelas en tissu Oxford - 4 poignées - 90cmx200 cm",
+      image: "/lovable-uploads/d627b467-c7ef-49f3-bc9c-4a1782ab1b0a.png",
+      price: 24.90,
+      rating: 4.5,
+      reviews: 373,
       amazonUrl: "https://amazon.com",
     },
     {
       id: 3,
-      title: "Lot de 2 Sacs de Rangement",
-      image: "/lovable-uploads/0a4f4094-9f22-41f6-a738-926999eff40e.png",
-      price: 19.99,
-      rating: 4.9,
-      reviews: 58,
+      title: "Kit de Sacs de Rangement Sous Vide Packshield - Sacs de Rangement Non-Tissés pour Vêtements",
+      image: "/lovable-uploads/88ca3208-539e-44f6-80e3-5fce2885a14a.png",
+      price: 37.90,
+      rating: 4.5,
+      reviews: 457,
       amazonUrl: "https://amazon.com",
     }
   ];
@@ -148,7 +149,7 @@ const Index = () => {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-10">
-            <h2 className="text-3xl font-bold text-packshield-navy">Produits Vedettes</h2>
+            <h2 className="text-3xl font-bold text-packshield-navy">Nos meilleures ventes</h2>
             <Link to="/products" className="text-packshield-orange hover:text-packshield-navy flex items-center gap-1 font-medium">
               Voir tout <ArrowRight className="h-4 w-4" />
             </Link>
@@ -172,13 +173,15 @@ const Index = () => {
                     <div className="flex items-center mb-3">
                       <div className="flex items-center mr-2">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" />
+                          <Star key={i} 
+                               className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400' : (i === Math.floor(product.rating) && product.rating % 1 > 0 ? 'text-yellow-400' : 'text-gray-300')}`} 
+                               fill={i < Math.floor(product.rating) ? "currentColor" : (i === Math.floor(product.rating) && product.rating % 1 > 0 ? "currentColor" : "none")} />
                         ))}
                       </div>
                       <span className="text-sm text-packshield-grey">({product.reviews})</span>
                     </div>
                     <div className="flex justify-between items-center mb-4">
-                      <span className="text-xl font-bold text-packshield-navy">${product.price}</span>
+                      <span className="text-xl font-bold text-packshield-navy">{product.price.toFixed(2).replace('.', ',')}€</span>
                     </div>
                     <a 
                       href={product.amazonUrl} 
