@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Mail } from 'lucide-react';
+import { Facebook, Mail } from 'lucide-react';
 import Logo from './Logo';
 
 const Footer = () => {
@@ -14,14 +14,8 @@ const Footer = () => {
               Protégeons ce qui compte le plus avec des solutions de stockage premium.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors">
+              <a href="https://www.facebook.com/people/Packshield/100088566477762/" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors">
                 <Facebook size={20} />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors">
-                <Instagram size={20} />
               </a>
             </div>
           </div>
@@ -65,9 +59,8 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">© {new Date().getFullYear()} Packshield. Tous droits réservés.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-packshield-orange transition-colors">Politique de confidentialité</Link>
-            <Link to="/terms" className="text-sm text-gray-400 hover:text-packshield-orange transition-colors">Conditions d'utilisation</Link>
-            <Link to="/shipping" className="text-sm text-gray-400 hover:text-packshield-orange transition-colors">Livraison</Link>
+            <Link to="/mentions-legales" className="text-sm text-gray-400 hover:text-packshield-orange transition-colors">Mentions légales</Link>
+            <Link to="/partenaire-amazon" className="text-sm text-gray-400 hover:text-packshield-orange transition-colors">Partenaire Amazon</Link>
           </div>
         </div>
       </div>

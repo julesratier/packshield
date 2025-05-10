@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Shield, Star, Package, Truck } from 'lucide-react';
+import { ArrowRight, Shield, Star, Package, Flag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -19,7 +19,7 @@ const Index = () => {
       price: 23.90,
       rating: 4.5,
       reviews: 127,
-      amazonUrl: "https://amazon.com",
+      amazonUrl: "https://amzn.to/43aXBYX",
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const Index = () => {
       price: 24.90,
       rating: 4.5,
       reviews: 373,
-      amazonUrl: "https://amazon.com",
+      amazonUrl: "https://amzn.to/4jfN1Gh",
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ const Index = () => {
       price: 37.90,
       rating: 4.5,
       reviews: 457,
-      amazonUrl: "https://amazon.com",
+      amazonUrl: "https://amzn.to/4jPHo2D",
     }
   ];
 
@@ -81,12 +81,12 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative bg-packshield-navy text-white">
-        <div className="absolute inset-0 bg-[url('/lovable-uploads/657da3f0-0cc3-4d05-9bb4-a9ec2c5d92c4.png')] bg-cover bg-center opacity-30"></div>
+        <div className="absolute inset-0 bg-[url('/lovable-uploads/db866ce8-b055-4daf-888b-fd7df2ce3e19.png')] bg-cover bg-center"></div>
         <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Protégez ce qui compte vraiment</h1>
             <p className="text-lg md:text-xl mb-8">
-              Housses de matelas premium et solutions de stockage conçues pour protéger vos biens précieux de la poussière, de la saleté et de l'humidité.
+              Housses de matelas premium et solutions de stockage conçues pour protéger de la poussière, de la saleté, de l'humidité et des nuisibles.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/products">
@@ -99,53 +99,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 md:py-20 bg-packshield-lightGrey">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-packshield-navy mb-4">Pourquoi choisir Packshield ?</h2>
-            <p className="text-packshield-grey max-w-2xl mx-auto">
-              Nos solutions de protection premium sont conçues avec la qualité et la durabilité à l'esprit.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-packshield-orange" />
-              </div>
-              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Protection supérieure</h3>
-              <p className="text-packshield-grey">Matériaux épais et durables qui protègent contre la poussière, l'humidité et les nuisibles.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
-                <Star className="h-8 w-8 text-packshield-orange" />
-              </div>
-              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Qualité premium</h3>
-              <p className="text-packshield-grey">Fabriqués à partir de matériaux de haute qualité conçus pour durer des années.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
-                <Package className="h-8 w-8 text-packshield-orange" />
-              </div>
-              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Facile à utiliser</h3>
-              <p className="text-packshield-grey">Une conception simple qui rend l'emballage, le stockage et le déménagement sans tracas.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
-                <Truck className="h-8 w-8 text-packshield-orange" />
-              </div>
-              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Livraison rapide</h3>
-              <p className="text-packshield-grey">Livraison rapide directement à votre porte quand vous en avez le plus besoin.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Products Section */}
+      {/* Featured Products Section - Now First */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-10">
@@ -199,13 +153,59 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Features Section - Now Second */}
+      <section className="py-16 md:py-20 bg-packshield-lightGrey">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-packshield-navy mb-4">Pourquoi choisir Packshield ?</h2>
+            <p className="text-packshield-grey max-w-2xl mx-auto">
+              Nos solutions de protection premium sont conçues avec la qualité et la durabilité à l'esprit.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-8 w-8 text-packshield-orange" />
+              </div>
+              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Protection supérieure</h3>
+              <p className="text-packshield-grey">Matériaux épais et durables qui protègent contre la poussière, l'humidité et les nuisibles.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
+                <Star className="h-8 w-8 text-packshield-orange" />
+              </div>
+              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Qualité premium</h3>
+              <p className="text-packshield-grey">Fabriqués à partir de matériaux de haute qualité conçus pour durer des années.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
+                <Package className="h-8 w-8 text-packshield-orange" />
+              </div>
+              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Facile à utiliser</h3>
+              <p className="text-packshield-grey">Une conception simple qui rend l'emballage, le stockage et le déménagement sans tracas.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
+                <Flag className="h-8 w-8 text-packshield-orange" />
+              </div>
+              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Marque française</h3>
+              <p className="text-packshield-grey">Tous nos produits sont conçus par une équipe en France pour mieux vous satisfaire.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonial Section */}
       <section className="py-16 md:py-20 bg-packshield-navy text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ce que disent nos clients</h2>
             <p className="max-w-2xl mx-auto text-gray-300">
-              Ne nous croyez pas sur parole - écoutez les clients qui font confiance à Packshield pour leurs besoins de stockage.
+              Des milliers de clients sont satisfaits partout en France. Merci pour votre confiance ❤️ depuis 10 ans déjà.
             </p>
           </div>
           
@@ -217,9 +217,9 @@ const Index = () => {
                 ))}
               </div>
               <p className="mb-4 text-gray-200">
-                "J'ai utilisé les housses de matelas Packshield lors de notre récent déménagement. Elles ont gardé nos matelas propres et protégés tout au long du processus. Je les utiliserai certainement à nouveau !"
+                "Super qualité pour cette housse qui me permet de laisser mon matelas sous le lit alors que les enfants viennent l'été. Le matelas est super, bien protégé et la housse 'est très solide"
               </p>
-              <div className="font-medium">Sarah T.</div>
+              <div className="font-medium">Avis sur Amazon - 3 septembre 2024</div>
             </div>
             
             <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
@@ -229,9 +229,9 @@ const Index = () => {
                 ))}
               </div>
               <p className="mb-4 text-gray-200">
-                "Ces sacs de rangement sont incroyablement durables. Je les utilise pour le stockage saisonnier et ils ont parfaitement tenu le coup. Tout reste propre et protégé."
+                "Avec notre matelas de 140*200cm pour le déménagement, cette protection est idéale. Facile à poser sur le matelas et le déplacement nickel. Je recommande"
               </p>
-              <div className="font-medium">Michel R.</div>
+              <div className="font-medium">Avis sur Amazon - 21 décembre 2024</div>
             </div>
             
             <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
@@ -241,9 +241,9 @@ const Index = () => {
                 ))}
               </div>
               <p className="mb-4 text-gray-200">
-                "La qualité des produits Packshield est exceptionnelle. J'ai essayé d'autres marques auparavant, mais rien ne se compare à l'épaisseur et à la durabilité de ces housses."
+                "Je suis hyper satisfaite de mon achat ! Il faut savoir que j'habite un petit appartement donc peu de rangement et grâce à ces housses je peux stocker énormément de vêtements ou autre et Hop dans les placards ! C'est un gain de place considérable."
               </p>
-              <div className="font-medium">Jennifer L.</div>
+              <div className="font-medium">Avis sur Amazon - 10 décembre 2024</div>
             </div>
           </div>
         </div>
