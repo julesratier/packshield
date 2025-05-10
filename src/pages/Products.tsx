@@ -1,90 +1,86 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, ChevronDown, ChevronUp } from 'lucide-react';
+import { Star, StarHalf, ChevronDown, ChevronUp } from 'lucide-react';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Slider } from '@/components/ui/slider';
+import { Badge } from '@/components/ui/badge';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const Products = () => {
   const [priceRange, setPriceRange] = useState([0, 50]);
   const [categoryFilters, setCategoryFilters] = useState({
-    mattressBags: true,
-    storageBags: true,
-    furnitureCovers: true
+    matelas2p: true,
+    matelas1p: true,
+    rangementSacs: true
   });
   const [sortOption, setSortOption] = useState('featured');
   const [filtersVisible, setFiltersVisible] = useState(false);
 
-  // Données de produits fictives
+  // Données de produits mises à jour
   const products = [
     {
       id: 1,
-      title: "Housse Premium pour Matelas Queen",
-      image: "/lovable-uploads/fe0be2fb-2a8e-4ec4-ad8e-a59455d65874.png",
-      price: 24.99,
-      rating: 4.8,
-      reviews: 127,
-      category: "mattressBags",
-      amazonUrl: "https://amazon.com",
+      title: "Housse de protection pour matelas en plastique épais - Matelas 2 personnes",
+      image: "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png",
+      price: 21.90,
+      rating: 4.5,
+      reviews: 133,
+      category: "matelas2p",
       featured: true
     },
     {
       id: 2,
-      title: "Protection Matelas King Size",
-      image: "/lovable-uploads/37318197-cad1-42a4-ab26-25d470ce4a67.png",
-      price: 29.99,
-      rating: 4.7,
-      reviews: 94,
-      category: "mattressBags",
-      amazonUrl: "https://amazon.com",
+      title: "Housse de protection pour matelas en plastique épais - Matelas 1 personne",
+      image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
+      price: 17.90,
+      rating: 4.5,
+      reviews: 133,
+      category: "matelas1p",
       featured: true
     },
     {
       id: 3,
-      title: "Lot de 2 Sacs de Rangement",
-      image: "/lovable-uploads/0a4f4094-9f22-41f6-a738-926999eff40e.png",
-      price: 19.99,
-      rating: 4.9,
-      reviews: 58,
-      category: "storageBags",
-      amazonUrl: "https://amazon.com",
-      featured: false
+      title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 2 personnes",
+      image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png",
+      price: 29.90,
+      rating: 4.5,
+      reviews: 95,
+      category: "matelas2p",
+      amazonChoice: true,
+      featured: true
     },
     {
       id: 4,
-      title: "Housse Protectrice pour Matelas Simple",
-      image: "/lovable-uploads/fe0be2fb-2a8e-4ec4-ad8e-a59455d65874.png",
-      price: 18.99,
-      rating: 4.6,
-      reviews: 42,
-      category: "mattressBags",
-      amazonUrl: "https://amazon.com",
+      title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 1 personne",
+      image: "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
+      price: 24.90,
+      rating: 4.5,
+      reviews: 87,
+      category: "matelas1p",
       featured: false
     },
     {
       id: 5,
-      title: "Grande Housse pour Meuble",
-      image: "/lovable-uploads/37318197-cad1-42a4-ab26-25d470ce4a67.png",
-      price: 34.99,
-      rating: 4.5,
-      reviews: 31,
-      category: "furnitureCovers",
-      amazonUrl: "https://amazon.com",
+      title: "Kit de rangement sous vide - 4 sacs sous vide et 4 coffres non tissés",
+      image: "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png",
+      price: 37.90,
+      rating: 4.0,
+      reviews: 64,
+      category: "rangementSacs",
       featured: true
     },
     {
       id: 6,
-      title: "Sac de Rangement Robuste - Lot de 3",
-      image: "/lovable-uploads/0a4f4094-9f22-41f6-a738-926999eff40e.png",
-      price: 27.99,
-      rating: 4.7,
-      reviews: 29,
-      category: "storageBags",
-      amazonUrl: "https://amazon.com",
+      title: "Kit de rangement sous vide - 2 sacs sous vide et 2 coffres non tissés",
+      image: "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png",
+      price: 23.90,
+      rating: 4.0,
+      reviews: 53,
+      category: "rangementSacs",
       featured: false
     }
   ];
@@ -143,27 +139,27 @@ const Products = () => {
                 <div className="space-y-2">
                   <div className="flex items-center">
                     <Checkbox 
-                      id="mattressBags" 
-                      checked={categoryFilters.mattressBags}
-                      onCheckedChange={() => handleCategoryChange('mattressBags')}
+                      id="matelas2p" 
+                      checked={categoryFilters.matelas2p}
+                      onCheckedChange={() => handleCategoryChange('matelas2p')}
                     />
-                    <Label htmlFor="mattressBags" className="ml-2">Housses de matelas</Label>
+                    <Label htmlFor="matelas2p" className="ml-2">Housse matelas 2 personnes</Label>
                   </div>
                   <div className="flex items-center">
                     <Checkbox 
-                      id="storageBags" 
-                      checked={categoryFilters.storageBags}
-                      onCheckedChange={() => handleCategoryChange('storageBags')}
+                      id="matelas1p" 
+                      checked={categoryFilters.matelas1p}
+                      onCheckedChange={() => handleCategoryChange('matelas1p')}
                     />
-                    <Label htmlFor="storageBags" className="ml-2">Sacs de rangement</Label>
+                    <Label htmlFor="matelas1p" className="ml-2">Housse matelas individuelle</Label>
                   </div>
                   <div className="flex items-center">
                     <Checkbox 
-                      id="furnitureCovers" 
-                      checked={categoryFilters.furnitureCovers}
-                      onCheckedChange={() => handleCategoryChange('furnitureCovers')}
+                      id="rangementSacs" 
+                      checked={categoryFilters.rangementSacs}
+                      onCheckedChange={() => handleCategoryChange('rangementSacs')}
                     />
-                    <Label htmlFor="furnitureCovers" className="ml-2">Housses de meubles</Label>
+                    <Label htmlFor="rangementSacs" className="ml-2">Sacs de rangement</Label>
                   </div>
                 </div>
               </div>
@@ -181,8 +177,8 @@ const Products = () => {
                     className="my-4"
                   />
                   <div className="flex justify-between text-sm text-packshield-grey">
-                    <span>${priceRange[0]}</span>
-                    <span>${priceRange[1]}</span>
+                    <span>{priceRange[0]}€</span>
+                    <span>{priceRange[1]}€</span>
                   </div>
                 </div>
               </div>
@@ -208,27 +204,27 @@ const Products = () => {
                   <div className="space-y-2">
                     <div className="flex items-center">
                       <Checkbox 
-                        id="mattressBagsMobile" 
-                        checked={categoryFilters.mattressBags}
-                        onCheckedChange={() => handleCategoryChange('mattressBags')}
+                        id="matelas2pMobile" 
+                        checked={categoryFilters.matelas2p}
+                        onCheckedChange={() => handleCategoryChange('matelas2p')}
                       />
-                      <Label htmlFor="mattressBagsMobile" className="ml-2">Housses de matelas</Label>
+                      <Label htmlFor="matelas2pMobile" className="ml-2">Housse matelas 2 personnes</Label>
                     </div>
                     <div className="flex items-center">
                       <Checkbox 
-                        id="storageBagsMobile" 
-                        checked={categoryFilters.storageBags}
-                        onCheckedChange={() => handleCategoryChange('storageBags')}
+                        id="matelas1pMobile" 
+                        checked={categoryFilters.matelas1p}
+                        onCheckedChange={() => handleCategoryChange('matelas1p')}
                       />
-                      <Label htmlFor="storageBagsMobile" className="ml-2">Sacs de rangement</Label>
+                      <Label htmlFor="matelas1pMobile" className="ml-2">Housse matelas individuelle</Label>
                     </div>
                     <div className="flex items-center">
                       <Checkbox 
-                        id="furnitureCoversMobile" 
-                        checked={categoryFilters.furnitureCovers}
-                        onCheckedChange={() => handleCategoryChange('furnitureCovers')}
+                        id="rangementSacsMobile" 
+                        checked={categoryFilters.rangementSacs}
+                        onCheckedChange={() => handleCategoryChange('rangementSacs')}
                       />
-                      <Label htmlFor="furnitureCoversMobile" className="ml-2">Housses de meubles</Label>
+                      <Label htmlFor="rangementSacsMobile" className="ml-2">Sacs de rangement</Label>
                     </div>
                   </div>
                 </div>
@@ -246,8 +242,8 @@ const Products = () => {
                       className="my-4"
                     />
                     <div className="flex justify-between text-sm text-packshield-grey">
-                      <span>${priceRange[0]}</span>
-                      <span>${priceRange[1]}</span>
+                      <span>{priceRange[0]}€</span>
+                      <span>{priceRange[1]}€</span>
                     </div>
                   </div>
                 </div>
@@ -298,38 +294,43 @@ const Products = () => {
                 {sortedProducts.map(product => (
                   <div key={product.id} className="product-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
                     <Link to={`/product/${product.id}`}>
-                      <div className="aspect-video overflow-hidden bg-packshield-lightGrey">
+                      <div className="aspect-square overflow-hidden bg-packshield-lightGrey flex items-center justify-center">
                         <img 
                           src={product.image} 
                           alt={product.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-contain"
                         />
                       </div>
                       <div className="p-6">
+                        {product.amazonChoice && (
+                          <div className="mb-2">
+                            <img 
+                              src="/lovable-uploads/2cea118d-b526-486e-b9ee-6f2863582b51.png" 
+                              alt="Choix d'Amazon"
+                              className="h-6" 
+                            />
+                          </div>
+                        )}
                         <h3 className="text-xl font-semibold text-packshield-navy mb-2">{product.title}</h3>
                         <div className="flex items-center mb-3">
                           <div className="flex items-center mr-2">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" />
+                            {[...Array(Math.floor(product.rating))].map((_, i) => (
+                              <Star key={i} className="h-4 w-4 text-yellow-400" fill="currentColor" />
+                            ))}
+                            {product.rating % 1 !== 0 && (
+                              <StarHalf className="h-4 w-4 text-yellow-400" fill="currentColor" />
+                            )}
+                            {[...Array(5 - Math.ceil(product.rating))].map((_, i) => (
+                              <Star key={i} className="h-4 w-4 text-gray-300" fill="currentColor" />
                             ))}
                           </div>
                           <span className="text-sm text-packshield-grey">({product.reviews})</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-xl font-bold text-packshield-navy">${product.price}</span>
+                          <span className="text-xl font-bold text-packshield-navy">{product.price.toFixed(2)}€</span>
                         </div>
                       </div>
                     </Link>
-                    <div className="px-6 pb-6">
-                      <a 
-                        href={product.amazonUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="block bg-packshield-orange hover:bg-packshield-orange/90 text-white text-center py-2 rounded-md transition-colors"
-                      >
-                        Acheter sur Amazon
-                      </a>
-                    </div>
                   </div>
                 ))}
               </div>

@@ -1,8 +1,7 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Star, Package, Shield, Check } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowLeft, Star, StarHalf, Package, Shield, Check } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -11,54 +10,226 @@ const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [selectedImage, setSelectedImage] = useState(0);
   
-  // Ceci viendrait normalement d'une API ou d'une base de données
-  const product = {
-    id: parseInt(id || "1"),
-    title: id === "1" ? "Housse Premium pour Matelas Queen" : id === "2" ? "Protection Matelas King Size" : "Lot de 2 Sacs de Rangement",
-    price: id === "1" ? 24.99 : id === "2" ? 29.99 : 19.99,
-    rating: id === "1" ? 4.8 : id === "2" ? 4.7 : 4.9,
-    reviews: id === "1" ? 127 : id === "2" ? 94 : 58,
-    description: "Notre housse de matelas premium offre une protection supérieure contre la poussière, la saleté, l'humidité et les nuisibles. Parfaite pour le déménagement, le stockage ou la protection quotidienne. Fabriquée à partir d'un matériau épais et durable conçu pour durer.",
-    features: [
-      "Matériau imperméable robuste",
-      "Vinyle transparent pour une identification facile",
-      "Épaisseur supplémentaire pour résistance aux perforations",
-      "Système de fermeture à glissière sécurisé",
-      "Facile à nettoyer et à réutiliser"
-    ],
-    specifications: {
-      "Matériau": "Polyéthylène haute densité avec renforcement en vinyle",
-      "Épaisseur": "4 mil (extra épais)",
-      "Couleur": "Bleu / Gris (varie selon le produit)",
-      "Fermeture": "Fermeture éclair sur toute la longueur avec rabat de protection",
-      "Taille": id === "1" ? "Convient aux matelas Queen (60\" x 80\" x 14\")" : id === "2" ? "Convient aux matelas King (76\" x 80\" x 16\")" : "Différentes tailles disponibles",
-      "Contenu du paquet": id === "3" ? "2 Sacs de Rangement" : "1 Housse de Matelas"
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  // Données de produits
+  const products = [
+    {
+      id: 1,
+      title: "Housse de protection pour matelas en plastique épais - Matelas 2 personnes",
+      image: "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png",
+      price: 21.90,
+      rating: 4.5,
+      reviews: 133,
+      category: "matelas2p",
+      featured: true,
+      amazonChoice: false
     },
-    images: [
-      id === "1" 
-        ? "/lovable-uploads/fe0be2fb-2a8e-4ec4-ad8e-a59455d65874.png"
-        : id === "2" 
-          ? "/lovable-uploads/37318197-cad1-42a4-ab26-25d470ce4a67.png" 
-          : "/lovable-uploads/0a4f4094-9f22-41f6-a738-926999eff40e.png",
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-    ],
-    amazonUrl: "https://amazon.com",
-    relatedProducts: [
-      {
-        id: id === "1" ? 2 : 1,
-        title: id === "1" ? "Protection Matelas King Size" : "Housse Premium pour Matelas Queen",
-        image: id === "1" ? "/lovable-uploads/37318197-cad1-42a4-ab26-25d470ce4a67.png" : "/lovable-uploads/fe0be2fb-2a8e-4ec4-ad8e-a59455d65874.png",
-        price: id === "1" ? 29.99 : 24.99,
-      },
-      {
-        id: 3,
-        title: "Lot de 2 Sacs de Rangement",
-        image: "/lovable-uploads/0a4f4094-9f22-41f6-a738-926999eff40e.png",
-        price: 19.99,
-      }
-    ]
+    {
+      id: 2,
+      title: "Housse de protection pour matelas en plastique épais - Matelas 1 personne",
+      image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
+      price: 17.90,
+      rating: 4.5,
+      reviews: 133,
+      category: "matelas1p",
+      featured: true,
+      amazonChoice: false
+    },
+    {
+      id: 3,
+      title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 2 personnes",
+      image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png",
+      price: 29.90,
+      rating: 4.5,
+      reviews: 95,
+      category: "matelas2p",
+      featured: true,
+      amazonChoice: true
+    },
+    {
+      id: 4,
+      title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 1 personne",
+      image: "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
+      price: 24.90,
+      rating: 4.5,
+      reviews: 87,
+      category: "matelas1p",
+      featured: false,
+      amazonChoice: false
+    },
+    {
+      id: 5,
+      title: "Kit de rangement sous vide - 4 sacs sous vide et 4 coffres non tissés",
+      image: "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png",
+      price: 37.90,
+      rating: 4.0,
+      reviews: 64,
+      category: "rangementSacs",
+      featured: true,
+      amazonChoice: false
+    },
+    {
+      id: 6,
+      title: "Kit de rangement sous vide - 2 sacs sous vide et 2 coffres non tissés",
+      image: "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png",
+      price: 23.90,
+      rating: 4.0,
+      reviews: 53,
+      category: "rangementSacs",
+      featured: false,
+      amazonChoice: false
+    }
+  ];
+
+  const productId = parseInt(id || "1");
+  const product = products.find(p => p.id === productId) || products[0];
+  
+  // Récupérer des produits associés (excluant le produit actuel)
+  const relatedProducts = products
+    .filter(p => p.id !== productId)
+    .sort(() => 0.5 - Math.random()) // Mélange aléatoire
+    .slice(0, 3); // Prendre les 3 premiers
+  
+  // Descriptions de produits personnalisées
+  const getProductDescription = (productId: number) => {
+    switch (productId) {
+      case 1:
+        return "Notre housse de protection pour matelas en plastique épais offre une protection supérieure contre la poussière, la saleté, l'humidité et les nuisibles. Parfaite pour le déménagement, le stockage ou la protection quotidienne de votre matelas deux personnes.";
+      case 2:
+        return "Notre housse de protection pour matelas en plastique épais offre une protection supérieure contre la poussière, la saleté, l'humidité et les nuisibles. Parfaite pour le déménagement, le stockage ou la protection quotidienne de votre matelas une personne.";
+      case 3:
+        return "Cette housse de matelas premium en tissu oxford résistant avec 4 poignées est idéale pour faciliter le transport et le déménagement. Protection optimale contre la poussière, l'humidité et les déchirures pour votre matelas deux personnes.";
+      case 4:
+        return "Cette housse de matelas premium en tissu oxford résistant avec 4 poignées est idéale pour faciliter le transport et le déménagement. Protection optimale contre la poussière, l'humidité et les déchirures pour votre matelas une personne.";
+      case 5:
+        return "Kit complet de rangement sous vide comprenant 4 sacs sous vide et 4 coffres non tissés. Solution parfaite pour maximiser votre espace de rangement tout en protégeant vos vêtements et linges de maison.";
+      case 6:
+        return "Kit complet de rangement sous vide comprenant 2 sacs sous vide et 2 coffres non tissés. Solution parfaite pour maximiser votre espace de rangement tout en protégeant vos vêtements et linges de maison.";
+      default:
+        return "Notre produit de protection offre une solution efficace pour préserver vos biens contre la poussière, la saleté, l'humidité et les nuisibles.";
+    }
   };
+
+  // Caractéristiques des produits personnalisées
+  const getProductFeatures = (productId: number) => {
+    const baseFeatures = [
+      "Matériau imperméable robuste",
+      "Facile à nettoyer et à réutiliser"
+    ];
+    
+    switch (productId) {
+      case 1:
+      case 2:
+        return [
+          ...baseFeatures,
+          "Plastique transparent pour une identification facile",
+          "Épaisseur supplémentaire pour résistance aux perforations",
+          "Système de fermeture à glissière sécurisé"
+        ];
+      case 3:
+      case 4:
+        return [
+          ...baseFeatures,
+          "Tissu Oxford premium de haute qualité",
+          "4 poignées pour un transport facilité",
+          "Fermeture éclair renforcée sur 3 côtés",
+          "Design anti-poussière et anti-humidité"
+        ];
+      case 5:
+      case 6:
+        return [
+          ...baseFeatures,
+          "Sacs sous vide avec valve anti-retour",
+          "Compression maximale pour gagner jusqu'à 80% d'espace",
+          "Coffres non tissés avec fenêtre transparente",
+          "Protection optimale contre la poussière et les insectes"
+        ];
+      default:
+        return baseFeatures;
+    }
+  };
+
+  // Spécifications des produits personnalisées
+  const getProductSpecifications = (productId: number) => {
+    switch (productId) {
+      case 1:
+        return {
+          "Matériau": "Polyéthylène haute densité",
+          "Épaisseur": "4 mil (extra épais)",
+          "Couleur": "Bleu / Transparent",
+          "Fermeture": "Fermeture éclair sur toute la longueur",
+          "Taille": "Convient aux matelas 2 personnes (140-160cm x 190-200cm)",
+          "Contenu du paquet": "1 Housse de Matelas"
+        };
+      case 2:
+        return {
+          "Matériau": "Polyéthylène haute densité",
+          "Épaisseur": "4 mil (extra épais)",
+          "Couleur": "Bleu / Transparent",
+          "Fermeture": "Fermeture éclair sur toute la longueur",
+          "Taille": "Convient aux matelas 1 personne (80-90cm x 190-200cm)",
+          "Contenu du paquet": "1 Housse de Matelas"
+        };
+      case 3:
+        return {
+          "Matériau": "Tissu Oxford 600D",
+          "Couleur": "Gris",
+          "Fermeture": "Fermeture éclair sur 3 côtés avec rabat de protection",
+          "Poignées": "4 poignées renforcées",
+          "Taille": "Convient aux matelas 2 personnes (140-160cm x 190-200cm)",
+          "Contenu du paquet": "1 Housse de Matelas"
+        };
+      case 4:
+        return {
+          "Matériau": "Tissu Oxford 600D",
+          "Couleur": "Gris",
+          "Fermeture": "Fermeture éclair sur 3 côtés avec rabat de protection",
+          "Poignées": "4 poignées renforcées",
+          "Taille": "Convient aux matelas 1 personne (80-90cm x 190-200cm)",
+          "Contenu du paquet": "1 Housse de Matelas"
+        };
+      case 5:
+        return {
+          "Contenu": "4 sacs sous vide + 4 coffres de rangement",
+          "Matériau sacs": "Polyéthylène et nylon",
+          "Matériau coffres": "Tissu non tissé respirant",
+          "Taille des sacs": "80cm x 100cm",
+          "Taille des coffres": "45cm x 30cm x 20cm",
+          "Valve": "Valve anti-retour double fermeture"
+        };
+      case 6:
+        return {
+          "Contenu": "2 sacs sous vide + 2 coffres de rangement",
+          "Matériau sacs": "Polyéthylène et nylon",
+          "Matériau coffres": "Tissu non tissé respirant",
+          "Taille des sacs": "80cm x 100cm",
+          "Taille des coffres": "45cm x 30cm x 20cm",
+          "Valve": "Valve anti-retour double fermeture"
+        };
+      default:
+        return {
+          "Matériau": "Haute qualité",
+          "Épaisseur": "Standard",
+          "Couleur": "Variée",
+          "Contenu du paquet": "1 produit"
+        };
+    }
+  };
+
+  const description = getProductDescription(productId);
+  const features = getProductFeatures(productId);
+  const specifications = getProductSpecifications(productId);
+
+  // Ajout d'images supplémentaires pour le carrousel
+  const productImages = [
+    product.image,
+    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    "https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -77,15 +248,15 @@ const ProductDetail = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {/* Product Images */}
           <div className="space-y-4">
-            <div className="aspect-square bg-packshield-lightGrey rounded-lg overflow-hidden">
+            <div className="aspect-square bg-packshield-lightGrey rounded-lg overflow-hidden flex items-center justify-center">
               <img 
-                src={product.images[selectedImage]} 
+                src={productImages[selectedImage]} 
                 alt={product.title} 
                 className="w-full h-full object-contain"
               />
             </div>
             <div className="grid grid-cols-3 gap-4">
-              {product.images.map((image, index) => (
+              {productImages.map((image, index) => (
                 <button 
                   key={index}
                   onClick={() => setSelectedImage(index)}
@@ -103,23 +274,39 @@ const ProductDetail = () => {
 
           {/* Product Info */}
           <div>
+            {product.amazonChoice && (
+              <div className="mb-3">
+                <img 
+                  src="/lovable-uploads/2cea118d-b526-486e-b9ee-6f2863582b51.png" 
+                  alt="Choix d'Amazon"
+                  className="h-6" 
+                />
+              </div>
+            )}
+            
             <h1 className="text-3xl font-bold text-packshield-navy mb-3">{product.title}</h1>
             
             <div className="flex items-center mb-4">
               <div className="flex items-center mr-3">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className={`h-5 w-5 ${i < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" />
+                {[...Array(Math.floor(product.rating))].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" />
+                ))}
+                {product.rating % 1 !== 0 && (
+                  <StarHalf className="h-5 w-5 text-yellow-400" fill="currentColor" />
+                )}
+                {[...Array(5 - Math.ceil(product.rating))].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-gray-300" fill="currentColor" />
                 ))}
               </div>
               <span className="text-packshield-grey">{product.rating} ({product.reviews} avis)</span>
             </div>
             
-            <div className="text-2xl font-bold text-packshield-navy mb-6">${product.price}</div>
+            <div className="text-2xl font-bold text-packshield-navy mb-6">{product.price.toFixed(2)}€</div>
             
-            <p className="text-packshield-grey mb-6">{product.description}</p>
+            <p className="text-packshield-grey mb-6">{description}</p>
             
             <div className="space-y-3 mb-8">
-              {product.features.map((feature, index) => (
+              {features.map((feature, index) => (
                 <div key={index} className="flex items-start">
                   <Check className="h-5 w-5 text-packshield-orange mr-3 mt-0.5 flex-shrink-0" />
                   <span>{feature}</span>
@@ -137,15 +324,6 @@ const ProductDetail = () => {
                 <span className="font-medium">Satisfaction garantie</span>
               </div>
             </div>
-            
-            <a 
-              href={product.amazonUrl} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="w-full bg-packshield-orange hover:bg-packshield-orange/90 text-white text-center py-3 rounded-md transition-colors inline-block font-medium"
-            >
-              Acheter sur Amazon
-            </a>
           </div>
         </div>
 
@@ -160,7 +338,7 @@ const ProductDetail = () => {
             <TabsContent value="specifications" className="p-6 bg-white border rounded-lg mt-4">
               <h3 className="text-xl font-semibold text-packshield-navy mb-4">Spécifications du produit</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {Object.entries(product.specifications).map(([key, value]) => (
+                {Object.entries(specifications).map(([key, value]) => (
                   <div key={key} className="border-b pb-3">
                     <div className="font-medium">{key}</div>
                     <div className="text-packshield-grey">{value}</div>
@@ -191,24 +369,17 @@ const ProductDetail = () => {
                 </div>
                 <div className="border-b pb-4">
                   <div className="flex items-center mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className={`h-4 w-4 ${i < 4 ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" />
+                    {[...Array(4)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-400" fill="currentColor" />
+                    ))}
+                    {[...Array(1)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-gray-300" fill="currentColor" />
                     ))}
                     <span className="ml-2 font-medium">Bonne qualité</span>
                   </div>
                   <p className="text-sm mb-2">La housse est bien fabriquée et a gardé notre matelas propre pendant notre déménagement. La seule raison pour laquelle je donne 4 étoiles est que j'aurais aimé que la fermeture éclair soit un peu plus robuste.</p>
                   <div className="text-xs text-packshield-grey">Michel R. - Il y a 1 mois</div>
                 </div>
-              </div>
-              <div className="mt-6">
-                <a 
-                  href={product.amazonUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-packshield-orange hover:text-packshield-navy transition-colors"
-                >
-                  Voir tous les avis sur Amazon
-                </a>
               </div>
             </TabsContent>
           </Tabs>
@@ -217,20 +388,20 @@ const ProductDetail = () => {
         {/* Related Products */}
         <div>
           <h2 className="text-2xl font-bold text-packshield-navy mb-6">Vous pourriez aussi aimer</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {product.relatedProducts.map(relatedProduct => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+            {relatedProducts.map(relatedProduct => (
               <div key={relatedProduct.id} className="product-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
                 <Link to={`/product/${relatedProduct.id}`}>
-                  <div className="aspect-video overflow-hidden bg-packshield-lightGrey">
+                  <div className="aspect-square overflow-hidden bg-packshield-lightGrey flex items-center justify-center">
                     <img 
                       src={relatedProduct.image} 
                       alt={relatedProduct.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div className="p-4">
                     <h3 className="text-lg font-semibold text-packshield-navy mb-2">{relatedProduct.title}</h3>
-                    <div className="text-lg font-bold text-packshield-navy">${relatedProduct.price}</div>
+                    <div className="text-lg font-bold text-packshield-navy">{relatedProduct.price.toFixed(2)}€</div>
                   </div>
                 </Link>
               </div>
