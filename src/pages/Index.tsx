@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Star, Package, Truck } from 'lucide-react';
@@ -92,7 +91,7 @@ const Index = () => {
               <Button size="lg" className="bg-packshield-orange hover:bg-packshield-orange/90 text-white">
                 Voir nos produits
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-packshield-navy">
+              <Button variant="outline" size="lg" className="border-white text-packshield-navy bg-white hover:bg-white hover:text-packshield-navy">
                 En savoir plus
               </Button>
             </div>
