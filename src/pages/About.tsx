@@ -14,9 +14,9 @@ const About = () => {
       <div className="bg-packshield-navy text-white">
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">About Packshield</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">À propos de Packshield</h1>
             <p className="text-xl text-gray-200">
-              Protecting what matters most with premium storage solutions.
+              Protéger ce qui compte le plus avec des solutions de stockage premium.
             </p>
           </div>
         </div>
@@ -27,21 +27,21 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-packshield-navy mb-4">Our Story</h2>
+              <h2 className="text-3xl font-bold text-packshield-navy mb-4">Notre histoire</h2>
               <p className="text-packshield-grey mb-4">
-                Packshield was born out of a simple observation: moving and storage solutions in the market weren't providing adequate protection for valuable items like mattresses and furniture.
+                Packshield est né d'une simple observation : les solutions de déménagement et de stockage sur le marché n'offraient pas une protection adéquate pour les articles de valeur comme les matelas et les meubles.
               </p>
               <p className="text-packshield-grey mb-4">
-                Founded in 2018, we set out to create premium protective solutions that truly shield your belongings from dust, moisture, and damage. Our team combines expertise in materials science, product design, and logistics to deliver storage products that exceed expectations.
+                Fondée en 2018, nous nous sommes fixés pour mission de créer des solutions de protection premium qui protègent véritablement vos biens de la poussière, de l'humidité et des dommages. Notre équipe combine l'expertise en science des matériaux, en conception de produits et en logistique pour fournir des produits de stockage qui dépassent les attentes.
               </p>
               <p className="text-packshield-grey">
-                Today, we're proud to be a trusted name in home protection solutions, with thousands of satisfied customers across the country.
+                Aujourd'hui, nous sommes fiers d'être un nom de confiance dans les solutions de protection pour la maison, avec des milliers de clients satisfaits à travers le pays.
               </p>
             </div>
             <div className="rounded-lg overflow-hidden">
               <img 
                 src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHdhcmVob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                alt="Packshield warehouse" 
+                alt="Entrepôt Packshield" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -53,9 +53,9 @@ const About = () => {
       <section className="py-16 md:py-20 bg-packshield-lightGrey">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-packshield-navy mb-4">Our Mission</h2>
+            <h2 className="text-3xl font-bold text-packshield-navy mb-4">Notre mission</h2>
             <p className="text-xl text-packshield-grey">
-              To provide superior protection products that help people keep their valuable belongings safe, secure, and in perfect condition while moving or storing.
+              Fournir des produits de protection supérieurs qui aident les gens à garder leurs biens précieux en sécurité et en parfait état lors des déménagements ou du stockage.
             </p>
           </div>
         </div>
@@ -64,16 +64,16 @@ const About = () => {
       {/* Our Values */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-packshield-navy text-center mb-12">Our Values</h2>
+          <h2 className="text-3xl font-bold text-packshield-navy text-center mb-12">Nos valeurs</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-8 w-8 text-packshield-orange" />
               </div>
-              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Quality Protection</h3>
+              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Protection de qualité</h3>
               <p className="text-packshield-grey">
-                We're committed to creating products that provide reliable protection for your valuable belongings.
+                Nous nous engageons à créer des produits qui offrent une protection fiable pour vos biens précieux.
               </p>
             </div>
             
@@ -83,7 +83,7 @@ const About = () => {
               </div>
               <h3 className="text-xl font-semibold text-packshield-navy mb-2">Excellence</h3>
               <p className="text-packshield-grey">
-                We continuously strive for excellence in every aspect of our business, from product design to customer support.
+                Nous visons continuellement l'excellence dans tous les aspects de notre activité, de la conception des produits au service client.
               </p>
             </div>
             
@@ -91,9 +91,9 @@ const About = () => {
               <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-packshield-orange" />
               </div>
-              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Customer Focus</h3>
+              <h3 className="text-xl font-semibold text-packshield-navy mb-2">Priorité au client</h3>
               <p className="text-packshield-grey">
-                Our customers are at the heart of everything we do. We listen to feedback and constantly improve our products.
+                Nos clients sont au cœur de tout ce que nous faisons. Nous écoutons les retours et améliorons constamment nos produits.
               </p>
             </div>
           </div>
@@ -103,7 +103,7 @@ const About = () => {
       {/* Team */}
       <section className="py-16 md:py-20 bg-packshield-lightGrey">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-packshield-navy text-center mb-12">Our Team</h2>
+          <h2 className="text-3xl font-bold text-packshield-navy text-center mb-12">Notre équipe</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-lg overflow-hidden shadow-sm">
@@ -116,7 +116,7 @@ const About = () => {
               </div>
               <div className="p-4 text-center">
                 <h3 className="text-lg font-semibold text-packshield-navy">Robert Thompson</h3>
-                <p className="text-packshield-grey">Founder & CEO</p>
+                <p className="text-packshield-grey">Fondateur & PDG</p>
               </div>
             </div>
             
@@ -130,7 +130,7 @@ const About = () => {
               </div>
               <div className="p-4 text-center">
                 <h3 className="text-lg font-semibold text-packshield-navy">Sarah Miller</h3>
-                <p className="text-packshield-grey">Head of Product Design</p>
+                <p className="text-packshield-grey">Responsable Design Produit</p>
               </div>
             </div>
             
@@ -144,7 +144,7 @@ const About = () => {
               </div>
               <div className="p-4 text-center">
                 <h3 className="text-lg font-semibold text-packshield-navy">David Chen</h3>
-                <p className="text-packshield-grey">Operations Manager</p>
+                <p className="text-packshield-grey">Responsable des Opérations</p>
               </div>
             </div>
             
@@ -158,7 +158,7 @@ const About = () => {
               </div>
               <div className="p-4 text-center">
                 <h3 className="text-lg font-semibold text-packshield-navy">Jennifer Taylor</h3>
-                <p className="text-packshield-grey">Customer Experience</p>
+                <p className="text-packshield-grey">Expérience Client</p>
               </div>
             </div>
           </div>
@@ -169,18 +169,18 @@ const About = () => {
       <section className="py-16 md:py-20 bg-packshield-navy text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Protect What Matters?</h2>
+            <h2 className="text-3xl font-bold mb-4">Prêt à protéger ce qui compte ?</h2>
             <p className="text-xl text-gray-200 mb-8">
-              Explore our range of premium protection products for your valuable belongings.
+              Découvrez notre gamme de produits de protection premium pour vos biens précieux.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button size="lg" className="bg-packshield-orange hover:bg-packshield-orange/90 text-white">
-                <Link to="/products">Shop Now</Link>
+                <Link to="/products">Acheter maintenant</Link>
               </Button>
               <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-packshield-navy">
                 <Link to="/contact" className="flex items-center gap-2">
                   <Mail className="h-5 w-5" />
-                  Contact Us
+                  Nous contacter
                 </Link>
               </Button>
             </div>

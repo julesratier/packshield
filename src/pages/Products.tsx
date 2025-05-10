@@ -19,11 +19,11 @@ const Products = () => {
   const [sortOption, setSortOption] = useState('featured');
   const [filtersVisible, setFiltersVisible] = useState(false);
 
-  // Dummy product data
+  // Données de produits fictives
   const products = [
     {
       id: 1,
-      title: "Premium Queen Mattress Bag",
+      title: "Housse Premium pour Matelas Queen",
       image: "/lovable-uploads/fe0be2fb-2a8e-4ec4-ad8e-a59455d65874.png",
       price: 24.99,
       rating: 4.8,
@@ -34,7 +34,7 @@ const Products = () => {
     },
     {
       id: 2,
-      title: "King Size Mattress Cover",
+      title: "Protection Matelas King Size",
       image: "/lovable-uploads/37318197-cad1-42a4-ab26-25d470ce4a67.png",
       price: 29.99,
       rating: 4.7,
@@ -45,7 +45,7 @@ const Products = () => {
     },
     {
       id: 3,
-      title: "Double Pack Storage Bags",
+      title: "Lot de 2 Sacs de Rangement",
       image: "/lovable-uploads/0a4f4094-9f22-41f6-a738-926999eff40e.png",
       price: 19.99,
       rating: 4.9,
@@ -56,7 +56,7 @@ const Products = () => {
     },
     {
       id: 4,
-      title: "Twin Mattress Protective Cover",
+      title: "Housse Protectrice pour Matelas Simple",
       image: "/lovable-uploads/fe0be2fb-2a8e-4ec4-ad8e-a59455d65874.png",
       price: 18.99,
       rating: 4.6,
@@ -67,7 +67,7 @@ const Products = () => {
     },
     {
       id: 5,
-      title: "Large Furniture Cover",
+      title: "Grande Housse pour Meuble",
       image: "/lovable-uploads/37318197-cad1-42a4-ab26-25d470ce4a67.png",
       price: 34.99,
       rating: 4.5,
@@ -78,7 +78,7 @@ const Products = () => {
     },
     {
       id: 6,
-      title: "Heavy Duty Storage Bag - 3 Pack",
+      title: "Sac de Rangement Robuste - Lot de 3",
       image: "/lovable-uploads/0a4f4094-9f22-41f6-a738-926999eff40e.png",
       price: 27.99,
       rating: 4.7,
@@ -89,14 +89,14 @@ const Products = () => {
     }
   ];
 
-  // Filter products based on selected filters
+  // Filtrer les produits en fonction des filtres sélectionnés
   const filteredProducts = products.filter(product => {
     const matchesCategory = categoryFilters[product.category as keyof typeof categoryFilters];
     const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1];
     return matchesCategory && matchesPrice;
   });
 
-  // Sort products based on selected sort option
+  // Trier les produits en fonction de l'option de tri sélectionnée
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     switch (sortOption) {
       case 'priceAsc':
@@ -123,9 +123,9 @@ const Products = () => {
       
       <div className="bg-packshield-lightGrey py-10">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-packshield-navy text-center">Our Products</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-packshield-navy text-center">Nos Produits</h1>
           <p className="text-packshield-grey text-center mt-4 max-w-2xl mx-auto">
-            Premium mattress bags and storage solutions designed to keep your belongings safe and protected.
+            Housses de matelas premium et solutions de stockage conçues pour garder vos biens en sécurité et protégés.
           </p>
         </div>
       </div>
@@ -135,11 +135,11 @@ const Products = () => {
           {/* Filters - Desktop */}
           <aside className="hidden lg:block w-64 flex-shrink-0">
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h2 className="text-xl font-semibold text-packshield-navy mb-6">Filters</h2>
+              <h2 className="text-xl font-semibold text-packshield-navy mb-6">Filtres</h2>
               
               {/* Category Filter */}
               <div className="mb-8">
-                <h3 className="font-medium text-packshield-navy mb-3">Category</h3>
+                <h3 className="font-medium text-packshield-navy mb-3">Catégorie</h3>
                 <div className="space-y-2">
                   <div className="flex items-center">
                     <Checkbox 
@@ -147,7 +147,7 @@ const Products = () => {
                       checked={categoryFilters.mattressBags}
                       onCheckedChange={() => handleCategoryChange('mattressBags')}
                     />
-                    <Label htmlFor="mattressBags" className="ml-2">Mattress Bags</Label>
+                    <Label htmlFor="mattressBags" className="ml-2">Housses de matelas</Label>
                   </div>
                   <div className="flex items-center">
                     <Checkbox 
@@ -155,7 +155,7 @@ const Products = () => {
                       checked={categoryFilters.storageBags}
                       onCheckedChange={() => handleCategoryChange('storageBags')}
                     />
-                    <Label htmlFor="storageBags" className="ml-2">Storage Bags</Label>
+                    <Label htmlFor="storageBags" className="ml-2">Sacs de rangement</Label>
                   </div>
                   <div className="flex items-center">
                     <Checkbox 
@@ -163,14 +163,14 @@ const Products = () => {
                       checked={categoryFilters.furnitureCovers}
                       onCheckedChange={() => handleCategoryChange('furnitureCovers')}
                     />
-                    <Label htmlFor="furnitureCovers" className="ml-2">Furniture Covers</Label>
+                    <Label htmlFor="furnitureCovers" className="ml-2">Housses de meubles</Label>
                   </div>
                 </div>
               </div>
               
               {/* Price Filter */}
               <div>
-                <h3 className="font-medium text-packshield-navy mb-3">Price Range</h3>
+                <h3 className="font-medium text-packshield-navy mb-3">Fourchette de prix</h3>
                 <div className="px-2">
                   <Slider
                     defaultValue={[0, 50]}
@@ -195,7 +195,7 @@ const Products = () => {
               onClick={() => setFiltersVisible(!filtersVisible)}
               className="w-full flex items-center justify-between bg-white p-4 rounded-lg shadow-sm"
             >
-              <span className="font-medium text-packshield-navy">Filters</span>
+              <span className="font-medium text-packshield-navy">Filtres</span>
               {filtersVisible ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
             </button>
             
@@ -204,7 +204,7 @@ const Products = () => {
               <div className="bg-white p-6 rounded-lg shadow-sm mt-2">
                 {/* Category Filter */}
                 <div className="mb-8">
-                  <h3 className="font-medium text-packshield-navy mb-3">Category</h3>
+                  <h3 className="font-medium text-packshield-navy mb-3">Catégorie</h3>
                   <div className="space-y-2">
                     <div className="flex items-center">
                       <Checkbox 
@@ -212,7 +212,7 @@ const Products = () => {
                         checked={categoryFilters.mattressBags}
                         onCheckedChange={() => handleCategoryChange('mattressBags')}
                       />
-                      <Label htmlFor="mattressBagsMobile" className="ml-2">Mattress Bags</Label>
+                      <Label htmlFor="mattressBagsMobile" className="ml-2">Housses de matelas</Label>
                     </div>
                     <div className="flex items-center">
                       <Checkbox 
@@ -220,7 +220,7 @@ const Products = () => {
                         checked={categoryFilters.storageBags}
                         onCheckedChange={() => handleCategoryChange('storageBags')}
                       />
-                      <Label htmlFor="storageBagsMobile" className="ml-2">Storage Bags</Label>
+                      <Label htmlFor="storageBagsMobile" className="ml-2">Sacs de rangement</Label>
                     </div>
                     <div className="flex items-center">
                       <Checkbox 
@@ -228,14 +228,14 @@ const Products = () => {
                         checked={categoryFilters.furnitureCovers}
                         onCheckedChange={() => handleCategoryChange('furnitureCovers')}
                       />
-                      <Label htmlFor="furnitureCoversMobile" className="ml-2">Furniture Covers</Label>
+                      <Label htmlFor="furnitureCoversMobile" className="ml-2">Housses de meubles</Label>
                     </div>
                   </div>
                 </div>
                 
                 {/* Price Filter */}
                 <div>
-                  <h3 className="font-medium text-packshield-navy mb-3">Price Range</h3>
+                  <h3 className="font-medium text-packshield-navy mb-3">Fourchette de prix</h3>
                   <div className="px-2">
                     <Slider
                       defaultValue={[0, 50]}
@@ -260,7 +260,7 @@ const Products = () => {
             {/* Sort Options */}
             <div className="flex items-center justify-end mb-6">
               <div className="flex items-center">
-                <span className="mr-3 text-packshield-grey">Sort by:</span>
+                <span className="mr-3 text-packshield-grey">Trier par :</span>
                 <RadioGroup 
                   defaultValue="featured"
                   value={sortOption}
@@ -269,19 +269,19 @@ const Products = () => {
                 >
                   <div className="flex items-center">
                     <RadioGroupItem value="featured" id="featured" />
-                    <Label htmlFor="featured" className="ml-2">Featured</Label>
+                    <Label htmlFor="featured" className="ml-2">En vedette</Label>
                   </div>
                   <div className="flex items-center">
                     <RadioGroupItem value="priceAsc" id="priceAsc" />
-                    <Label htmlFor="priceAsc" className="ml-2">Price (Low to High)</Label>
+                    <Label htmlFor="priceAsc" className="ml-2">Prix (croissant)</Label>
                   </div>
                   <div className="flex items-center">
                     <RadioGroupItem value="priceDesc" id="priceDesc" />
-                    <Label htmlFor="priceDesc" className="ml-2">Price (High to Low)</Label>
+                    <Label htmlFor="priceDesc" className="ml-2">Prix (décroissant)</Label>
                   </div>
                   <div className="flex items-center">
                     <RadioGroupItem value="rating" id="rating" />
-                    <Label htmlFor="rating" className="ml-2">Top Rated</Label>
+                    <Label htmlFor="rating" className="ml-2">Mieux notés</Label>
                   </div>
                 </RadioGroup>
               </div>
@@ -290,8 +290,8 @@ const Products = () => {
             {/* Products */}
             {sortedProducts.length === 0 ? (
               <div className="text-center py-16">
-                <h3 className="text-xl font-medium text-packshield-navy mb-2">No products found</h3>
-                <p className="text-packshield-grey">Try adjusting your filters to find what you're looking for.</p>
+                <h3 className="text-xl font-medium text-packshield-navy mb-2">Aucun produit trouvé</h3>
+                <p className="text-packshield-grey">Essayez d'ajuster vos filtres pour trouver ce que vous cherchez.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -327,7 +327,7 @@ const Products = () => {
                         rel="noopener noreferrer"
                         className="block bg-packshield-orange hover:bg-packshield-orange/90 text-white text-center py-2 rounded-md transition-colors"
                       >
-                        Buy on Amazon
+                        Acheter sur Amazon
                       </a>
                     </div>
                   </div>

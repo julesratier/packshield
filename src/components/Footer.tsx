@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="space-y-4">
             <Logo variant="white" className="h-12 w-auto" />
             <p className="text-sm text-gray-300">
-              Protecting what matters most with premium storage solutions.
+              Protégeons ce qui compte le plus avec des solutions de stockage premium.
             </p>
             <div className="flex space-x-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors">
@@ -27,32 +27,32 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-medium text-lg mb-4">Products</h3>
+            <h3 className="font-medium text-lg mb-4">Produits</h3>
             <ul className="space-y-2">
-              <li><Link to="/products/mattress-bags" className="text-gray-300 hover:text-packshield-orange transition-colors">Mattress Bags</Link></li>
-              <li><Link to="/products/furniture-covers" className="text-gray-300 hover:text-packshield-orange transition-colors">Furniture Covers</Link></li>
-              <li><Link to="/products/storage-bags" className="text-gray-300 hover:text-packshield-orange transition-colors">Storage Bags</Link></li>
-              <li><Link to="/products/bundles" className="text-gray-300 hover:text-packshield-orange transition-colors">Value Bundles</Link></li>
+              <li><Link to="/products/mattress-bags" className="text-gray-300 hover:text-packshield-orange transition-colors">Housses de matelas</Link></li>
+              <li><Link to="/products/furniture-covers" className="text-gray-300 hover:text-packshield-orange transition-colors">Housses de meubles</Link></li>
+              <li><Link to="/products/storage-bags" className="text-gray-300 hover:text-packshield-orange transition-colors">Sacs de rangement</Link></li>
+              <li><Link to="/products/bundles" className="text-gray-300 hover:text-packshield-orange transition-colors">Packs économiques</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-medium text-lg mb-4">Resources</h3>
+            <h3 className="font-medium text-lg mb-4">Ressources</h3>
             <ul className="space-y-2">
               <li><Link to="/blog" className="text-gray-300 hover:text-packshield-orange transition-colors">Blog</Link></li>
-              <li><Link to="/guides" className="text-gray-300 hover:text-packshield-orange transition-colors">Moving Guides</Link></li>
+              <li><Link to="/guides" className="text-gray-300 hover:text-packshield-orange transition-colors">Guides de déménagement</Link></li>
               <li><Link to="/faqs" className="text-gray-300 hover:text-packshield-orange transition-colors">FAQs</Link></li>
-              <li><Link to="/contact" className="text-gray-300 hover:text-packshield-orange transition-colors">Contact Us</Link></li>
+              <li><Link to="/contact" className="text-gray-300 hover:text-packshield-orange transition-colors">Nous contacter</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-medium text-lg mb-4">Stay in Touch</h3>
-            <p className="text-sm text-gray-300 mb-4">Subscribe to our newsletter for the latest updates and offers</p>
+            <h3 className="font-medium text-lg mb-4">Restez informé</h3>
+            <p className="text-sm text-gray-300 mb-4">Abonnez-vous à notre newsletter pour les dernières mises à jour et offres</p>
             <div className="flex">
               <input
                 type="email"
-                placeholder="Your Email"
+                placeholder="Votre email"
                 className="bg-white bg-opacity-10 py-2 px-3 rounded-l-md w-full text-sm focus:outline-none focus:ring-1 focus:ring-packshield-orange"
               />
               <button className="bg-packshield-orange hover:bg-packshield-orange/90 text-white py-2 px-3 rounded-r-md transition-colors">
@@ -63,11 +63,11 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-400">© {new Date().getFullYear()} Packshield. All rights reserved.</p>
+          <p className="text-sm text-gray-400">© {new Date().getFullYear()} Packshield. Tous droits réservés.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-packshield-orange transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="text-sm text-gray-400 hover:text-packshield-orange transition-colors">Terms of Service</Link>
-            <Link to="/shipping" className="text-sm text-gray-400 hover:text-packshield-orange transition-colors">Shipping</Link>
+            <Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-packshield-orange transition-colors">Politique de confidentialité</Link>
+            <Link to="/terms" className="text-sm text-gray-400 hover:text-packshield-orange transition-colors">Conditions d'utilisation</Link>
+            <Link to="/shipping" className="text-sm text-gray-400 hover:text-packshield-orange transition-colors">Livraison</Link>
           </div>
         </div>
       </div>
