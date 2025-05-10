@@ -6,7 +6,7 @@ interface LogoProps {
   variant?: 'navy' | 'white' | 'colored';
 }
 
-const Logo = ({ className = "h-14 w-auto", variant = 'colored' }: LogoProps) => {
+const Logo = ({ className = "h-10 w-auto", variant = 'colored' }: LogoProps) => {
   // Utiliser la nouvelle image chargée comme logo par défaut
   const logoSrc = "/lovable-uploads/c3b924c6-e395-4e19-a08f-1d09b4111825.png";
 
