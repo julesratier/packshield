@@ -7,21 +7,8 @@ interface LogoProps {
 }
 
 const Logo = ({ className = "h-14 w-auto", variant = 'colored' }: LogoProps) => {
-  let logoSrc;
-  
-  switch (variant) {
-    case 'navy':
-      logoSrc = "/lovable-uploads/9be8b5ea-06ad-49bd-a48b-ac136612e599.png";
-      break;
-    case 'white':
-      logoSrc = "/lovable-uploads/a799c1c5-fe52-4b0d-9416-39ed59f16339.png";
-      break;
-    case 'colored':
-      logoSrc = "/lovable-uploads/a799c1c5-fe52-4b0d-9416-39ed59f16339.png";
-      break;
-    default:
-      logoSrc = "/lovable-uploads/a799c1c5-fe52-4b0d-9416-39ed59f16339.png";
-  }
+  // Utiliser la nouvelle image chargée comme logo par défaut
+  const logoSrc = "/lovable-uploads/c3b924c6-e395-4e19-a08f-1d09b4111825.png";
 
   return (
     <Link to="/">
