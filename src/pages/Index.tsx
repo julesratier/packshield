@@ -5,6 +5,8 @@ import { ArrowRight, Shield, Star, Package, Truck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Card, CardContent } from '@/components/ui/card';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const Index = () => {
   const [emailInput, setEmailInput] = useState('');
@@ -156,16 +158,18 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProducts.map(product => (
-              <div key={product.id} className="product-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
-                <Link to={`/product/${product.id}`}>
-                  <div className="aspect-video overflow-hidden bg-packshield-lightGrey">
-                    <img 
-                      src={product.image} 
-                      alt={product.title}
-                      className="w-full h-full object-cover"
-                    />
+              <Card key={product.id} className="product-card overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
+                <Link to={`/product/${product.id}`} className="block">
+                  <div className="bg-packshield-lightGrey">
+                    <AspectRatio ratio={1 / 1} className="bg-muted">
+                      <img 
+                        src={product.image} 
+                        alt={product.title}
+                        className="w-full h-full object-contain p-4"
+                      />
+                    </AspectRatio>
                   </div>
-                  <div className="p-6">
+                  <CardContent className="p-6">
                     <h3 className="text-xl font-semibold text-packshield-navy mb-2">{product.title}</h3>
                     <div className="flex items-center mb-3">
                       <div className="flex items-center mr-2">
@@ -175,22 +179,20 @@ const Index = () => {
                       </div>
                       <span className="text-sm text-packshield-grey">({product.reviews})</span>
                     </div>
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center mb-4">
                       <span className="text-xl font-bold text-packshield-navy">${product.price}</span>
                     </div>
-                  </div>
+                    <a 
+                      href={product.amazonUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block bg-packshield-orange hover:bg-packshield-orange/90 text-white text-center py-2 rounded-md transition-colors"
+                    >
+                      Acheter sur Amazon
+                    </a>
+                  </CardContent>
                 </Link>
-                <div className="px-6 pb-6">
-                  <a 
-                    href={product.amazonUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block bg-packshield-orange hover:bg-packshield-orange/90 text-white text-center py-2 rounded-md transition-colors"
-                  >
-                    Acheter sur Amazon
-                  </a>
-                </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
