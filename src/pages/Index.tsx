@@ -80,7 +80,7 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative bg-packshield-navy text-white">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('/lovable-uploads/49d5c388-1186-43e0-a561-bf7302c9cc54.png')] bg-cover bg-center opacity-20"></div>
         <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Protégez ce qui compte vraiment</h1>
