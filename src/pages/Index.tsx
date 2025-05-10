@@ -161,11 +161,11 @@ const Index = () => {
               <Card key={product.id} className="product-card overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
                 <Link to={`/product/${product.id}`} className="block">
                   <div className="bg-packshield-lightGrey">
-                    <AspectRatio ratio={1 / 1} className="bg-muted">
+                    <AspectRatio ratio={1 / 1}>
                       <img 
                         src={product.image} 
                         alt={product.title}
-                        className="w-full h-full object-contain p-4"
+                        className="w-full h-full object-contain"
                       />
                     </AspectRatio>
                   </div>
