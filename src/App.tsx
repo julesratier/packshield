@@ -10,10 +10,13 @@ import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import BlogPostMattrTransport from "./pages/BlogPost_MattrTransport";
+import BlogPostTop8Housses from "./pages/BlogPost_Top8Housses";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import MentionsLegales from "./pages/MentionsLegales";
 import PartenaireAmazon from "./pages/PartenaireAmazon";
+import AuthorProfile from "./pages/AuthorProfile";
 
 const queryClient = new QueryClient();
 
@@ -28,7 +31,12 @@ const App = () => (
           <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/blog/1" element={<BlogPost />} />
+          <Route path="/blog/2" element={<BlogPost />} />
+          <Route path="/blog/3" element={<BlogPost />} />
+          <Route path="/blog/10" element={<BlogPostMattrTransport />} />
+          <Route path="/blog/11" element={<BlogPostTop8Housses />} />
+          <Route path="/author/helene-mirmande" element={<AuthorProfile />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />

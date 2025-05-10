@@ -1,12 +1,14 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Shield, Star, Package, Flag } from 'lucide-react';
+import { ArrowRight, Shield, Star, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import Flag from '@/components/Flag';
+import FAQ from '@/components/FAQ';
 
 const Index = () => {
   const [emailInput, setEmailInput] = useState('');
@@ -43,28 +45,28 @@ const Index = () => {
 
   const blogPosts = [
     {
-      id: 1,
-      title: "Comment bien stocker un matelas",
-      excerpt: "Découvrez les meilleures pratiques pour stocker votre matelas afin de prolonger sa durée de vie et maintenir sa qualité.",
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+      id: 10,
+      title: "Comment transporter son matelas efficacement ?",
+      excerpt: "Découvrez les meilleures pratiques pour transporter votre matelas afin d'éviter les dommages et faciliter la manutention.",
+      image: "/lovable-uploads/de586984-0cb1-4c86-8ede-3e1f44572b17.png",
+      date: "10 Mai 2025",
+      readTime: "6 min de lecture"
+    },
+    {
+      id: 11,
+      title: "Top 8 des meilleures housses matelas pour les déménagement",
+      excerpt: "Notre comparatif complet des meilleures housses de protection pour votre matelas lors d'un déménagement.",
+      image: "/lovable-uploads/241f7930-bdd5-4cab-87f2-f5031b99cd9b.png",
       date: "8 Mai 2025",
-      readTime: "5 min de lecture"
+      readTime: "7 min de lecture"
     },
     {
       id: 2,
-      title: "Jour de déménagement : Protégez vos meubles",
+      title: "Moving Day Tips: Protect Your Furniture",
       excerpt: "Conseils essentiels pour assurer la protection de vos meubles pendant le processus de déménagement.",
       image: "https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aW5nJTIwZGF5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       date: "5 Mai 2025",
       readTime: "4 min de lecture"
-    },
-    {
-      id: 3,
-      title: "Pourquoi la qualité du stockage est importante",
-      excerpt: "Comprendre l'importance des solutions de stockage de haute qualité pour vos biens précieux.",
-      image: "https://images.unsplash.com/photo-1595332230117-8310b582a860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3RvcmFnZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-      date: "1 Mai 2025",
-      readTime: "6 min de lecture"
     }
   ];
 
@@ -99,7 +101,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Products Section - Now First */}
+      {/* Featured Products Section - First */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-10">
@@ -153,7 +155,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section - Now Second */}
+      {/* Features Section - Second */}
       <section className="py-16 md:py-20 bg-packshield-lightGrey">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -286,6 +288,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* Newsletter Section */}
       <section className="py-16 bg-packshield-lightGrey">
