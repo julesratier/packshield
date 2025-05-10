@@ -6,7 +6,7 @@ interface LogoProps {
   variant?: 'navy' | 'white' | 'colored';
 }
 
-const Logo = ({ className = "h-10 w-auto", variant = 'colored' }: LogoProps) => {
+const Logo = ({ className = "h-14 w-auto", variant = 'colored' }: LogoProps) => {
   let logoSrc;
   
   switch (variant) {
