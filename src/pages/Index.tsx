@@ -88,9 +88,11 @@ const Index = () => {
               Housses de matelas premium et solutions de stockage conçues pour protéger vos biens précieux de la poussière, de la saleté et de l'humidité.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-packshield-orange hover:bg-packshield-orange/90 text-white">
-                Voir nos produits
-              </Button>
+              <Link to="/products">
+                <Button size="lg" className="bg-packshield-orange hover:bg-packshield-orange/90 text-white">
+                  Voir nos produits
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
