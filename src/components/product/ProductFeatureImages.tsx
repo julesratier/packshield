@@ -32,28 +32,15 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
         "/lovable-uploads/5b3dfff2-dc47-422b-9dd2-b40528c57f4c.png"
       ]);
     } else if (productId === 5 || productId === 6) {
-      // Images mises à jour pour les kits de rangement sous vide
-      if (productId === 5) {
-        // Nouvelles images pour le kit de rangement 4 sacs
-        setImages([
-          "/lovable-uploads/9bf86611-f2e3-4cbb-a7d7-dee74d19e63e.png",
-          "/lovable-uploads/f15e90ea-9b8e-43d0-9ecb-447cbc6d13cd.png",
-          "/lovable-uploads/2b2b3734-22dd-4be5-b59a-ecba78e67842.png",
-          "/lovable-uploads/d79aa909-bf5d-4f34-aa04-09054d501bbe.png",
-          "/lovable-uploads/1342376d-0101-4e05-b1b8-6ab1ea7a39ec.png",
-          "/lovable-uploads/f7896086-8d9b-4c51-8457-5d67fbeaeafc.png"
-        ]);
-      } else {
-        // Garder les images existantes pour le kit de rangement 2 sacs (ID 6)
-        setImages([
-          "/lovable-uploads/b557e3d0-aa0b-4294-8570-23d2c51e59b2.png",
-          "/lovable-uploads/40bd4bc8-f5b7-47af-9edd-1109ee1eb6a8.png",
-          "/lovable-uploads/a0f19279-812e-4e80-8dca-d4a98a1931ea.png",
-          "/lovable-uploads/1a5b12d7-beec-45a2-8317-ab9f74ae692d.png",
-          "/lovable-uploads/763e8bc1-77b8-4d6b-9157-caf246095514.png",
-          "/lovable-uploads/de4efd90-a4e0-44a5-90de-d7c58053158a.png"
-        ]);
-      }
+      // Images mises à jour pour les kits de rangement sous vide (les mêmes pour les deux kits)
+      setImages([
+        "/lovable-uploads/74a95a48-fdb1-4755-b763-46434fd03b83.png",
+        "/lovable-uploads/fd0e2984-793a-4baf-a91e-b9e8b105ad7e.png",
+        "/lovable-uploads/0c9ed46d-5c5b-4c62-8933-c94a50d13bf1.png",
+        "/lovable-uploads/e78b0866-3bad-4c4e-8509-5ad102ac9762.png",
+        "/lovable-uploads/c30b78a9-73b0-4c7e-b855-81f13ff4023f.png",
+        "/lovable-uploads/5734aaf7-32c4-4535-be6d-cdbcf70df0c7.png"
+      ]);
     }
   }, [productId]);
 
