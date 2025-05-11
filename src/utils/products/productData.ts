@@ -1,4 +1,3 @@
-
 import { Product } from './types';
 
 // Updated product data with switched images and review counts
@@ -95,14 +94,14 @@ export const products: Product[] = [
   {
     id: 5,
     title: "Kit de rangement sous vide - 4 sacs sous vide et 4 coffres non tissés",
-    image: "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png", 
+    image: "/lovable-uploads/9bf86611-f2e3-4cbb-a7d7-dee74d19e63e.png", 
     additionalImages: [
-      "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png",
-      "/lovable-uploads/c5db4083-6963-4c79-a130-78d0af7018a2.png",
-      "/lovable-uploads/fa391208-f7f3-4551-8747-af5cbb2e3039.png",
-      "/lovable-uploads/50694c0f-48a0-4d8d-b845-36397926d112.png",
-      "/lovable-uploads/ed1cbc56-1f8b-4341-b60a-4288d1316949.png",
-      "/lovable-uploads/6711d68e-221c-4e6a-bd27-1f039876f830.png"
+      "/lovable-uploads/9bf86611-f2e3-4cbb-a7d7-dee74d19e63e.png",
+      "/lovable-uploads/f15e90ea-9b8e-43d0-9ecb-447cbc6d13cd.png",
+      "/lovable-uploads/2b2b3734-22dd-4be5-b59a-ecba78e67842.png",
+      "/lovable-uploads/d79aa909-bf5d-4f34-aa04-09054d501bbe.png",
+      "/lovable-uploads/1342376d-0101-4e05-b1b8-6ab1ea7a39ec.png",
+      "/lovable-uploads/f7896086-8d9b-4c51-8457-5d67fbeaeafc.png"
     ],
     price: 37.90,
     rating: 4.0,
@@ -131,4 +130,3 @@ export const products: Product[] = [
     amazonChoice: false
   }
 ];
-
