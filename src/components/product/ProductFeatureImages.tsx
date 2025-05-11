@@ -7,6 +7,7 @@ interface ProductFeatureImagesProps {
 
 const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
   const [images, setImages] = useState<string[]>([]);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     // Charger les images en fonction du produit
@@ -39,22 +40,51 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
         "/lovable-uploads/f4851c6f-c2b0-4cbb-994c-66fa9a8a360d.png"
       ]);
     }
-  }, [productId]);
+
+    // Démarrer le préchargement des images
+    if (images.length > 0) {
+      const preloadImages = () => {
+        let loadedCount = 0;
+        const totalImages = images.length;
+        
+        images.forEach(src => {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => {
+            loadedCount++;
+            if (loadedCount === totalImages) {
+              setImagesLoaded(true);
+            }
+          };
+        });
+      };
+      
+      preloadImages();
+    }
+  }, [productId, images]);
 
   if (images.length === 0) return null;
 
   return (
     <div className="mt-8 p-6 bg-white border rounded-lg">
       <h3 className="text-xl font-semibold text-packshield-navy mb-6">Caractéristiques du produit</h3>
-      <div>
+      <div className="space-y-0">
         {images.map((image, index) => (
           <div key={index} className="w-full">
             <img 
               src={image} 
               alt={`Caractéristique ${index + 1}`} 
               className="w-full h-auto object-cover"
+              loading="lazy"
             />
           </div>
+        ))}
+      </div>
+      
+      {/* Hidden preload container */}
+      <div className="hidden">
+        {images.map((src, index) => (
+          <img key={`preload-${index}`} src={src} alt="Préchargement" />
         ))}
       </div>
     </div>
