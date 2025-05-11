@@ -1,3 +1,4 @@
+
 interface ProductSpecification {
   [key: string]: string;
 }
@@ -57,31 +58,31 @@ export const products: Product[] = [
   {
     id: 3,
     title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 2 personnes",
-    image: "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png", // Mise à jour avec la nouvelle image principale
+    image: "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png",
     additionalImages: {
       "140x200": [
-        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png", // Mise à jour de l'image principale pour 140x200
+        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png",
         "/lovable-uploads/625f51dc-185c-496c-9cc8-593860582555.png", 
-        "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
-        "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
-        "/lovable-uploads/7c9f60c9-8bf9-4aa1-bc32-eda8ce1b9871.png",
-        "/lovable-uploads/055260c1-0d88-4ac2-b84c-e05dd7fa10af.png"
+        "/lovable-uploads/c0e1521b-de5a-475c-a7c4-7f0a54c018e6.png", // Updated image 3
+        "/lovable-uploads/81c480a7-4e56-4431-9299-dbab8669e8cc.png", // Updated image 4
+        "/lovable-uploads/e3c6c0f4-d1f5-4fa3-a658-107354a0dbd9.png", // Updated image 5
+        "/lovable-uploads/35604239-0177-4ea6-a88a-2e4ced991900.png"  // Updated image 6
       ],
       "160x200": [
-        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png", // Mise à jour de l'image principale pour 160x200
+        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png",
         "/lovable-uploads/abd6a3cd-56a5-4417-8c4b-fb1859c12c9b.png", 
-        "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
-        "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
-        "/lovable-uploads/7c9f60c9-8bf9-4aa1-bc32-eda8ce1b9871.png",
-        "/lovable-uploads/055260c1-0d88-4ac2-b84c-e05dd7fa10af.png"
+        "/lovable-uploads/c0e1521b-de5a-475c-a7c4-7f0a54c018e6.png", // Updated image 3
+        "/lovable-uploads/81c480a7-4e56-4431-9299-dbab8669e8cc.png", // Updated image 4
+        "/lovable-uploads/e3c6c0f4-d1f5-4fa3-a658-107354a0dbd9.png", // Updated image 5
+        "/lovable-uploads/35604239-0177-4ea6-a88a-2e4ced991900.png"  // Updated image 6
       ],
       "180x200": [
-        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png", // Mise à jour de l'image principale pour 180x200
+        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png",
         "/lovable-uploads/c82c0160-ed55-4c12-a0ac-52be391099ee.png",
-        "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
-        "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
-        "/lovable-uploads/7c9f60c9-8bf9-4aa1-bc32-eda8ce1b9871.png",
-        "/lovable-uploads/055260c1-0d88-4ac2-b84c-e05dd7fa10af.png"
+        "/lovable-uploads/c0e1521b-de5a-475c-a7c4-7f0a54c018e6.png", // Updated image 3
+        "/lovable-uploads/81c480a7-4e56-4431-9299-dbab8669e8cc.png", // Updated image 4
+        "/lovable-uploads/e3c6c0f4-d1f5-4fa3-a658-107354a0dbd9.png", // Updated image 5
+        "/lovable-uploads/35604239-0177-4ea6-a88a-2e4ced991900.png"  // Updated image 6
       ]
     },
     sizes: ["140x200", "160x200", "180x200"],
