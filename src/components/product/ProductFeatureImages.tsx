@@ -27,9 +27,9 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
   return (
     <div className="mt-8 p-6 bg-white border rounded-lg">
       <h3 className="text-xl font-semibold text-packshield-navy mb-6">Caractéristiques du produit</h3>
-      <div className="space-y-6">
+      <div>
         {images.map((image, index) => (
-          <div key={index} className="w-full overflow-hidden rounded-md">
+          <div key={index} className="w-full">
             <img 
               src={image} 
               alt={`Caractéristique ${index + 1}`} 

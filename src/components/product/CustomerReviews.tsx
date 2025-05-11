@@ -19,8 +19,8 @@ interface CustomerReviewsProps {
 const CustomerReviews = ({ reviews, productId }: CustomerReviewsProps) => {
   const [showAllReviews, setShowAllReviews] = useState(false);
   
-  // Seulement montrer les reviews pour le produit 3 (Oxford mattress cover for 2 persons)
-  const displayReviews = productId === 3 ? reviews : [];
+  // Montrer les reviews pour les produits 3 et 4 (Oxford mattress cover pour 1 et 2 personnes)
+  const displayReviews = (productId === 3 || productId === 4) ? reviews : [];
   
   // Le nombre de reviews à afficher par défaut
   const initialReviewCount = 6;

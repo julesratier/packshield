@@ -16,7 +16,7 @@ const ProductTabs = ({ specifications }: ProductTabsProps) => {
         <TabsTrigger value="specifications">Spécifications</TabsTrigger>
         <TabsTrigger value="shipping">Livraison & Retours</TabsTrigger>
       </TabsList>
-      <TabsContent value="specifications" className="p-6 bg-white border rounded-lg mt-4 min-h-[280px]">
+      <TabsContent value="specifications" className="p-6 bg-white border rounded-lg mt-4 min-h-[320px]">
         <h3 className="text-xl font-semibold text-packshield-navy mb-4">Spécifications du produit</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {Object.entries(specifications).map(([key, value]) => (
@@ -27,7 +27,7 @@ const ProductTabs = ({ specifications }: ProductTabsProps) => {
           ))}
         </div>
       </TabsContent>
-      <TabsContent value="shipping" className="p-6 bg-white border rounded-lg mt-4 min-h-[280px]">
+      <TabsContent value="shipping" className="p-6 bg-white border rounded-lg mt-4 min-h-[320px]">
         <h3 className="text-xl font-semibold text-packshield-navy mb-4">Informations de livraison</h3>
         <div className="space-y-4">
           <div>
