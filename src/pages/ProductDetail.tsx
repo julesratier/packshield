@@ -59,7 +59,7 @@ const ProductDetail = () => {
       additionalImages: {
         "140x200": [
           "/lovable-uploads/0af1396d-ec9f-4fca-91cd-0a52d845fe1d.png",
-          "/lovable-uploads/d0aad56a-5c0d-4400-80b4-5fe411063a61.png", // Nouvelle image 2 pour 140cm
+          "/lovable-uploads/625f51dc-185c-496c-9cc8-593860582555.png", // Updated image for 140cm
           "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
           "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
           "/lovable-uploads/7c9f60c9-8bf9-4aa1-bc32-eda8ce1b9871.png",
