@@ -58,26 +58,26 @@ export const products: Product[] = [
   {
     id: 3,
     title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 2 personnes",
-    image: "/lovable-uploads/0af1396d-ec9f-4fca-91cd-0a52d845fe1d.png", // Nouvelle image principale
+    image: "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png", // Mise à jour avec la nouvelle image principale
     additionalImages: {
       "140x200": [
-        "/lovable-uploads/0af1396d-ec9f-4fca-91cd-0a52d845fe1d.png",
-        "/lovable-uploads/625f51dc-185c-496c-9cc8-593860582555.png", // Updated image for 140cm
+        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png", // Mise à jour de l'image principale pour 140x200
+        "/lovable-uploads/625f51dc-185c-496c-9cc8-593860582555.png", 
         "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
         "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
         "/lovable-uploads/7c9f60c9-8bf9-4aa1-bc32-eda8ce1b9871.png",
         "/lovable-uploads/055260c1-0d88-4ac2-b84c-e05dd7fa10af.png"
       ],
       "160x200": [
-        "/lovable-uploads/0af1396d-ec9f-4fca-91cd-0a52d845fe1d.png",
-        "/lovable-uploads/abd6a3cd-56a5-4417-8c4b-fb1859c12c9b.png", // Nouvelle image 2 pour 160cm
+        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png", // Mise à jour de l'image principale pour 160x200
+        "/lovable-uploads/abd6a3cd-56a5-4417-8c4b-fb1859c12c9b.png", 
         "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
         "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
         "/lovable-uploads/7c9f60c9-8bf9-4aa1-bc32-eda8ce1b9871.png",
         "/lovable-uploads/055260c1-0d88-4ac2-b84c-e05dd7fa10af.png"
       ],
       "180x200": [
-        "/lovable-uploads/0af1396d-ec9f-4fca-91cd-0a52d845fe1d.png",
+        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png", // Mise à jour de l'image principale pour 180x200
         "/lovable-uploads/c82c0160-ed55-4c12-a0ac-52be391099ee.png",
         "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
         "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
@@ -88,7 +88,7 @@ export const products: Product[] = [
     sizes: ["140x200", "160x200", "180x200"],
     price: 29.90,
     rating: 4.5,
-    reviews: 355, // Updated review count
+    reviews: 355, 
     category: "matelas2p",
     featured: true,
     amazonChoice: true
