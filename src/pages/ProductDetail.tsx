@@ -9,6 +9,7 @@ import ProductInfo from '@/components/product/ProductInfo';
 import ProductTabs from '@/components/product/ProductTabs';
 import CustomerReviews from '@/components/product/CustomerReviews';
 import RelatedProducts from '@/components/product/RelatedProducts';
+import ProductFeatureImages from '@/components/product/ProductFeatureImages';
 import { 
   products, 
   getProductDescription, 
@@ -164,6 +165,9 @@ const ProductDetail = () => {
         
         {/* Customer Reviews */}
         <CustomerReviews reviews={oxfordMattressReviews} productId={productId} />
+        
+        {/* Product Feature Images */}
+        <ProductFeatureImages productId={productId} />
 
         {/* Related Products */}
         <div className="mt-16">
