@@ -1,3 +1,4 @@
+
 interface ProductSpecification {
   [key: string]: string;
 }
@@ -44,8 +45,8 @@ export const products: Product[] = [
     image: "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png",
     additionalImages: [
       "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png",
-      "/lovable-uploads/cfbed207-cdcb-42cf-8fe9-c3c6992298ef.png",
-      "/lovable-uploads/09e23ae0-b8c6-45d9-b975-0b8b565b9a67.png"
+      "/lovable-uploads/26b3c3e3-de7b-4f74-a954-3c155d6b84cd.png",
+      "/lovable-uploads/a3026e2f-1df4-49f7-a286-b19f2e52e58a.png"
     ],
     price: 17.90,
     rating: 4.5,
