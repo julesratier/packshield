@@ -1,4 +1,3 @@
-
 interface ProductSpecification {
   [key: string]: string;
 }
@@ -175,7 +174,6 @@ export const getProductDescription = (productId: number): string => {
 // Caractéristiques des produits personnalisées
 export const getProductFeatures = (productId: number): string[] => {
   const baseFeatures = [
-    "Matériau imperméable robuste",
     "Facile à nettoyer et à réutiliser"
   ];
   
@@ -183,6 +181,7 @@ export const getProductFeatures = (productId: number): string[] => {
     case 1:
     case 2:
       return [
+        "Tissu Oxford imperméable et robuste",
         ...baseFeatures,
         "Plastique transparent pour une identification facile",
         "Épaisseur supplémentaire pour résistance aux perforations",
@@ -191,8 +190,9 @@ export const getProductFeatures = (productId: number): string[] => {
     case 3:
     case 4:
       return [
+        "Tissu Oxford imperméable et robuste",
         ...baseFeatures,
-        "Tissu Oxford premium de haute qualité",
+        "Matelas jusqu'à 30 cm d'épaisseur",
         "4 poignées pour un transport facilité",
         "Fermeture éclair renforcée sur 3 côtés",
         "Design anti-poussière et anti-humidité"
@@ -200,6 +200,7 @@ export const getProductFeatures = (productId: number): string[] => {
     case 5:
     case 6:
       return [
+        "Matériau imperméable robuste",
         ...baseFeatures,
         "Sacs sous vide avec valve anti-retour",
         "Compression maximale pour gagner jusqu'à 80% d'espace",
