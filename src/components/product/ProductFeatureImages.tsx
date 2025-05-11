@@ -20,14 +20,14 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
         "/lovable-uploads/53f1d12a-7a7b-4b79-b2d4-68fcc8a0c5b7.png"
       ]);
     } else if (productId === 4) {
-      // Images pour la housse matelas tissu oxford 1 personne - Nouveaux chemins
+      // Images mises à jour pour la housse matelas tissu oxford 1 personne - Nouvel ordre
       setImages([
-        "/lovable-uploads/3f4f241e-4c35-4006-a824-7344c342592d.png",
-        "/lovable-uploads/fa8ab4cc-52bc-40d2-9b01-7cc2fcc4415b.png",
-        "/lovable-uploads/f229ab7c-0d8b-428e-894d-8c3fc630eb3a.png",
-        "/lovable-uploads/15b53996-e3be-42eb-90f7-49487696a43a.png",
-        "/lovable-uploads/aaacb1c2-9364-4f06-843f-0c57a04911a6.png",
-        "/lovable-uploads/e06bb97f-3264-4ae6-bd47-a960f157e455.png"
+        "/lovable-uploads/1aa6ffdd-f448-4d28-b6b1-3e756b8f6921.png",
+        "/lovable-uploads/fb1fbcbc-914a-4512-bc02-332ec195bf78.png",
+        "/lovable-uploads/4b374f04-f945-4b22-8c13-7c0a5ecb6907.png",
+        "/lovable-uploads/6a737910-0ef9-4d04-826b-5a83060281cd.png",
+        "/lovable-uploads/107d1ed5-1717-4c0a-8529-8c37e13bb8ee.png",
+        "/lovable-uploads/5b3dfff2-dc47-422b-9dd2-b40528c57f4c.png"
       ]);
     } else if (productId === 5 || productId === 6) {
       // Images pour les kits de rangement sous vide
