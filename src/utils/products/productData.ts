@@ -1,3 +1,4 @@
+
 import { Product } from './types';
 
 // Updated product data with switched images and review counts
@@ -5,11 +6,11 @@ export const products: Product[] = [
   {
     id: 1,
     title: "Housse de protection pour matelas en plastique épais - Matelas 2 personnes",
-    image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
+    image: "/lovable-uploads/e73fc686-6ae9-417d-a80e-2964fbcdbadc.png",
     additionalImages: [
-      "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
-      "/lovable-uploads/805497d7-8696-4cc6-bb18-5289ed33c40a.png",
-      "/lovable-uploads/8a8ae62e-38d3-486c-ace5-ddba71582b9c.png"
+      "/lovable-uploads/e73fc686-6ae9-417d-a80e-2964fbcdbadc.png",
+      "/lovable-uploads/17fc8901-5bdf-4c92-a4c0-a34e5d9c8c92.png",
+      "/lovable-uploads/5315c3ef-b778-419b-b028-9d8def1dbaf3.png"
     ],
     price: 21.90,
     rating: 4.5,

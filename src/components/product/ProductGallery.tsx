@@ -51,6 +51,10 @@ const ProductGallery = ({ images, title, amazonChoice }: ProductGalleryProps) =>
               src={images[selectedImage]} 
               alt={title} 
               className="w-full h-full object-contain"
+              style={{ 
+                opacity: isLoaded[selectedImage] ? 1 : 0,
+                transition: 'opacity 0.3s ease-in-out'
+              }}
             />
             
             {images.length > 1 && (
@@ -97,7 +101,6 @@ const ProductGallery = ({ images, title, amazonChoice }: ProductGalleryProps) =>
             onClick={() => setSelectedImage(index)}
             className={`aspect-square rounded-md overflow-hidden border-2 transition-all ${selectedImage === index ? 'border-packshield-orange scale-105' : 'border-transparent hover:border-packshield-orange/50'}`}
           >
-            {/* Image préchargée et masquée pour optimiser le chargement */}
             <img 
               src={image} 
               alt={`${title} vue ${index + 1}`} 
