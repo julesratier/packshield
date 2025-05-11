@@ -93,14 +93,14 @@ const ProductDetail = () => {
     {
       id: 4,
       title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 1 personne",
-      image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png", // Switched with product 3
+      image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png",
       additionalImages: [
         "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png",
-        "/lovable-uploads/95af161e-f91a-4e5a-a375-b16e0bbda3c5.png",
-        "/lovable-uploads/8356953e-3e1a-49ca-b97c-9b3247b0fd12.png",
-        "/lovable-uploads/e58037c2-29c9-419e-9fca-edd977d6102f.png",
-        "/lovable-uploads/3c097ab3-854f-4b46-9eb9-e1562f780b5d.png",
-        "/lovable-uploads/4e5d1ac1-0581-4fe3-a9b4-af8f69b2a081.png"
+        "/lovable-uploads/6a2cdbe6-6983-4333-b99e-03a02241d408.png", // Oxford mattress 1 place - Image 2
+        "/lovable-uploads/dce49061-e72d-4ffa-814e-a921f5df9dd8.png", // Oxford mattress 1 place - Image 3
+        "/lovable-uploads/9f599893-9cc6-4a05-8f82-985b543f8c8d.png", // Oxford mattress 1 place - Image 4
+        "/lovable-uploads/82ddd7e9-aed9-4271-bfac-33109fbde9be.png", // Oxford mattress 1 place - Image 5
+        "/lovable-uploads/eb9361d4-37fa-494a-9374-f31bca0c120a.png"  // Oxford mattress 1 place - Image 6
       ],
       price: 24.90,
       rating: 4.5,
@@ -134,11 +134,11 @@ const ProductDetail = () => {
       image: "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png",
       additionalImages: [
         "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png",
-        "/lovable-uploads/81734c3f-d309-4312-9f34-6c986edec8f5.png",
-        "/lovable-uploads/5dd1b06e-dccb-4058-8db5-2c54dd4dff14.png",
-        "/lovable-uploads/244574b9-2c3d-4c30-a409-ac02b7b1599c.png",
-        "/lovable-uploads/74a7fb8d-bfee-48c1-9272-9290a8bdae65.png",
-        "/lovable-uploads/d3fa32c1-109f-44d2-a7fa-1157cc2badad.png"
+        "/lovable-uploads/40bd4bc8-f5b7-47af-9edd-1109ee1eb6a8.png", // 2SET image 2
+        "/lovable-uploads/a0f19279-812e-4e80-8dca-d4a98a1931ea.png", // 2SET image 3
+        "/lovable-uploads/1a5b12d7-beec-45a2-8317-ab9f74ae692d.png", // 2SET image 4
+        "/lovable-uploads/763e8bc1-77b8-4d6b-9157-caf246095514.png", // 2SET image 5
+        "/lovable-uploads/de4efd90-a4e0-44a5-90de-d7c58053158a.png"  // 2SET image 6
       ],
       price: 23.90,
       rating: 4.0,
