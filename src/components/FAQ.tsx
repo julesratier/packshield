@@ -44,7 +44,7 @@ const FAQ = () => {
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="text-left text-lg font-medium">{item.question}</AccordionTrigger>
                 <AccordionContent>
-                  <div className="py-2 text-packshield-grey" dangerouslySetInnerHTML={{ __html: item.answer }}></div>
+                  <div className="py-2 text-packshield-grey text-base" dangerouslySetInnerHTML={{ __html: item.answer }}></div>
                 </AccordionContent>
               </AccordionItem>
             ))}

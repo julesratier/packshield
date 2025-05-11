@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Star, StarHalf, Package, ThumbsUp, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, Check, StarHalf, Star, Package, ThumbsUp, ShoppingBag } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -60,27 +60,27 @@ const ProductDetail = () => {
       additionalImages: {
         "140x200": [
           "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
-          "Oxford mattress 2 places - Image 2 - 140cm",
-          "Oxford mattress 2 places - Image 3",
-          "Oxford mattress 2 places - Image 4",
-          "Oxford mattress 2 places - Image 5",
-          "Oxford mattress 2 places - Image 6"
+          "/lovable-uploads/337d709d-85fc-4a93-b89a-09b89407402e.png",
+          "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
+          "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
+          "/lovable-uploads/7c9f60c9-8bf9-4aa1-bc32-eda8ce1b9871.png",
+          "/lovable-uploads/055260c1-0d88-4ac2-b84c-e05dd7fa10af.png"
         ],
         "160x200": [
           "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
-          "Oxford mattress 2 places - Image 2 - 160cm",
-          "Oxford mattress 2 places - Image 3",
-          "Oxford mattress 2 places - Image 4",
-          "Oxford mattress 2 places - Image 5",
-          "Oxford mattress 2 places - Image 6"
+          "/lovable-uploads/cf0cf592-f43b-457b-af01-c8f256a50683.png",
+          "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
+          "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
+          "/lovable-uploads/7c9f60c9-8bf9-4aa1-bc32-eda8ce1b9871.png",
+          "/lovable-uploads/055260c1-0d88-4ac2-b84c-e05dd7fa10af.png"
         ],
         "180x200": [
           "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
-          "Oxford mattress 2 places - Image 2 - 180cm",
-          "Oxford mattress 2 places - Image 3",
-          "Oxford mattress 2 places - Image 4",
-          "Oxford mattress 2 places - Image 5",
-          "Oxford mattress 2 places - Image 6"
+          "/lovable-uploads/c82c0160-ed55-4c12-a0ac-52be391099ee.png",
+          "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
+          "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
+          "/lovable-uploads/7c9f60c9-8bf9-4aa1-bc32-eda8ce1b9871.png",
+          "/lovable-uploads/055260c1-0d88-4ac2-b84c-e05dd7fa10af.png"
         ]
       },
       sizes: ["140x200", "160x200", "180x200"],
@@ -97,11 +97,11 @@ const ProductDetail = () => {
       image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png", // Switched with product 3
       additionalImages: [
         "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png",
-        "Oxford mattress 1 place - Image 2.jpg",
-        "Oxford mattress 1 place - Image 3.jpg",
-        "Oxford mattress 1 place - Image 4.jpg",
-        "Oxford mattress 1 place - Image 5.jpg",
-        "Oxford mattress 1 place - Image 6.jpg"
+        "/lovable-uploads/95af161e-f91a-4e5a-a375-b16e0bbda3c5.png",
+        "/lovable-uploads/8356953e-3e1a-49ca-b97c-9b3247b0fd12.png",
+        "/lovable-uploads/e58037c2-29c9-419e-9fca-edd977d6102f.png",
+        "/lovable-uploads/3c097ab3-854f-4b46-9eb9-e1562f780b5d.png",
+        "/lovable-uploads/4e5d1ac1-0581-4fe3-a9b4-af8f69b2a081.png"
       ],
       price: 24.90,
       rating: 4.5,
@@ -132,14 +132,14 @@ const ProductDetail = () => {
     {
       id: 6,
       title: "Kit de rangement sous vide - 2 sacs sous vide et 2 coffres non tissés",
-      image: "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png", // Switched with product 5
+      image: "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png",
       additionalImages: [
         "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png",
-        "2SET image 2.jpg",
-        "2SET image 3.jpg",
-        "2SET image 4.jpg",
-        "2SET image 5.jpg",
-        "2SET image 6.jpg"
+        "/lovable-uploads/81734c3f-d309-4312-9f34-6c986edec8f5.png",
+        "/lovable-uploads/5dd1b06e-dccb-4058-8db5-2c54dd4dff14.png",
+        "/lovable-uploads/244574b9-2c3d-4c30-a409-ac02b7b1599c.png",
+        "/lovable-uploads/74a7fb8d-bfee-48c1-9272-9290a8bdae65.png",
+        "/lovable-uploads/d3fa32c1-109f-44d2-a7fa-1157cc2badad.png"
       ],
       price: 23.90,
       rating: 4.0,
@@ -384,7 +384,7 @@ const ProductDetail = () => {
             <div className="space-y-3 mb-8">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start">
-                  <Star className="h-5 w-5 text-packshield-orange mr-3 mt-0.5 flex-shrink-0" />
+                  <Check className="h-5 w-5 text-packshield-orange mr-3 mt-0.5 flex-shrink-0" />
                   <span>{feature}</span>
                 </div>
               ))}
