@@ -114,9 +114,9 @@ export const products: Product[] = [
   {
     id: 6,
     title: "Kit de rangement sous vide - 2 sacs sous vide et 2 coffres non tissés",
-    image: "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png",
+    image: "/lovable-uploads/b557e3d0-aa0b-4294-8570-23d2c51e59b2.png",
     additionalImages: [
-      "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png",
+      "/lovable-uploads/b557e3d0-aa0b-4294-8570-23d2c51e59b2.png",
       "/lovable-uploads/40bd4bc8-f5b7-47af-9edd-1109ee1eb6a8.png",
       "/lovable-uploads/a0f19279-812e-4e80-8dca-d4a98a1931ea.png",
       "/lovable-uploads/1a5b12d7-beec-45a2-8317-ab9f74ae692d.png",
