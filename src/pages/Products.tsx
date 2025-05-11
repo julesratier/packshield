@@ -6,7 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Slider } from '@/components/ui/slider';
-import { Badge } from '@/components/ui/badge';
+import AmazonChoiceBadge from '@/components/AmazonChoiceBadge';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -20,12 +20,12 @@ const Products = () => {
   const [sortOption, setSortOption] = useState('featured');
   const [filtersVisible, setFiltersVisible] = useState(false);
 
-  // Données de produits mises à jour
+  // Updated product data based on requirements
   const products = [
     {
       id: 1,
       title: "Housse de protection pour matelas en plastique épais - Matelas 2 personnes",
-      image: "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png",
+      image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png", // Switched with product 2
       price: 21.90,
       rating: 4.5,
       reviews: 133,
@@ -35,7 +35,7 @@ const Products = () => {
     {
       id: 2,
       title: "Housse de protection pour matelas en plastique épais - Matelas 1 personne",
-      image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
+      image: "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png", // Switched with product 1
       price: 17.90,
       rating: 4.5,
       reviews: 133,
@@ -45,10 +45,10 @@ const Products = () => {
     {
       id: 3,
       title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 2 personnes",
-      image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png",
+      image: "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png", // Switched with product 4
       price: 29.90,
       rating: 4.5,
-      reviews: 95,
+      reviews: 355, // Updated review count
       category: "matelas2p",
       amazonChoice: true,
       featured: true
@@ -56,30 +56,30 @@ const Products = () => {
     {
       id: 4,
       title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 1 personne",
-      image: "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
+      image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png", // Switched with product 3
       price: 24.90,
       rating: 4.5,
-      reviews: 87,
+      reviews: 355, // Updated review count
       category: "matelas1p",
       featured: false
     },
     {
       id: 5,
       title: "Kit de rangement sous vide - 4 sacs sous vide et 4 coffres non tissés",
-      image: "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png",
+      image: "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png", // Switched with product 6
       price: 37.90,
       rating: 4.0,
-      reviews: 64,
+      reviews: 450, // Updated review count
       category: "rangementSacs",
       featured: true
     },
     {
       id: 6,
       title: "Kit de rangement sous vide - 2 sacs sous vide et 2 coffres non tissés",
-      image: "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png",
+      image: "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png", // Switched with product 5
       price: 23.90,
       rating: 4.0,
-      reviews: 53,
+      reviews: 450, // Updated review count
       category: "rangementSacs",
       featured: false
     }
@@ -292,9 +292,10 @@ const Products = () => {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {sortedProducts.map(product => (
-                  <div key={product.id} className="product-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
+                  <div key={product.id} className="product-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 relative">
                     <Link to={`/product/${product.id}`}>
                       <div className="aspect-square overflow-hidden bg-packshield-lightGrey flex items-center justify-center">
+                        {product.amazonChoice && <AmazonChoiceBadge />}
                         <img 
                           src={product.image} 
                           alt={product.title}
@@ -302,15 +303,6 @@ const Products = () => {
                         />
                       </div>
                       <div className="p-6">
-                        {product.amazonChoice && (
-                          <div className="mb-2">
-                            <img 
-                              src="/lovable-uploads/2cea118d-b526-486e-b9ee-6f2863582b51.png" 
-                              alt="Choix d'Amazon"
-                              className="h-6" 
-                            />
-                          </div>
-                        )}
                         <h3 className="text-xl font-semibold text-packshield-navy mb-2">{product.title}</h3>
                         <div className="flex items-center mb-3">
                           <div className="flex items-center mr-2">

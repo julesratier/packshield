@@ -1,26 +1,35 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Star, StarHalf, Package, Shield, Check } from 'lucide-react';
+import { ArrowLeft, Star, StarHalf, Package, ThumbsUp, ShoppingBag } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import AmazonChoiceBadge from '@/components/AmazonChoiceBadge';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [selectedImage, setSelectedImage] = useState(0);
+  const [mattressSize, setMattressSize] = useState("140x200");
   
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   
-  // Données de produits
+  // Updated product data with switched images and review counts
   const products = [
     {
       id: 1,
       title: "Housse de protection pour matelas en plastique épais - Matelas 2 personnes",
-      image: "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png",
+      image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png", // Switched with product 2
+      additionalImages: [
+        "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
+        "Housse de protection pour matelas en plastique - Matelas 2 personnes - Image 2",
+        "Housse de protection pour matelas en plastique - Matelas 2 personnes - Image 3"
+      ],
       price: 21.90,
       rating: 4.5,
       reviews: 133,
@@ -31,7 +40,12 @@ const ProductDetail = () => {
     {
       id: 2,
       title: "Housse de protection pour matelas en plastique épais - Matelas 1 personne",
-      image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
+      image: "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png", // Switched with product 1
+      additionalImages: [
+        "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png",
+        "Housse de protection pour matelas en plastique épais - Matelas 1 personne - Image 2",
+        "Housse de protection pour matelas en plastique épais - Matelas 1 personne - Image 3"
+      ],
       price: 17.90,
       rating: 4.5,
       reviews: 133,
@@ -42,10 +56,37 @@ const ProductDetail = () => {
     {
       id: 3,
       title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 2 personnes",
-      image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png",
+      image: "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png", // Switched with product 4
+      additionalImages: {
+        "140x200": [
+          "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
+          "Oxford mattress 2 places - Image 2 - 140cm",
+          "Oxford mattress 2 places - Image 3",
+          "Oxford mattress 2 places - Image 4",
+          "Oxford mattress 2 places - Image 5",
+          "Oxford mattress 2 places - Image 6"
+        ],
+        "160x200": [
+          "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
+          "Oxford mattress 2 places - Image 2 - 160cm",
+          "Oxford mattress 2 places - Image 3",
+          "Oxford mattress 2 places - Image 4",
+          "Oxford mattress 2 places - Image 5",
+          "Oxford mattress 2 places - Image 6"
+        ],
+        "180x200": [
+          "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
+          "Oxford mattress 2 places - Image 2 - 180cm",
+          "Oxford mattress 2 places - Image 3",
+          "Oxford mattress 2 places - Image 4",
+          "Oxford mattress 2 places - Image 5",
+          "Oxford mattress 2 places - Image 6"
+        ]
+      },
+      sizes: ["140x200", "160x200", "180x200"],
       price: 29.90,
       rating: 4.5,
-      reviews: 95,
+      reviews: 355, // Updated review count
       category: "matelas2p",
       featured: true,
       amazonChoice: true
@@ -53,10 +94,18 @@ const ProductDetail = () => {
     {
       id: 4,
       title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 1 personne",
-      image: "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
+      image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png", // Switched with product 3
+      additionalImages: [
+        "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png",
+        "Oxford mattress 1 place - Image 2.jpg",
+        "Oxford mattress 1 place - Image 3.jpg",
+        "Oxford mattress 1 place - Image 4.jpg",
+        "Oxford mattress 1 place - Image 5.jpg",
+        "Oxford mattress 1 place - Image 6.jpg"
+      ],
       price: 24.90,
       rating: 4.5,
-      reviews: 87,
+      reviews: 355, // Updated review count
       category: "matelas1p",
       featured: false,
       amazonChoice: false
@@ -64,10 +113,18 @@ const ProductDetail = () => {
     {
       id: 5,
       title: "Kit de rangement sous vide - 4 sacs sous vide et 4 coffres non tissés",
-      image: "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png",
+      image: "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png", // Switched with product 6
+      additionalImages: [
+        "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png",
+        "4SET image 2.jpg",
+        "4SET image 3.jpg",
+        "4SET image 4.jpg",
+        "4SET image 5.jpg",
+        "4SET image 6.jpg"
+      ],
       price: 37.90,
       rating: 4.0,
-      reviews: 64,
+      reviews: 450, // Updated review count
       category: "rangementSacs",
       featured: true,
       amazonChoice: false
@@ -75,10 +132,18 @@ const ProductDetail = () => {
     {
       id: 6,
       title: "Kit de rangement sous vide - 2 sacs sous vide et 2 coffres non tissés",
-      image: "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png",
+      image: "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png", // Switched with product 5
+      additionalImages: [
+        "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png",
+        "2SET image 2.jpg",
+        "2SET image 3.jpg",
+        "2SET image 4.jpg",
+        "2SET image 5.jpg",
+        "2SET image 6.jpg"
+      ],
       price: 23.90,
       rating: 4.0,
-      reviews: 53,
+      reviews: 450, // Updated review count
       category: "rangementSacs",
       featured: false,
       amazonChoice: false
@@ -224,12 +289,15 @@ const ProductDetail = () => {
   const features = getProductFeatures(productId);
   const specifications = getProductSpecifications(productId);
 
-  // Ajout d'images supplémentaires pour le carrousel
-  const productImages = [
-    product.image,
-    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    "https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-  ];
+  // Get the correct images based on product type and selected size
+  const getProductImages = () => {
+    if (productId === 3) {
+      return product.additionalImages[mattressSize as keyof typeof product.additionalImages];
+    }
+    return product.additionalImages;
+  };
+
+  const productImages = getProductImages();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -240,7 +308,7 @@ const ProductDetail = () => {
         <div className="flex items-center mb-8">
           <Link to="/products" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
             <ArrowLeft className="h-4 w-4 mr-2" />
-            <span>Retour aux Produits</span>
+            <span>Retour aux produits</span>
           </Link>
         </div>
 
@@ -248,14 +316,15 @@ const ProductDetail = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {/* Product Images */}
           <div className="space-y-4">
-            <div className="aspect-square bg-packshield-lightGrey rounded-lg overflow-hidden flex items-center justify-center">
+            <div className="aspect-square bg-packshield-lightGrey rounded-lg overflow-hidden flex items-center justify-center relative">
+              {product.amazonChoice && <AmazonChoiceBadge />}
               <img 
                 src={productImages[selectedImage]} 
                 alt={product.title} 
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-6 gap-2">
               {productImages.map((image, index) => (
                 <button 
                   key={index}
@@ -274,17 +343,24 @@ const ProductDetail = () => {
 
           {/* Product Info */}
           <div>
-            {product.amazonChoice && (
-              <div className="mb-3">
-                <img 
-                  src="/lovable-uploads/2cea118d-b526-486e-b9ee-6f2863582b51.png" 
-                  alt="Choix d'Amazon"
-                  className="h-6" 
-                />
+            <h1 className="text-3xl font-bold text-packshield-navy mb-3">{product.title}</h1>
+            
+            {/* Product variant selection for product 3 */}
+            {productId === 3 && (
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-1">Taille</label>
+                <Select value={mattressSize} onValueChange={setMattressSize}>
+                  <SelectTrigger className="w-full max-w-xs">
+                    <SelectValue placeholder="Sélectionnez une taille" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="140x200">140cm x 200cm</SelectItem>
+                    <SelectItem value="160x200">160cm x 200cm</SelectItem>
+                    <SelectItem value="180x200">180cm x 200cm</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             )}
-            
-            <h1 className="text-3xl font-bold text-packshield-navy mb-3">{product.title}</h1>
             
             <div className="flex items-center mb-4">
               <div className="flex items-center mr-3">
@@ -292,7 +368,7 @@ const ProductDetail = () => {
                   <Star key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" />
                 ))}
                 {product.rating % 1 !== 0 && (
-                  <StarHalf className="h-5 w-5 text-yellow-400" fill="currentColor" />
+                  <StarHalf className="h-5 w-5 text-yellow-400 fill-[#d1d5db]" strokeWidth={0} />
                 )}
                 {[...Array(5 - Math.ceil(product.rating))].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-gray-300" fill="currentColor" />
@@ -308,7 +384,7 @@ const ProductDetail = () => {
             <div className="space-y-3 mb-8">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start">
-                  <Check className="h-5 w-5 text-packshield-orange mr-3 mt-0.5 flex-shrink-0" />
+                  <Star className="h-5 w-5 text-packshield-orange mr-3 mt-0.5 flex-shrink-0" />
                   <span>{feature}</span>
                 </div>
               ))}
@@ -320,10 +396,17 @@ const ProductDetail = () => {
                 <span className="font-medium">En stock - Prêt à expédier</span>
               </div>
               <div className="flex items-center text-packshield-navy">
-                <Shield className="h-5 w-5 mr-2" />
-                <span className="font-medium">Satisfaction garantie</span>
+                <ThumbsUp className="h-5 w-5 mr-2" />
+                <span className="font-medium">+5000 clients satisfaits</span>
               </div>
             </div>
+            
+            <Button 
+              className="bg-packshield-orange hover:bg-packshield-orange/90 text-white w-full md:w-auto mb-4"
+              onClick={() => window.open("https://amazon.fr", "_blank")}
+            >
+              <ShoppingBag className="mr-2 h-5 w-5" /> Acheter sur Amazon
+            </Button>
           </div>
         </div>
 
@@ -390,9 +473,10 @@ const ProductDetail = () => {
           <h2 className="text-2xl font-bold text-packshield-navy mb-6">Vous pourriez aussi aimer</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
             {relatedProducts.map(relatedProduct => (
-              <div key={relatedProduct.id} className="product-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
+              <div key={relatedProduct.id} className="product-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 relative">
                 <Link to={`/product/${relatedProduct.id}`}>
                   <div className="aspect-square overflow-hidden bg-packshield-lightGrey flex items-center justify-center">
+                    {relatedProduct.amazonChoice && <AmazonChoiceBadge />}
                     <img 
                       src={relatedProduct.image} 
                       alt={relatedProduct.title}
