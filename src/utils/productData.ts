@@ -96,9 +96,9 @@ export const products: Product[] = [
   {
     id: 4,
     title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 1 personne",
-    image: "/lovable-uploads/3f4f241e-4c35-4006-a824-7344c342592d.png",
+    image: "/lovable-uploads/4ef2324a-7042-495e-9299-31b2a6e05c33.png",
     additionalImages: [
-      "/lovable-uploads/3f4f241e-4c35-4006-a824-7344c342592d.png",
+      "/lovable-uploads/4ef2324a-7042-495e-9299-31b2a6e05c33.png",
       "/lovable-uploads/fa8ab4cc-52bc-40d2-9b01-7cc2fcc4415b.png",
       "/lovable-uploads/f229ab7c-0d8b-428e-894d-8c3fc630eb3a.png",
       "/lovable-uploads/15b53996-e3be-42eb-90f7-49487696a43a.png",
