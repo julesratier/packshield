@@ -1,5 +1,6 @@
+
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Star, StarHalf, Package, ThumbsUp, ShoppingBag } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -367,11 +368,11 @@ const ProductDetail = () => {
                   <Star key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" />
                 ))}
                 {product.rating % 1 !== 0 && (
-                  <StarHalf className="h-5 w-5 text-yellow-400 fill-[#d1d5db]" strokeWidth={0} />
+                  <StarHalf className="h-5 w-5 text-yellow-400" fill="currentColor" stroke="currentColor" />
                 )}
                 {[...Array(5 - Math.ceil(product.rating))].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-gray-300" fill="currentColor" />
-                ))}
+                )}
               </div>
               <span className="text-packshield-grey">{product.rating} ({product.reviews} avis)</span>
             </div>
