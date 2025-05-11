@@ -113,14 +113,14 @@ const ProductDetail = () => {
     {
       id: 5,
       title: "Kit de rangement sous vide - 4 sacs sous vide et 4 coffres non tissés",
-      image: "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png", // Switched with product 6
+      image: "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png", 
       additionalImages: [
         "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png",
-        "4SET image 2.jpg",
-        "4SET image 3.jpg",
-        "4SET image 4.jpg",
-        "4SET image 5.jpg",
-        "4SET image 6.jpg"
+        "/lovable-uploads/c5db4083-6963-4c79-a130-78d0af7018a2.png",
+        "/lovable-uploads/fa391208-f7f3-4551-8747-af5cbb2e3039.png",
+        "/lovable-uploads/50694c0f-48a0-4d8d-b845-36397926d112.png",
+        "/lovable-uploads/ed1cbc56-1f8b-4341-b60a-4288d1316949.png",
+        "/lovable-uploads/6711d68e-221c-4e6a-bd27-1f039876f830.png"
       ],
       price: 37.90,
       rating: 4.0,
