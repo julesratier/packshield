@@ -30,6 +30,33 @@ const ProductInfo = ({
   selectedSize,
   onSizeChange
 }: ProductInfoProps) => {
+  // Function to get the correct Amazon URL based on product ID and size
+  const getAmazonUrl = () => {
+    switch (productId) {
+      case 1:
+        return "https://amzn.to/43aXBYX";
+      case 2:
+        return "https://amzn.to/3RY4A2d";
+      case 3:
+        // For product 3, the URL depends on the selected size
+        if (selectedSize === "140x200") {
+          return "https://amzn.to/3RYvqaE";
+        } else if (selectedSize === "160x200") {
+          return "https://amzn.to/4mc3pKs";
+        } else if (selectedSize === "180x200") {
+          return "https://amzn.to/43nhUUa";
+        }
+        return "https://amzn.to/3RYvqaE"; // Default to 140x200 if no size selected
+      case 4:
+        return "https://amzn.to/4jfN1Gh";
+      case 5:
+      case 6:
+        return "https://amzn.to/4jPHo2D";
+      default:
+        return "https://amazon.fr";
+    }
+  };
+
   return (
     <div>
       <h1 className="text-3xl font-bold text-packshield-navy mb-3">{title}</h1>
@@ -76,7 +103,7 @@ const ProductInfo = ({
       
       <Button 
         className="bg-packshield-orange hover:bg-packshield-orange/90 text-white w-full md:w-auto mb-4"
-        onClick={() => window.open("https://amazon.fr", "_blank")}
+        onClick={() => window.open(getAmazonUrl(), "_blank")}
       >
         <ShoppingBag className="mr-2 h-5 w-5" /> Acheter sur Amazon
       </Button>

@@ -8,7 +8,7 @@ interface ProductRatingProps {
 
 const ProductRating = ({ rating, reviewCount }: ProductRatingProps) => {
   return (
-    <div className="flex items-center mb-4">
+    <div className="flex items-center mb-4 bg-packshield-lightGrey/20 p-2 rounded-md inline-flex">
       <div className="flex items-center mr-3">
         {[...Array(Math.floor(rating))].map((_, i) => (
           <Star key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" />
@@ -20,7 +20,7 @@ const ProductRating = ({ rating, reviewCount }: ProductRatingProps) => {
           <Star key={i} className="h-5 w-5 text-gray-300" fill="currentColor" />
         ))}
       </div>
-      <span className="text-packshield-grey">{rating} ({reviewCount} avis)</span>
+      <span className="text-packshield-grey font-medium">{rating} ({reviewCount} avis)</span>
     </div>
   );
 };

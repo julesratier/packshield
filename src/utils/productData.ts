@@ -1,4 +1,3 @@
-
 interface ProductSpecification {
   [key: string]: string;
 }
@@ -26,11 +25,11 @@ export const products: Product[] = [
   {
     id: 1,
     title: "Housse de protection pour matelas en plastique épais - Matelas 2 personnes",
-    image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png", // Switched with product 2
+    image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
     additionalImages: [
       "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
-      "Housse de protection pour matelas en plastique - Matelas 2 personnes - Image 2",
-      "Housse de protection pour matelas en plastique - Matelas 2 personnes - Image 3"
+      "/lovable-uploads/a4825875-946f-4f75-9ae2-db01457ca902.png",
+      "/lovable-uploads/9506d2f3-665b-4e21-8afc-30d67d79eaba.png"
     ],
     price: 21.90,
     rating: 4.5,
@@ -42,11 +41,11 @@ export const products: Product[] = [
   {
     id: 2,
     title: "Housse de protection pour matelas en plastique épais - Matelas 1 personne",
-    image: "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png", // Switched with product 1
+    image: "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png",
     additionalImages: [
       "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png",
-      "Housse de protection pour matelas en plastique épais - Matelas 1 personne - Image 2",
-      "Housse de protection pour matelas en plastique épais - Matelas 1 personne - Image 3"
+      "/lovable-uploads/cfbed207-cdcb-42cf-8fe9-c3c6992298ef.png",
+      "/lovable-uploads/09e23ae0-b8c6-45d9-b975-0b8b565b9a67.png"
     ],
     price: 17.90,
     rating: 4.5,
