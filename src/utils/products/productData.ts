@@ -38,10 +38,10 @@ export const products: Product[] = [
   {
     id: 3,
     title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 2 personnes",
-    image: "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png",
+    image: "/lovable-uploads/89d618f8-5401-4b89-a25f-2ca2d58d2e33.png",
     additionalImages: {
       "140x200": [
-        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png",
+        "/lovable-uploads/89d618f8-5401-4b89-a25f-2ca2d58d2e33.png",
         "/lovable-uploads/625f51dc-185c-496c-9cc8-593860582555.png", 
         "/lovable-uploads/c0e1521b-de5a-475c-a7c4-7f0a54c018e6.png",
         "/lovable-uploads/81c480a7-4e56-4431-9299-dbab8669e8cc.png",
@@ -49,7 +49,7 @@ export const products: Product[] = [
         "/lovable-uploads/35604239-0177-4ea6-a88a-2e4ced991900.png"
       ],
       "160x200": [
-        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png",
+        "/lovable-uploads/89d618f8-5401-4b89-a25f-2ca2d58d2e33.png",
         "/lovable-uploads/abd6a3cd-56a5-4417-8c4b-fb1859c12c9b.png", 
         "/lovable-uploads/c0e1521b-de5a-475c-a7c4-7f0a54c018e6.png",
         "/lovable-uploads/81c480a7-4e56-4431-9299-dbab8669e8cc.png",
@@ -57,7 +57,7 @@ export const products: Product[] = [
         "/lovable-uploads/35604239-0177-4ea6-a88a-2e4ced991900.png"
       ],
       "180x200": [
-        "/lovable-uploads/0a3c1900-8ac0-4945-bc9d-481040406f50.png",
+        "/lovable-uploads/89d618f8-5401-4b89-a25f-2ca2d58d2e33.png",
         "/lovable-uploads/c82c0160-ed55-4c12-a0ac-52be391099ee.png",
         "/lovable-uploads/c0e1521b-de5a-475c-a7c4-7f0a54c018e6.png",
         "/lovable-uploads/81c480a7-4e56-4431-9299-dbab8669e8cc.png",
@@ -131,3 +131,4 @@ export const products: Product[] = [
     amazonChoice: false
   }
 ];
+
