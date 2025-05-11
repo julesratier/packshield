@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -15,7 +14,7 @@ import {
   getProductDescription, 
   getProductFeatures, 
   getProductSpecifications 
-} from '@/utils/productData';
+} from '@/utils/products';
 
 const oxfordMattressReviews = [
   {

@@ -8,7 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import Flag from '@/components/Flag';
 import FAQ from '@/components/FAQ';
-import { products } from '@/utils/productData';
+import { products } from '@/utils/products';
 
 const Index = () => {
   const [emailInput, setEmailInput] = useState('');

@@ -8,7 +8,7 @@ import { Slider } from '@/components/ui/slider';
 import AmazonChoiceBadge from '@/components/AmazonChoiceBadge';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { products } from '@/utils/productData';
+import { products } from '@/utils/products';
 
 const Products = () => {
   const [priceRange, setPriceRange] = useState([0, 50]);
