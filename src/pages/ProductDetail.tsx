@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Check, StarHalf, Star, Package, ThumbsUp, ShoppingBag } from 'lucide-react';
@@ -56,26 +55,26 @@ const ProductDetail = () => {
     {
       id: 3,
       title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 2 personnes",
-      image: "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png", // Switched with product 4
+      image: "/lovable-uploads/0af1396d-ec9f-4fca-91cd-0a52d845fe1d.png", // Nouvelle image principale
       additionalImages: {
         "140x200": [
-          "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
-          "/lovable-uploads/337d709d-85fc-4a93-b89a-09b89407402e.png",
+          "/lovable-uploads/0af1396d-ec9f-4fca-91cd-0a52d845fe1d.png",
+          "/lovable-uploads/d0aad56a-5c0d-4400-80b4-5fe411063a61.png", // Nouvelle image 2 pour 140cm
           "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
           "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
           "/lovable-uploads/7c9f60c9-8bf9-4aa1-bc32-eda8ce1b9871.png",
           "/lovable-uploads/055260c1-0d88-4ac2-b84c-e05dd7fa10af.png"
         ],
         "160x200": [
-          "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
-          "/lovable-uploads/cf0cf592-f43b-457b-af01-c8f256a50683.png",
+          "/lovable-uploads/0af1396d-ec9f-4fca-91cd-0a52d845fe1d.png",
+          "/lovable-uploads/abd6a3cd-56a5-4417-8c4b-fb1859c12c9b.png", // Nouvelle image 2 pour 160cm
           "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
           "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
           "/lovable-uploads/7c9f60c9-8bf9-4aa1-bc32-eda8ce1b9871.png",
           "/lovable-uploads/055260c1-0d88-4ac2-b84c-e05dd7fa10af.png"
         ],
         "180x200": [
-          "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png",
+          "/lovable-uploads/0af1396d-ec9f-4fca-91cd-0a52d845fe1d.png",
           "/lovable-uploads/c82c0160-ed55-4c12-a0ac-52be391099ee.png",
           "/lovable-uploads/c4147a2c-767a-4a07-b1b7-db48cc4cb112.png",
           "/lovable-uploads/4d825d9c-c8ea-4fa0-a188-269722ae141e.png",
