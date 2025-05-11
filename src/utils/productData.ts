@@ -29,8 +29,8 @@ export const products: Product[] = [
     image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
     additionalImages: [
       "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
-      "/lovable-uploads/a4825875-946f-4f75-9ae2-db01457ca902.png",
-      "/lovable-uploads/9506d2f3-665b-4e21-8afc-30d67d79eaba.png"
+      "/lovable-uploads/805497d7-8696-4cc6-bb18-5289ed33c40a.png",
+      "/lovable-uploads/8a8ae62e-38d3-486c-ace5-ddba71582b9c.png"
     ],
     price: 21.90,
     rating: 4.5,
