@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Star, Package } from 'lucide-react';
@@ -9,39 +8,25 @@ import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import Flag from '@/components/Flag';
 import FAQ from '@/components/FAQ';
+import { products } from '@/utils/productData';
 
 const Index = () => {
   const [emailInput, setEmailInput] = useState('');
 
-  const featuredProducts = [
-    {
-      id: 1,
-      title: "Housse de Protection pour Matelas en Plastique Epais - Matelas 2 personnes",
-      image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png",
-      price: 21.90,
-      rating: 4.5,
-      reviews: 133,
-      amazonUrl: "https://amzn.to/43aXBYX",
-    },
-    {
-      id: 4,
-      title: "Housse de Protection Matelas en tissu Oxford - 4 poignées - Matelas 1 personne",
-      image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png",
-      price: 24.90,
-      rating: 4.5,
-      reviews: 355,
-      amazonUrl: "https://amzn.to/4jfN1Gh",
-    },
-    {
-      id: 5,
-      title: "Kit de Rangement Sous Vide - 4 sacs sous vide et 4 coffres non tissés",
-      image: "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png",
-      price: 37.90,
-      rating: 4.0,
-      reviews: 450,
-      amazonUrl: "https://amzn.to/4jPHo2D",
-    }
-  ];
+  // Get featured products from the central product data source
+  const featuredProducts = products
+    .filter(product => [1, 4, 5].includes(product.id))
+    .map(product => ({
+      id: product.id,
+      title: product.title,
+      image: product.image,
+      price: product.price,
+      rating: product.rating,
+      reviews: product.reviews,
+      amazonUrl: product.id === 1 ? "https://amzn.to/43aXBYX" : 
+                 product.id === 4 ? "https://amzn.to/4jfN1Gh" :
+                 product.id === 5 ? "https://amzn.to/4jPHo2D" : "https://amazon.fr"
+    }));
 
   const blogPosts = [
     {

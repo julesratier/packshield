@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, StarHalf, ChevronDown, ChevronUp } from 'lucide-react';
@@ -9,6 +8,7 @@ import { Slider } from '@/components/ui/slider';
 import AmazonChoiceBadge from '@/components/AmazonChoiceBadge';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { products } from '@/utils/productData';
 
 const Products = () => {
   const [priceRange, setPriceRange] = useState([0, 50]);
@@ -19,71 +19,6 @@ const Products = () => {
   });
   const [sortOption, setSortOption] = useState('featured');
   const [filtersVisible, setFiltersVisible] = useState(false);
-
-  // Updated product data based on requirements
-  const products = [
-    {
-      id: 1,
-      title: "Housse de protection pour matelas en plastique épais - Matelas 2 personnes",
-      image: "/lovable-uploads/749c660d-8352-4181-86b7-f56c7326e2ee.png", // Switched with product 2
-      price: 21.90,
-      rating: 4.5,
-      reviews: 133,
-      category: "matelas2p",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Housse de protection pour matelas en plastique épais - Matelas 1 personne",
-      image: "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png", // Switched with product 1
-      price: 17.90,
-      rating: 4.5,
-      reviews: 133,
-      category: "matelas1p",
-      featured: true
-    },
-    {
-      id: 3,
-      title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 2 personnes",
-      image: "/lovable-uploads/1a390bfc-189e-446c-afd8-4691d162209d.png", // Switched with product 4
-      price: 29.90,
-      rating: 4.5,
-      reviews: 355, // Updated review count
-      category: "matelas2p",
-      amazonChoice: true,
-      featured: true
-    },
-    {
-      id: 4,
-      title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 1 personne",
-      image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png", // Switched with product 3
-      price: 24.90,
-      rating: 4.5,
-      reviews: 355, // Updated review count
-      category: "matelas1p",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "Kit de rangement sous vide - 4 sacs sous vide et 4 coffres non tissés",
-      image: "/lovable-uploads/8c803c29-2912-4a3b-b160-64c59a0e4642.png", // Switched with product 6
-      price: 37.90,
-      rating: 4.0,
-      reviews: 450, // Updated review count
-      category: "rangementSacs",
-      featured: true
-    },
-    {
-      id: 6,
-      title: "Kit de rangement sous vide - 2 sacs sous vide et 2 coffres non tissés",
-      image: "/lovable-uploads/b268c516-e549-401b-a4be-3e36df6e9332.png", // Switched with product 5
-      price: 23.90,
-      rating: 4.0,
-      reviews: 450, // Updated review count
-      category: "rangementSacs",
-      featured: false
-    }
-  ];
 
   // Filtrer les produits en fonction des filtres sélectionnés
   const filteredProducts = products.filter(product => {
