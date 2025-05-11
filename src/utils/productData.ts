@@ -96,14 +96,14 @@ export const products: Product[] = [
   {
     id: 4,
     title: "Housse de protection pour matelas en tissu oxford - 4 poignées - Matelas 1 personne",
-    image: "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png",
+    image: "/lovable-uploads/3f4f241e-4c35-4006-a824-7344c342592d.png",
     additionalImages: [
-      "/lovable-uploads/e5fdd6a6-494d-4b06-bd6a-c8bc4855a803.png",
-      "/lovable-uploads/6a2cdbe6-6983-4333-b99e-03a02241d408.png", // Oxford mattress 1 place - Image 2
-      "/lovable-uploads/dce49061-e72d-4ffa-814e-a921f5df9dd8.png", // Oxford mattress 1 place - Image 3
-      "/lovable-uploads/9f599893-9cc6-4a05-8f82-985b543f8c8d.png", // Oxford mattress 1 place - Image 4
-      "/lovable-uploads/82ddd7e9-aed9-4271-bfac-33109fbde9be.png", // Oxford mattress 1 place - Image 5
-      "/lovable-uploads/eb9361d4-37fa-494a-9374-f31bca0c120a.png"  // Oxford mattress 1 place - Image 6
+      "/lovable-uploads/3f4f241e-4c35-4006-a824-7344c342592d.png",
+      "/lovable-uploads/fa8ab4cc-52bc-40d2-9b01-7cc2fcc4415b.png",
+      "/lovable-uploads/f229ab7c-0d8b-428e-894d-8c3fc630eb3a.png",
+      "/lovable-uploads/15b53996-e3be-42eb-90f7-49487696a43a.png",
+      "/lovable-uploads/aaacb1c2-9364-4f06-843f-0c57a04911a6.png",
+      "/lovable-uploads/e06bb97f-3264-4ae6-bd47-a960f157e455.png"
     ],
     price: 24.90,
     rating: 4.5,
