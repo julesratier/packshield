@@ -12,12 +12,14 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
   useEffect(() => {
     // Charger les images en fonction du produit
     if (productId === 3) {
+      // Nouvelles images pour la housse matelas tissu oxford 2 personnes
       setImages([
-        "/lovable-uploads/e80d83d5-e14c-480e-a990-1c8d9444dad3.png",
-        "/lovable-uploads/38927fe9-9485-424c-85ae-e65c7529c567.png",
-        "/lovable-uploads/4271c391-1443-45e2-b89e-139febe1d4de.png",
-        "/lovable-uploads/fbce7f6e-114a-453f-8835-98297236d5ee.png",
-        "/lovable-uploads/53f1d12a-7a7b-4b79-b2d4-68fcc8a0c5b7.png"
+        "/lovable-uploads/52bd6ec2-efc3-4c66-982e-2da1c5b665bf.png",
+        "/lovable-uploads/458530f5-7e7d-43ba-9925-97579b38b2ef.png",
+        "/lovable-uploads/ae0c10f2-47f9-46a5-ae79-299469c4cc39.png",
+        "/lovable-uploads/ccfc164e-fb0b-43f1-85a1-1485209ae2f6.png",
+        "/lovable-uploads/dde46268-6c9a-48e5-8b8e-2fc4d6a13bd4.png",
+        "/lovable-uploads/35c60a39-e526-4061-b634-5c29c0050567.png"
       ]);
     } else if (productId === 4) {
       // Images mises à jour pour la housse matelas tissu oxford 1 personne - Nouvel ordre
