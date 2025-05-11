@@ -22,11 +22,11 @@ export const products: Product[] = [
   {
     id: 2,
     title: "Housse de protection pour matelas en plastique épais - Matelas 1 personne",
-    image: "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png",
+    image: "/lovable-uploads/66736f2d-d818-4c4e-9842-54017f7f3df2.png",
     additionalImages: [
-      "/lovable-uploads/6e9d7aa1-0c99-43a7-9763-b3cfa618b7cf.png",
-      "/lovable-uploads/26b3c3e3-de7b-4f74-a954-3c155d6b84cd.png",
-      "/lovable-uploads/a3026e2f-1df4-49f7-a286-b19f2e52e58a.png"
+      "/lovable-uploads/66736f2d-d818-4c4e-9842-54017f7f3df2.png",
+      "/lovable-uploads/304b7a7e-3769-4cdf-bbcb-2ac92d7358d5.png",
+      "/lovable-uploads/bc81fc7d-037a-4bf5-9ef9-03f43ca86cd9.png"
     ],
     price: 17.90,
     rating: 4.5,
