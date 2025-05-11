@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'router-dom';
 import { ArrowLeft, Star, StarHalf, Package, ThumbsUp, ShoppingBag } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -292,9 +291,9 @@ const ProductDetail = () => {
   // Get the correct images based on product type and selected size
   const getProductImages = () => {
     if (productId === 3) {
-      return product.additionalImages[mattressSize as keyof typeof product.additionalImages];
+      return product.additionalImages[mattressSize as keyof typeof product.additionalImages] || [];
     }
-    return product.additionalImages;
+    return Array.isArray(product.additionalImages) ? product.additionalImages : [];
   };
 
   const productImages = getProductImages();
