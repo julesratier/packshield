@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Star, Package } from 'lucide-react';
@@ -68,7 +69,7 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative bg-packshield-navy text-white">
-        <div className="absolute inset-0 bg-[url('/lovable-uploads/db866ce8-b055-4daf-888b-fd7df2ce3e19.png')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-[url('/lovable-uploads/2ac141c6-466d-4973-8156-de9fb5067a85.png')] bg-cover bg-center"></div>
         <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Protégez ce qui compte vraiment</h1>
