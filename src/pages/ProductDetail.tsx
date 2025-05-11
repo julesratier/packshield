@@ -372,7 +372,7 @@ const ProductDetail = () => {
                 )}
                 {[...Array(5 - Math.ceil(product.rating))].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-gray-300" fill="currentColor" />
-                )}
+                ))}
               </div>
               <span className="text-packshield-grey">{product.rating} ({product.reviews} avis)</span>
             </div>
