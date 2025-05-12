@@ -26,7 +26,7 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
         "/lovable-uploads/35c60a39-e526-4061-b634-5c29c0050567.png"
       ]);
     } else if (productId === 4) {
-      // Updated images for oxford fabric mattress cover 1 person - New order
+      // Images for oxford fabric mattress cover 1 person
       setImages([
         "/lovable-uploads/1aa6ffdd-f448-4d28-b6b1-3e756b8f6921.png",
         "/lovable-uploads/fb1fbcbc-914a-4512-bc02-332ec195bf78.png",
@@ -36,7 +36,7 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
         "/lovable-uploads/5b3dfff2-dc47-422b-9dd2-b40528c57f4c.png"
       ]);
     } else if (productId === 5 || productId === 6) {
-      // Updated images for vacuum storage kits (same for both kits)
+      // Images for vacuum storage kits (same for both kits)
       setImages([
         "/lovable-uploads/74a95a48-fdb1-4755-b763-46434fd03b83.png",
         "/lovable-uploads/fd0e2984-793a-4baf-a91e-b9e8b105ad7e.png",

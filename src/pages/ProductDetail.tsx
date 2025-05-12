@@ -42,10 +42,8 @@ const ProductDetail = () => {
 
   // Get the correct images based on product type and selected size
   const getProductImages = () => {
-    if (productId === 3) {
-      return product.additionalImages && typeof product.additionalImages === 'object' && !Array.isArray(product.additionalImages) 
-        ? (product.additionalImages[mattressSize as keyof typeof product.additionalImages] || [])
-        : [];
+    if (productId === 3 && product.additionalImages && typeof product.additionalImages === 'object' && !Array.isArray(product.additionalImages)) {
+      return product.additionalImages[mattressSize as keyof typeof product.additionalImages] || [];
     }
     return Array.isArray(product.additionalImages) ? product.additionalImages : [];
   };
