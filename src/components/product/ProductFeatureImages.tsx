@@ -10,6 +10,10 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
+    // Réinitialiser les images à chaque changement de produit
+    setImages([]);
+    setImagesLoaded(false);
+    
     // Charger les images en fonction du produit
     if (productId === 3) {
       // Nouvelles images pour la housse matelas tissu oxford 2 personnes
@@ -67,6 +71,7 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
     }
   }, [images]);
 
+  // Ne rien afficher s'il n'y a pas d'images
   if (images.length === 0) return null;
 
   return (
