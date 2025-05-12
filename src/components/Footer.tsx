@@ -4,6 +4,12 @@ import { Facebook, Mail } from 'lucide-react';
 import Logo from './Logo';
 
 const Footer = () => {
+  // Function to handle scroll to FAQ section
+  const handleFaqClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.location.href = '/#faq';
+  };
+
   return (
     <footer className="bg-packshield-navy text-white">
       <div className="container mx-auto px-4 py-12">
@@ -18,7 +24,7 @@ const Footer = () => {
                 <Facebook size={20} />
               </a>
               <a href="https://amzn.to/3GQ0wyC" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors">
-                <img src="/lovable-uploads/4e45db1d-ed12-4e78-aa8d-523b3f31f73d.png" alt="Amazon" width="20" height="20" className="w-5 h-5" />
+                <img src="/lovable-uploads/fa391208-f7f3-4551-8747-af5cbb2e3039.png" alt="Amazon" width="20" height="20" className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -38,7 +44,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/blog" className="text-gray-300 hover:text-packshield-orange transition-colors">Blog</Link></li>
               <li><Link to="/guides" className="text-gray-300 hover:text-packshield-orange transition-colors">Guides de déménagement</Link></li>
-              <li><Link to="/#faq" className="text-gray-300 hover:text-packshield-orange transition-colors">FAQs</Link></li>
+              <li><a href="/#faq" onClick={handleFaqClick} className="text-gray-300 hover:text-packshield-orange transition-colors">FAQs</a></li>
               <li><Link to="/contact" className="text-gray-300 hover:text-packshield-orange transition-colors">Nous contacter</Link></li>
             </ul>
           </div>

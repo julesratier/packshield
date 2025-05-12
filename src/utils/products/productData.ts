@@ -1,4 +1,3 @@
-import { StaticImageData } from "next/image";
 
 export interface Product {
   id: number;
@@ -8,16 +7,10 @@ export interface Product {
   price: number;
   rating: number;
   reviews: number;
+  category: string;
+  featured: boolean;
   amazonChoice: boolean;
-  categories: string[];
-  sizes: string[];
-  isNew: boolean;
-  isBestseller: boolean;
-  isOnSale: boolean;
-  discountPercent: number;
-  stock: number;
-  sku: string;
-  tags: string[];
+  sizes?: string[];
 }
 
 export const getProductDescription = (productId: number): string => {
@@ -147,7 +140,7 @@ export const getProductSpecifications = (productId: number): { [key: string]: st
   }
 };
 
-const products: Product[] = [
+const products = [
   {
     id: 1,
     title: "Housse protection matelas en plastique épais",
@@ -162,15 +155,8 @@ const products: Product[] = [
     rating: 4.5,
     reviews: 124,
     amazonChoice: true,
-    categories: ["mattress", "moving", "storage"],
-    sizes: [],
-    isNew: true,
-    isBestseller: true,
-    isOnSale: false,
-    discountPercent: 0,
-    stock: 20,
-    sku: "PS-MB-001",
-    tags: ["mattress bag", "moving", "storage solutions"]
+    category: "matelas2p",
+    featured: true
   },
   {
     id: 2,
@@ -186,15 +172,8 @@ const products: Product[] = [
     rating: 4.3,
     reviews: 89,
     amazonChoice: false,
-    categories: ["storage", "vacuum"],
-    sizes: [],
-    isNew: false,
-    isBestseller: false,
-    isOnSale: true,
-    discountPercent: 15,
-    stock: 35,
-    sku: "PS-VSB-002",
-    tags: ["vacuum bags", "space saving", "storage solutions"]
+    category: "rangementSacs",
+    featured: false
   },
   {
     id: 3,
@@ -224,15 +203,9 @@ const products: Product[] = [
     rating: 4.0,
     reviews: 67,
     amazonChoice: false,
-    categories: ["mattress", "storage"],
-    sizes: ["140x200", "160x200", "180x200"],
-    isNew: false,
-    isBestseller: false,
-    isOnSale: false,
-    discountPercent: 0,
-    stock: 12,
-    sku: "PS-MC-003",
-    tags: ["mattress cover", "fabric", "storage solutions"]
+    category: "matelas2p",
+    featured: false,
+    sizes: ["140x200", "160x200", "180x200"]
   },
   {
     id: 4,
@@ -248,15 +221,8 @@ const products: Product[] = [
     rating: 4.2,
     reviews: 48,
     amazonChoice: true,
-    categories: ["storage", "vacuum", "kits"],
-    sizes: [],
-    isNew: false,
-    isBestseller: false,
-    isOnSale: true,
-    discountPercent: 10,
-    stock: 15,
-    sku: "PS-VACKIT-S",
-    tags: ["vacuum storage", "space saving", "storage solutions"]
+    category: "rangementSacs",
+    featured: true
   },
   {
     id: 5,
@@ -272,15 +238,8 @@ const products: Product[] = [
     rating: 4.4,
     reviews: 52,
     amazonChoice: false,
-    categories: ["storage", "organization"],
-    sizes: [],
-    isNew: false,
-    isBestseller: false,
-    isOnSale: false,
-    discountPercent: 0,
-    stock: 28,
-    sku: "PS-ORG-005",
-    tags: ["storage box", "organization", "space saving"]
+    category: "rangementSacs",
+    featured: true
   },
   {
     id: 6,
@@ -296,15 +255,8 @@ const products: Product[] = [
     rating: 4.2,
     reviews: 36,
     amazonChoice: false,
-    categories: ["storage", "vacuum", "kits"],
-    sizes: [],
-    isNew: false,
-    isBestseller: true,
-    isOnSale: false,
-    discountPercent: 0,
-    stock: 8,
-    sku: "PS-VACKIT-L",
-    tags: ["vacuum storage", "space saving", "storage solutions"]
+    category: "rangementSacs",
+    featured: false
   },
 ];
 

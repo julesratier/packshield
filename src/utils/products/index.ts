@@ -1,6 +1,4 @@
 
 export * from './types';
-export * from './productData';
-export * from './productDescriptions';
-export * from './productFeatures';
-export * from './productSpecifications';
+export { default as products } from './productData';
+export { getProductDescription, getProductFeatures, getProductSpecifications } from './productData';
