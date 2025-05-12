@@ -1,7 +1,8 @@
 
 import { Link } from 'react-router-dom';
-import { Star } from "lucide-react";
+import { Star, StarHalf } from "lucide-react";
 import { Product } from '@/utils/products';
+import AmazonChoiceBadge from '@/components/AmazonChoiceBadge';
 
 interface RelatedProductsProps {
   products: Product[];
@@ -17,43 +18,39 @@ const RelatedProducts = ({ products }: RelatedProductsProps) => {
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map(product => (
-          <Link
-            to={`/product/${product.id}`}
-            key={product.id}
-            className="block bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition"
-          >
-            <div className="aspect-square bg-packshield-lightGrey flex items-center justify-center p-4">
-              <img 
-                src={product.image} 
-                alt={product.title} 
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
-            
-            <div className="p-4">
-              <h3 className="text-lg font-medium text-packshield-navy mb-1 line-clamp-2">{product.title}</h3>
-              
-              <div className="flex items-center mb-2">
-                <div className="flex mr-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`h-3 w-3 ${
-                        i < product.rating ? "text-yellow-400" : "text-gray-300"
-                      }`}
-                      fill="currentColor"
-                    />
-                  ))}
+          <div key={product.id} className="product-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 relative">
+            <Link to={`/product/${product.id}`}>
+              <div className="aspect-square overflow-hidden bg-packshield-lightGrey flex items-center justify-center">
+                {product.amazonChoice && <AmazonChoiceBadge />}
+                <img 
+                  src={product.image} 
+                  alt={product.title}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-packshield-navy mb-2">{product.title}</h3>
+                <div className="flex items-center mb-3">
+                  <div className="flex items-center mr-2">
+                    {[...Array(Math.floor(product.rating))].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-400" fill="currentColor" />
+                    ))}
+                    {product.rating % 1 !== 0 && (
+                      <StarHalf className="h-4 w-4 text-yellow-400" fill="currentColor" />
+                    )}
+                    {[...Array(5 - Math.ceil(product.rating))].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-gray-300" fill="currentColor" />
+                    ))}
+                  </div>
+                  <span className="text-sm text-packshield-grey">({product.reviews})</span>
                 </div>
-                <span className="text-xs text-packshield-grey">({product.reviews})</span>
+                <div className="flex flex-col">
+                  <span className="text-sm text-gray-500 line-through">{getOriginalPrice(product.price)}€</span>
+                  <span className="text-xl font-bold text-packshield-navy">{product.price.toFixed(2)}€</span>
+                </div>
               </div>
-              
-              <div className="flex flex-col">
-                <span className="text-sm text-gray-500 line-through">{getOriginalPrice(product.price)}€</span>
-                <span className="text-lg font-semibold text-packshield-navy">{product.price.toFixed(2)}€</span>
-              </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         ))}
       </div>
     </div>
