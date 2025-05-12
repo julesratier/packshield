@@ -1,5 +1,6 @@
+
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -16,73 +17,15 @@ import {
   getProductSpecifications 
 } from '@/utils/products';
 
-const oxfordMattressReviews = [
-  {
-    name: "Thierry.l",
-    rating: 5,
-    title: "Article conforme",
-    date: "27 mars 2025",
-    comment: "Fait le job, pratique et suffisamment solide"
-  },
-  {
-    name: "Amazon Customer",
-    rating: 5,
-    title: "Pratique",
-    date: "11 février 2025",
-    comment: "Protège bien le matelas"
-  },
-  {
-    name: "Van",
-    rating: 5,
-    title: "Produit de qualité",
-    date: "29 janvier 2025",
-    comment: "Housse correspondante aux dimensions indiquées. Utilisée pour un matelas standard, remisé dans un grenier. Mise en place facile grâce à la fermeture éclair 3 côtés. Housse qui semble de bonne facture et ne s'est pas déchirée. Munie de poignées, très pratiques pour le bouger une fois dans la housse. Pour le prix, je recommande !"
-  },
-  {
-    name: "eliane rascalou",
-    rating: 4,
-    title: "Taille bien adapté au grand matelas",
-    date: "9 février 2025",
-    comment: "Produit de bonne qualité"
-  },
-  {
-    name: "Agence T.",
-    rating: 5,
-    title: "Excellent produit",
-    date: "23 avril 2025",
-    comment: "Produit qualitatif. Adapté au matelas même très épais"
-  },
-  {
-    name: "Florence5622",
-    rating: 5,
-    title: "Housse de protection",
-    date: "4 mai 2025",
-    comment: "Housse solide, non transparente, elle enveloppe bien le matelas."
-  },
-  {
-    name: "Chereau",
-    rating: 5,
-    title: "facile d'utilisation",
-    date: "7 janvier 2025",
-    comment: "Excellent produit pour transporter et stoker un matelas, parfait pour protéger un matelas de Camping-car pendant l'hivernage …"
-  },
-  {
-    name: "Soso",
-    rating: 5,
-    title: "Top",
-    date: "10 avril 2025",
-    comment: "Top"
-  }
-];
-
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [mattressSize, setMattressSize] = useState("140x200");
+  const location = useLocation();
   
-  // Scroll to top on page load
+  // Scroll to top on page load or when ID changes
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [id, location.pathname]);
   
   const productId = parseInt(id || "1");
   const product = products.find(p => p.id === productId) || products[0];
@@ -163,7 +106,7 @@ const ProductDetail = () => {
         </div>
         
         {/* Customer Reviews */}
-        <CustomerReviews reviews={oxfordMattressReviews} productId={productId} />
+        <CustomerReviews reviews={[]} productId={productId} />
         
         {/* Product Feature Images */}
         <ProductFeatureImages productId={productId} />

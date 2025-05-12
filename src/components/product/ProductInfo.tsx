@@ -56,6 +56,9 @@ const ProductInfo = ({
         return "https://amazon.fr";
     }
   };
+  
+  // Calculer le prix original (prix + 3€)
+  const originalPrice = price + 3;
 
   return (
     <div>
@@ -84,7 +87,10 @@ const ProductInfo = ({
       
       <ProductRating rating={rating} reviewCount={reviews} />
       
-      <div className="text-2xl font-bold text-packshield-navy mb-6">{price.toFixed(2)}€</div>
+      <div className="mb-6">
+        <span className="text-sm text-gray-500 line-through block">{originalPrice.toFixed(2)}€</span>
+        <span className="text-2xl font-bold text-packshield-navy">{price.toFixed(2)}€</span>
+      </div>
       
       <p className="text-packshield-grey mb-6">{description}</p>
       

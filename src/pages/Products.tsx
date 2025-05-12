@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, StarHalf, ChevronDown, ChevronUp } from 'lucide-react';
@@ -48,13 +49,18 @@ const Products = () => {
     });
   };
 
+  // Calculer le prix réduit (prix actuel) et le prix original (prix + 3€)
+  const getOriginalPrice = (currentPrice: number) => {
+    return (currentPrice + 3).toFixed(2);
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
       <div className="bg-packshield-lightGrey py-10">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-packshield-navy text-center">Nos Produits</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-packshield-navy text-center">Nos produits</h1>
           <p className="text-packshield-grey text-center mt-4 max-w-2xl mx-auto">
             Housses de matelas premium et solutions de stockage conçues pour garder vos biens en sécurité et protégés.
           </p>
@@ -253,7 +259,8 @@ const Products = () => {
                           </div>
                           <span className="text-sm text-packshield-grey">({product.reviews})</span>
                         </div>
-                        <div className="flex justify-between items-center">
+                        <div className="flex flex-col">
+                          <span className="text-sm text-gray-500 line-through">{getOriginalPrice(product.price)}€</span>
                           <span className="text-xl font-bold text-packshield-navy">{product.price.toFixed(2)}€</span>
                         </div>
                       </div>

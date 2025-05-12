@@ -45,8 +45,8 @@ export const getProductSpecifications = (productId: number): ProductSpecificatio
         "Contenu": "4 sacs sous vide + 4 coffres de rangement",
         "Matériau sacs": "Polyéthylène et nylon",
         "Matériau coffres": "Tissu non tissé respirant",
-        "Taille des sacs": "80cm x 100cm",
-        "Taille des coffres": "45cm x 30cm x 20cm",
+        "Taille des sacs": "XL: 90cm x 70cm, XXL: 90cm x 110cm",
+        "Taille des coffres": "40cm x 40cm x 20cm, 40cm x 60cm x 30cm",
         "Valve": "Valve anti-retour double fermeture"
       };
     case 6:
@@ -54,8 +54,8 @@ export const getProductSpecifications = (productId: number): ProductSpecificatio
         "Contenu": "2 sacs sous vide + 2 coffres de rangement",
         "Matériau sacs": "Polyéthylène et nylon",
         "Matériau coffres": "Tissu non tissé respirant",
-        "Taille des sacs": "80cm x 100cm",
-        "Taille des coffres": "45cm x 30cm x 20cm",
+        "Taille des sacs": "XL: 90cm x 70cm, XXL: 90cm x 110cm",
+        "Taille des coffres": "40cm x 40cm x 20cm, 40cm x 60cm x 30cm",
         "Valve": "Valve anti-retour double fermeture"
       };
     default:

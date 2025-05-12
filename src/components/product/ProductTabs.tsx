@@ -35,7 +35,7 @@ const ProductTabs = ({ specifications }: ProductTabsProps) => {
               <span className="mr-2">🚚</span> Livraison
             </h4>
             <p className="mt-2">
-              Les produits proposés sur Packshield sont expédiés par Amazon. Tous nos produits sont éligibles au programme Amazon Prime, ce qui signifie que les membres Prime profitent de la livraison gratuite et rapide sur leurs commandes (en 1 jour ouvré dans la plupart des cas).
+              Les produits proposés sur Packshield sont expédiés par Amazon. Tous nos produits sont éligibles au programme <strong>Amazon Prime</strong>, ce qui signifie que les membres Prime profitent de la <strong>livraison rapide et gratuite</strong> sur leurs commandes (en <strong>1 jour ouvré</strong> dans la plupart des cas).
             </p>
             <p className="mt-2">
               Vous bénéficiez ainsi des services logistiques rapides et fiables, avec plusieurs options de livraison disponibles selon votre localisation.
@@ -46,7 +46,7 @@ const ProductTabs = ({ specifications }: ProductTabsProps) => {
               <span className="mr-2">🔁</span> Politique de retour
             </h4>
             <p className="mt-2">
-              Si vous n'êtes pas entièrement satisfait de votre achat, vous disposez d'un délai de 30 jours à compter de la réception du produit pour effectuer un retour, conformément à la politique de retour standard d'Amazon.
+              Si vous n'êtes pas entièrement satisfait de votre achat, vous disposez d'un <strong>délai de 30 jours</strong> à compter de la réception du produit pour effectuer un retour, conformément à la politique de retour standard d'Amazon.
             </p>
           </div>
         </div>
