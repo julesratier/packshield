@@ -30,11 +30,11 @@ const ProductDetail = () => {
   const productId = parseInt(id || "1");
   const product = products.find(p => p.id === productId) || products[0];
   
-  // Récupérer des produits associés (excluant le produit actuel)
+  // Get related products (excluding the current product)
   const relatedProducts = products
     .filter(p => p.id !== productId)
-    .sort(() => 0.5 - Math.random()) // Mélange aléatoire
-    .slice(0, 3); // Prendre les 3 premiers
+    .sort(() => 0.5 - Math.random()) // Random shuffle
+    .slice(0, 3); // Take first 3
 
   const description = getProductDescription(productId);
   const features = getProductFeatures(productId);
@@ -43,7 +43,9 @@ const ProductDetail = () => {
   // Get the correct images based on product type and selected size
   const getProductImages = () => {
     if (productId === 3) {
-      return product.additionalImages[mattressSize as keyof typeof product.additionalImages] || [];
+      return product.additionalImages && typeof product.additionalImages === 'object' && !Array.isArray(product.additionalImages) 
+        ? (product.additionalImages[mattressSize as keyof typeof product.additionalImages] || [])
+        : [];
     }
     return Array.isArray(product.additionalImages) ? product.additionalImages : [];
   };
