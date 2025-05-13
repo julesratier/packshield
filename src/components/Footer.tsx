@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-packshield-navy text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4">
+          <div className="space-y-4 relative">
             <img 
               src="/lovable-uploads/87541f33-47b5-4643-be36-189e3a57519d.png" 
               alt="Packshield Logo" 
@@ -17,7 +17,7 @@ const Footer = () => {
             <p className="text-sm text-gray-300">
               Protégeons ce qui compte le plus avec des solutions de stockage premium.
             </p>
-            <div className="flex justify-center space-x-4">
+            <div className="absolute top-0 right-0 flex items-center space-x-4">
               <a href="https://www.facebook.com/people/Packshield/100088566477762/" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors flex items-center">
                 <Facebook size={20} />
               </a>
