@@ -18,10 +18,10 @@ const Footer = () => {
               Protégeons ce qui compte le plus avec des solutions de stockage premium.
             </p>
             <div className="flex justify-center space-x-4">
-              <a href="https://www.facebook.com/people/Packshield/100088566477762/" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors">
+              <a href="https://www.facebook.com/people/Packshield/100088566477762/" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors flex items-center">
                 <Facebook size={20} />
               </a>
-              <a href="https://amzn.to/3GQ0wyC" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors">
+              <a href="https://amzn.to/3GQ0wyC" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors flex items-center">
                 <img 
                   src="/lovable-uploads/a0050990-b81b-48c8-8924-763122899b4f.png" 
                   alt="Amazon" 
