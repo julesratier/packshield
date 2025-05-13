@@ -1,64 +1,66 @@
 
 import { Link } from 'react-router-dom';
-import { Star, StarHalf } from 'lucide-react';
-import { Product } from '@/utils/products';
+import { Star } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import AmazonChoiceBadge from '@/components/AmazonChoiceBadge';
 
 interface ProductGridProps {
-  products: Product[];
+  products: Array<{
+    id: number;
+    title: string;
+    image: string;
+    price: number;
+    rating: number;
+    reviews: number;
+    amazonChoice?: boolean;
+    url?: string;
+  }>;
 }
 
 const ProductGrid = ({ products }: ProductGridProps) => {
-  // Calculer le prix original (prix + 3€)
-  const getOriginalPrice = (price: number) => (price + 3).toFixed(2);
-
   return (
-    <>
-      {products.length === 0 ? (
-        <div className="text-center py-16">
-          <h3 className="text-xl font-medium text-packshield-navy mb-2">Aucun produit trouvé</h3>
-          <p className="text-packshield-grey">Essayez d'ajuster vos filtres pour trouver ce que vous cherchez.</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map(product => (
-            <div key={product.id} className="product-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 relative">
-              <Link to={`/product/${product.id}`}>
-                <div className="aspect-square overflow-hidden bg-packshield-lightGrey flex items-center justify-center">
-                  {product.amazonChoice && <AmazonChoiceBadge />}
-                  <img 
-                    src={product.image} 
-                    alt={product.title}
-                    className="w-full h-full object-contain"
-                  />
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {products.map((product) => (
+        <Card key={product.id} className="product-card overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md">
+          <Link to={product.url || `/produits/${product.id}`} className="block">
+            <div className="bg-packshield-lightGrey relative">
+              {product.amazonChoice && (
+                <div className="absolute top-2 left-2 z-10">
+                  <AmazonChoiceBadge />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-packshield-navy mb-2">{product.title}</h3>
-                  <div className="flex items-center mb-3">
-                    <div className="flex items-center mr-2">
-                      {[...Array(Math.floor(product.rating))].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 text-yellow-400" fill="currentColor" />
-                      ))}
-                      {product.rating % 1 !== 0 && (
-                        <StarHalf className="h-4 w-4 text-yellow-400" fill="currentColor" />
-                      )}
-                      {[...Array(5 - Math.ceil(product.rating))].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 text-gray-300" fill="currentColor" />
-                      ))}
-                    </div>
-                    <span className="text-sm text-packshield-grey">({product.reviews})</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-sm text-gray-500 line-through">{getOriginalPrice(product.price)}€</span>
-                    <span className="text-xl font-bold text-packshield-navy">{product.price.toFixed(2)}€</span>
-                  </div>
-                </div>
-              </Link>
+              )}
+              <AspectRatio ratio={1 / 1}>
+                <img 
+                  src={product.image} 
+                  alt={product.title}
+                  className="w-full h-full object-contain"
+                />
+              </AspectRatio>
             </div>
-          ))}
-        </div>
-      )}
-    </>
+            <CardContent className="p-4">
+              <h3 className="text-lg font-medium text-packshield-navy mb-2 line-clamp-2">{product.title}</h3>
+              <div className="flex items-center mb-3">
+                <div className="flex items-center mr-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} 
+                      className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-300'}`} 
+                      fill={i < Math.floor(product.rating) ? "currentColor" : "none"} />
+                  ))}
+                </div>
+                <span className="text-sm text-packshield-grey">({product.reviews})</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-xl font-bold text-packshield-navy">{product.price.toFixed(2).replace('.', ',')}€</span>
+                <button className="bg-packshield-orange hover:bg-packshield-orange/90 text-white text-sm px-3 py-1 rounded-md transition-colors">
+                  Voir plus
+                </button>
+              </div>
+            </CardContent>
+          </Link>
+        </Card>
+      ))}
+    </div>
   );
 };
 

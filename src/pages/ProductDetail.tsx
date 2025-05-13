@@ -17,6 +17,32 @@ import {
   getProductSpecifications 
 } from '@/utils/products';
 
+// Helper function to get product ID from path
+const getProductIdFromPath = (path) => {
+  // Handle the old URL structure
+  if (path.includes('/product/')) {
+    return parseInt(path.split('/product/')[1]);
+  }
+
+  // Handle the new URL structure
+  if (path.includes('/produits/housse-matelas-plastique-epais')) {
+    return 1;
+  } else if (path.includes('/produits/housse-matelas-1-personne')) {
+    return 2;
+  } else if (path.includes('/produits/housse-protection-matelas-tissu')) {
+    return 3;
+  } else if (path.includes('/produits/housse-matelas-tissu-1-personne')) {
+    return 4;
+  } else if (path.includes('/produits/kit-rangement-compact')) {
+    return 5;
+  } else if (path.includes('/produits/kit-rangement-mini')) {
+    return 6;
+  }
+
+  // Default
+  return 1;
+};
+
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [mattressSize, setMattressSize] = useState("140x200");
@@ -27,7 +53,8 @@ const ProductDetail = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [id, location.pathname]);
   
-  const productId = parseInt(id || "1");
+  // Get product ID from either params or path
+  const productId = id ? parseInt(id) : getProductIdFromPath(location.pathname);
   const product = products.find(p => p.id === productId) || products[0];
   
   // Récupérer des produits associés (excluant le produit actuel)
@@ -63,6 +90,9 @@ const ProductDetail = () => {
     return product.price;
   };
 
+  // Generate back link based on current product
+  const backToProductsLink = '/produits';
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -70,7 +100,7 @@ const ProductDetail = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <div className="flex items-center mb-8">
-          <Link to="/products" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
+          <Link to={backToProductsLink} className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
             <ArrowLeft className="h-4 w-4 mr-2" />
             <span>Retour aux produits</span>
           </Link>

@@ -1,54 +1,74 @@
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const faqData: FAQItem[] = [
+  {
+    question: "Comment choisir la bonne taille de housse pour mon matelas ?",
+    answer: "Mesurez votre matelas (longueur, largeur et épaisseur) et choisissez une housse légèrement plus grande pour faciliter l'insertion. Nos housses sont disponibles en plusieurs tailles standards (90x190, 140x190, 140x200, 160x200, 180x200 cm) et s'adaptent à des épaisseurs jusqu'à 30 cm."
+  },
+  {
+    question: "Les housses Packshield sont-elles imperméables ?",
+    answer: "Oui, nos housses de protection en plastique épais sont 100% imperméables et protègent efficacement votre matelas contre l'eau, l'humidité et les liquides. Nos housses en tissu oxford offrent une excellente protection contre la poussière et la saleté avec une résistance limitée à l'eau."
+  },
+  {
+    question: "Combien de temps puis-je stocker mon matelas dans une housse Packshield ?",
+    answer: "Nos housses sont conçues pour un stockage de longue durée. Vous pouvez conserver votre matelas dans nos housses pendant plusieurs années sans problème, à condition de le stocker dans un endroit sec et à l'abri des variations de température extrêmes."
+  },
+  {
+    question: "Comment entretenir mes housses de protection ?",
+    answer: "Nos housses en tissu oxford peuvent être nettoyées avec un chiffon humide ou lavées à la main avec un détergent doux. Les housses en plastique épais peuvent être essuyées avec un chiffon humide. Assurez-vous que les housses soient complètement sèches avant de les réutiliser ou de les ranger."
+  },
+  {
+    question: "Les housses Packshield protègent-elles contre les punaises de lit ?",
+    answer: "Oui, nos housses de protection hermétiques créent une barrière efficace contre les punaises de lit, les acariens et autres nuisibles. Pour une protection maximale, assurez-vous que la fermeture éclair est complètement fermée et que la housse n'est pas percée."
+  }
+];
 
 const FAQ = () => {
-  const faqItems = [
-    {
-      question: "🧰 Que propose Packshield ?",
-      answer: "Packshield conçoit et commercialise des <strong>produits de qualité pour le déménagement et le stockage</strong>, pensés pour protéger vos biens efficacement. Tous nos produits sont <strong>imaginés en France</strong>, avec une attention particulière portée à la praticité, la résistance des matériaux, et l'esthétique."
-    },
-    {
-      question: "📦 Où puis-je acheter vos produits ?",
-      answer: "Tous nos produits sont disponibles <strong>exclusivement sur Amazon</strong>. Packshield.shop est notre vitrine officielle, mais l'achat se fait directement via la plateforme Amazon pour vous garantir un paiement sécurisé, une livraison rapide, et un service client fiable."
-    },
-    {
-      question: "🔗 Comment accéder à vos produits sur Amazon ?",
-      answer: "Chaque fiche produit sur notre site contient un <strong>lien direct vers la page Amazon correspondante</strong>. Il vous suffit de cliquer sur le bouton \"Acheter sur Amazon\" pour finaliser votre commande."
-    },
-    {
-      question: "🚚 Quels sont les délais de livraison ?",
-      answer: "Les délais de livraison dépendent des conditions Amazon. En général, vous recevez votre commande en <strong>1 à 3 jours ouvrés</strong> si vous êtes membre Prime, ou sous <strong>3 à 5 jours</strong> en livraison standard."
-    },
-    {
-      question: "🔄 Puis-je retourner un produit ?",
-      answer: "Oui, tous les achats effectués sur Amazon bénéficient de leur <strong>politique de retour standard</strong>. Vous pouvez généralement retourner un produit sous <strong>30 jours</strong> après réception."
-    },
-    {
-      question: "💳 Quels moyens de paiement acceptez-vous ?",
-      answer: "Les paiements sont gérés par Amazon. Vous pouvez payer avec <strong>carte bancaire, chèques-cadeaux Amazon</strong>, ou tout autre moyen proposé par Amazon dans votre région."
-    },
-    {
-      question: "📧 Comment vous contacter ?",
-      answer: "Pour toute question avant ou après votre achat, vous pouvez nous écrire à <strong>contact@packshield-official.com</strong>. Si votre question concerne une commande en cours, nous vous recommandons également de contacter le <strong>service client Amazon</strong> pour une prise en charge rapide."
-    }
-  ];
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleQuestion = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <section id="faq" className="py-16 md:py-20">
+    <section id="faq" className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-packshield-navy mb-10 text-center">Questions fréquentes</h2>
-        
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="w-full">
-            {faqItems.map((item, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left text-lg font-medium">{item.question}</AccordionTrigger>
-                <AccordionContent>
-                  <div className="py-2 text-packshield-grey text-base" dangerouslySetInnerHTML={{ __html: item.answer }}></div>
-                </AccordionContent>
-              </AccordionItem>
+          <h2 className="text-3xl font-bold text-packshield-navy mb-10 text-center">Questions fréquentes</h2>
+          <div className="space-y-4">
+            {faqData.map((faq, index) => (
+              <div 
+                key={index} 
+                className="border border-gray-200 rounded-lg overflow-hidden"
+              >
+                <button
+                  className={`w-full text-left flex justify-between items-center p-4 md:p-5 ${
+                    openIndex === index ? 'bg-packshield-lightGrey/30' : 'bg-white'
+                  }`}
+                  onClick={() => toggleQuestion(index)}
+                >
+                  <span className="font-medium text-packshield-navy">{faq.question}</span>
+                  {openIndex === index ? (
+                    <ChevronUp className="h-5 w-5 text-packshield-orange" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-packshield-navy" />
+                  )}
+                </button>
+                {openIndex === index && (
+                  <div className="p-4 md:p-5 bg-white">
+                    <p className="text-packshield-grey">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
             ))}
-          </Accordion>
+          </div>
         </div>
       </div>
     </section>
