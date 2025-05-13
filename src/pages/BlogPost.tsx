@@ -4,18 +4,22 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, User, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { cn } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { getBlogIdFromSlug } from '@/utils/blogSlug';
 
 const BlogPost = () => {
-  const { id } = useParams<{ id: string }>();
+  // Parse the slug to get the post ID
+  const { slug } = useParams<{ slug: string }>();
+  const postId = slug ? getBlogIdFromSlug(slug) : 1;
   
   // Simulated blog post data (in a real application, this would come from a CMS)
   const post = {
-    id: parseInt(id || "1"),
-    title: id === "1" 
+    id: postId,
+    title: postId === 1 
       ? "How to Properly Store a Mattress" 
-      : id === "2" 
+      : postId === 2 
         ? "Moving Day Tips: Protect Your Furniture" 
         : "Why Quality Storage Matters",
     content: `
@@ -45,9 +49,9 @@ const BlogPost = () => {
       <h2>Conclusion</h2>
       <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
     `,
-    image: id === "1" 
+    image: postId === 1 
       ? "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
-      : id === "2" 
+      : postId === 2 
         ? "https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aW5nJTIwZGF5fGVufDB8fDB8fHww&auto=format&fit=crop&w=870&q=80" 
         : "https://images.unsplash.com/photo-1595332230117-8310b582a860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3RvcmFnZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=870&q=80",
     date: "May 8, 2025",
@@ -60,9 +64,9 @@ const BlogPost = () => {
     },
     relatedPosts: [
       {
-        id: id === "1" ? 2 : 1,
-        title: id === "1" ? "Moving Day Tips: Protect Your Furniture" : "How to Properly Store a Mattress",
-        image: id === "1" 
+        id: postId === 1 ? 2 : 1,
+        title: postId === 1 ? "Moving Day Tips: Protect Your Furniture" : "How to Properly Store a Mattress",
+        image: postId === 1 
           ? "https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aW5nJTIwZGF5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" 
           : "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
         date: "May 5, 2025"
@@ -76,10 +80,38 @@ const BlogPost = () => {
     ]
   };
 
+  // Function to enhance HTML content with styling
+  const enhanceContent = (content: string) => {
+    // Add styling to h2 elements
+    let enhancedContent = content.replace(
+      /<h2>(.*?)<\/h2>/g, 
+      '<h2 class="text-2xl md:text-3xl font-bold text-packshield-navy mt-10 mb-6">$1</h2>'
+    );
+    
+    // Add spacing to paragraphs
+    enhancedContent = enhancedContent.replace(
+      /<p>(.*?)<\/p>/g, 
+      '<p class="mb-6 text-lg leading-relaxed text-packshield-grey">$1</p>'
+    );
+    
+    // Style lists
+    enhancedContent = enhancedContent.replace(
+      /<ul>(.*?)<\/ul>/g, 
+      '<ul class="mb-8 pl-6 space-y-2">$1</ul>'
+    );
+    
+    enhancedContent = enhancedContent.replace(
+      /<li>(.*?)<\/li>/g, 
+      '<li class="text-lg text-packshield-grey before:content-["•"] before:text-packshield-orange before:mr-2">$1</li>'
+    );
+    
+    return enhancedContent;
+  };
+
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [slug]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -87,8 +119,8 @@ const BlogPost = () => {
       
       {/* Hero Section */}
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30"></div>
-        <div className="h-96 md:h-[500px]">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
+        <div className="h-96 md:h-[550px]">
           <img
             src={post.image}
             alt={post.title}
@@ -97,8 +129,8 @@ const BlogPost = () => {
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto px-4 text-center text-white">
-            <div className="max-w-3xl mx-auto">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{post.title}</h1>
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">{post.title}</h1>
               <div className="flex items-center justify-center space-x-4 text-sm md:text-base">
                 <div className="flex items-center">
                   <Calendar className="h-4 w-4 mr-1" />
@@ -120,7 +152,7 @@ const BlogPost = () => {
       
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12">
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-8 max-w-[1200px] mx-auto">
           {/* Article Content */}
           <main className="lg:w-2/3">
             {/* Back to Blog */}
@@ -131,13 +163,27 @@ const BlogPost = () => {
               </Link>
             </div>
             
+            {/* Introduction Box */}
+            <div className="bg-[#F1F0FB] p-6 md:p-8 rounded-lg mb-8 border-l-4 border-packshield-orange">
+              <div className="prose prose-lg max-w-none">
+                <p className="text-lg md:text-xl text-packshield-navy leading-relaxed mb-0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+              </div>
+            </div>
+            
             {/* Article */}
-            <article className="prose prose-lg max-w-none">
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <article className={cn(
+              "prose prose-lg max-w-none",
+              "prose-headings:text-packshield-navy prose-headings:font-bold prose-headings:leading-tight",
+              "prose-p:text-packshield-grey prose-p:leading-relaxed prose-p:mb-6",
+              "prose-ul:my-6 prose-li:text-packshield-grey"
+            )}>
+              <div dangerouslySetInnerHTML={{ __html: enhanceContent(post.content.trim()) }} />
             </article>
             
             {/* Tags */}
-            <div className="mt-8">
+            <div className="mt-12">
               <div className="flex flex-wrap gap-2">
                 <span className="bg-packshield-lightGrey text-packshield-navy px-3 py-1 rounded-md text-sm">
                   {post.category}
@@ -152,8 +198,8 @@ const BlogPost = () => {
             </div>
             
             {/* Share */}
-            <div className="mt-8">
-              <h4 className="font-medium text-packshield-navy mb-3">Share this article</h4>
+            <div className="mt-10">
+              <h4 className="font-medium text-packshield-navy mb-3 text-lg">Share this article</h4>
               <div className="flex space-x-3">
                 <Button variant="outline" size="icon">
                   <Facebook className="h-4 w-4" />
@@ -168,18 +214,18 @@ const BlogPost = () => {
             </div>
             
             {/* Author */}
-            <div className="mt-12 p-6 bg-packshield-lightGrey rounded-lg">
+            <div className="mt-12 p-8 bg-packshield-lightGrey rounded-lg">
               <div className="flex items-center">
-                <Avatar className="h-16 w-16 mr-4">
+                <Avatar className="h-16 w-16 mr-4 border-2 border-white shadow">
                   <AvatarImage src={post.author.avatar} alt={post.author.name} />
                   <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div>
-                  <h4 className="font-semibold text-packshield-navy">{post.author.name}</h4>
+                  <h4 className="font-semibold text-packshield-navy text-lg">{post.author.name}</h4>
                   <p className="text-packshield-grey">{post.author.role}</p>
                 </div>
               </div>
-              <p className="mt-4 text-packshield-grey">
+              <p className="mt-4 text-packshield-grey leading-relaxed">
                 Sarah is a storage expert with over 10 years of experience in the moving and storage industry. 
                 She specializes in creating guides for proper item care and maintenance during storage and relocation.
               </p>
@@ -190,22 +236,26 @@ const BlogPost = () => {
           <aside className="lg:w-1/3 space-y-8">
             {/* Related Posts */}
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h4 className="text-xl font-semibold text-packshield-navy mb-4">Related Articles</h4>
-              <div className="space-y-4">
+              <h4 className="text-xl font-semibold text-packshield-navy mb-6 pb-2 border-b">Related Articles</h4>
+              <div className="space-y-6">
                 {post.relatedPosts.map(relatedPost => (
-                  <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="flex items-start space-x-4 group">
+                  <Link 
+                    key={relatedPost.id} 
+                    to={`/blog/${createBlogSlug(relatedPost.id, relatedPost.title)}`} 
+                    className="flex items-start space-x-4 group"
+                  >
                     <div className="flex-shrink-0 w-20 h-20 rounded-md overflow-hidden">
                       <img 
                         src={relatedPost.image} 
                         alt={relatedPost.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                     </div>
                     <div>
                       <h5 className="font-medium text-packshield-navy group-hover:text-packshield-orange transition-colors">
                         {relatedPost.title}
                       </h5>
-                      <p className="text-sm text-packshield-grey">{relatedPost.date}</p>
+                      <p className="text-sm text-packshield-grey mt-1">{relatedPost.date}</p>
                     </div>
                   </Link>
                 ))}
@@ -214,26 +264,30 @@ const BlogPost = () => {
             
             {/* Categories */}
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h4 className="text-xl font-semibold text-packshield-navy mb-4">Categories</h4>
-              <ul className="space-y-2">
+              <h4 className="text-xl font-semibold text-packshield-navy mb-6 pb-2 border-b">Categories</h4>
+              <ul className="space-y-3">
                 <li>
-                  <Link to="/blog?category=moving" className="text-packshield-grey hover:text-packshield-orange transition-colors">
-                    Moving Tips
+                  <Link to="/blog?category=moving" className="flex items-center justify-between text-packshield-grey hover:text-packshield-orange transition-colors group">
+                    <span>Moving Tips</span>
+                    <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
                 <li>
-                  <Link to="/blog?category=storage" className="text-packshield-grey hover:text-packshield-orange transition-colors">
-                    Storage Solutions
+                  <Link to="/blog?category=storage" className="flex items-center justify-between text-packshield-grey hover:text-packshield-orange transition-colors group">
+                    <span>Storage Solutions</span>
+                    <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
                 <li>
-                  <Link to="/blog?category=mattresses" className="text-packshield-grey hover:text-packshield-orange transition-colors">
-                    Mattress Care
+                  <Link to="/blog?category=mattresses" className="flex items-center justify-between text-packshield-grey hover:text-packshield-orange transition-colors group">
+                    <span>Mattress Care</span>
+                    <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
                 <li>
-                  <Link to="/blog?category=tips" className="text-packshield-grey hover:text-packshield-orange transition-colors">
-                    Tips & Guides
+                  <Link to="/blog?category=tips" className="flex items-center justify-between text-packshield-grey hover:text-packshield-orange transition-colors group">
+                    <span>Tips & Guides</span>
+                    <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
               </ul>
