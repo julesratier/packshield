@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { extractTableOfContents, prepareBlogContent } from '@/utils/blogUtils';
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
@@ -87,17 +88,30 @@ const BlogPost = () => {
   };
 
   // Parse content to extract table of contents
-  const extractTableOfContents = () => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(post.content, 'text/html');
-    const headers = doc.querySelectorAll('h2');
-    return Array.from(headers).map(header => ({
-      id: header.id,
-      title: header.textContent || ''
-    }));
+  const tableOfContents = extractTableOfContents(post.content);
+
+  // Prepare blog content with consistent styling
+  const preparedContent = prepareBlogContent(post.content);
+
+  // Function to handle social media sharing
+  const shareOnFacebook = () => {
+    const url = window.location.href;
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+    window.open(shareUrl, '_blank', 'width=600,height=400');
   };
 
-  const tableOfContents = extractTableOfContents();
+  const shareOnTwitter = () => {
+    const url = window.location.href;
+    const text = post.title + " - Packshield";
+    const shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+  };
+
+  const shareOnLinkedIn = () => {
+    const url = window.location.href;
+    const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+  };
 
   // Intersection Observer to highlight active section in table of contents
   useEffect(() => {
@@ -178,7 +192,7 @@ const BlogPost = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Article Content */}
-          <main className="lg:w-2/3 xl:w-3/4">
+          <main className="lg:w-3/4">
             {/* Back to Blog */}
             <div className="mb-10">
               <Link to="/blog" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
@@ -188,8 +202,8 @@ const BlogPost = () => {
             </div>
             
             {/* Article */}
-            <article className="prose prose-lg max-w-none">
-              <div className="bg-[#E5DEFF] p-6 rounded-xl mb-10">
+            <article className="prose prose-lg max-w-3xl mx-auto">
+              <div className="bg-packshield-lightGrey p-6 rounded-xl mb-10">
                 <p className="text-slate-700 leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-2">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
@@ -197,74 +211,54 @@ const BlogPost = () => {
               
               <div 
                 className="blog-content" 
-                dangerouslySetInnerHTML={{ 
-                  __html: post.content.replace(
-                    /<h2/g, 
-                    '<h2 class="text-3xl font-bold text-[#7E69AB] mt-14 mb-8"'
-                  ).replace(
-                    /<p>/g,
-                    '<p class="text-slate-700 leading-relaxed mb-8">'
-                  ).replace(
-                    /<ul>/g,
-                    '<ul class="space-y-2 my-8 ml-5">'
-                  ).replace(
-                    /<li>/g,
-                    '<li class="flex items-start"><span class="inline-block w-2 h-2 bg-packshield-orange rounded-full mt-2 mr-3"></span>'
-                  ).replace(
-                    /<blockquote>/g,
-                    '<blockquote class="border-l-4 border-packshield-orange pl-6 italic my-10 text-slate-600 py-2">'
-                  ).replace(
-                    /<div class="tip-box">/g,
-                    '<div class="bg-[#F2FCE2] border-l-4 border-green-400 p-6 rounded-r-lg my-10">'
-                  )
-                }} 
+                dangerouslySetInnerHTML={{ __html: preparedContent }}
               />
             </article>
             
             {/* Tags */}
-            <div className="mt-12">
+            <div className="mt-12 max-w-3xl mx-auto">
               <div className="flex flex-wrap gap-2">
-                <span className="bg-[#F1F1F1] text-[#6E59A5] px-4 py-2 rounded-full text-sm">
+                <span className="bg-packshield-lightGrey text-packshield-navy px-4 py-2 rounded-full text-sm">
                   {post.category}
                 </span>
-                <span className="bg-[#F1F1F1] text-[#6E59A5] px-4 py-2 rounded-full text-sm">
+                <span className="bg-packshield-lightGrey text-packshield-navy px-4 py-2 rounded-full text-sm">
                   Storage Tips
                 </span>
-                <span className="bg-[#F1F1F1] text-[#6E59A5] px-4 py-2 rounded-full text-sm">
+                <span className="bg-packshield-lightGrey text-packshield-navy px-4 py-2 rounded-full text-sm">
                   Protection
                 </span>
               </div>
             </div>
             
             {/* Share */}
-            <div className="mt-12">
-              <h4 className="font-medium text-[#1A1F2C] mb-3">Share this article</h4>
+            <div className="mt-8 max-w-3xl mx-auto">
+              <h4 className="font-medium text-packshield-navy mb-3">Share this article</h4>
               <div className="flex space-x-3">
-                <Button variant="outline" size="icon" className="hover:bg-[#E5DEFF] hover:text-[#6E59A5]">
+                <Button variant="outline" size="icon" onClick={shareOnFacebook} className="hover:bg-packshield-lightGrey hover:text-packshield-orange">
                   <Facebook className="h-4 w-4" />
                 </Button>
-                <Button variant="outline" size="icon" className="hover:bg-[#E5DEFF] hover:text-[#6E59A5]">
+                <Button variant="outline" size="icon" onClick={shareOnTwitter} className="hover:bg-packshield-lightGrey hover:text-packshield-orange">
                   <Twitter className="h-4 w-4" />
                 </Button>
-                <Button variant="outline" size="icon" className="hover:bg-[#E5DEFF] hover:text-[#6E59A5]">
+                <Button variant="outline" size="icon" onClick={shareOnLinkedIn} className="hover:bg-packshield-lightGrey hover:text-packshield-orange">
                   <Linkedin className="h-4 w-4" />
                 </Button>
               </div>
             </div>
             
             {/* Author */}
-            <div className="mt-16 p-8 bg-[#F1F1F1] rounded-xl">
+            <div className="mt-16 p-8 bg-packshield-lightGrey rounded-xl max-w-3xl mx-auto">
               <div className="flex items-center">
-                <Avatar className="h-20 w-20 mr-6">
+                <Avatar className="h-16 w-16 mr-4">
                   <AvatarImage src={post.author.avatar} alt={post.author.name} />
                   <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div>
-                  <h4 className="text-xl font-semibold text-[#1A1F2C]">{post.author.name}</h4>
+                  <h4 className="text-xl font-semibold text-packshield-navy">{post.author.name}</h4>
                   <p className="text-packshield-grey">{post.author.role}</p>
                 </div>
               </div>
-              <p className="mt-6 text-slate-600 leading-relaxed">
+              <p className="mt-4 text-packshield-grey">
                 Sarah is a storage expert with over 10 years of experience in the moving and storage industry. 
                 She specializes in creating guides for proper item care and maintenance during storage and relocation.
               </p>
@@ -272,25 +266,25 @@ const BlogPost = () => {
           </main>
           
           {/* Sidebar */}
-          <aside className="lg:w-1/3 xl:w-1/4 space-y-10 lg:sticky lg:top-24 lg:self-start">
+          <aside className="lg:w-1/4 space-y-8 lg:sticky lg:top-24 lg:self-start">
             {/* Table of Contents */}
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="flex items-center space-x-2 mb-4">
-                <ListOrdered className="h-5 w-5 text-[#9b87f5]" />
-                <h4 className="text-xl font-semibold text-[#1A1F2C]">Table of Contents</h4>
+                <ListOrdered className="h-5 w-5 text-packshield-orange" />
+                <h4 className="text-xl font-semibold text-packshield-navy">Table of Contents</h4>
               </div>
               
               <ScrollArea className="h-[300px] pr-4">
                 <nav>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2">
                     {tableOfContents.map((item) => (
                       <li key={item.id}>
                         <button
                           onClick={() => scrollToSection(item.id)}
                           className={`text-left w-full py-2 px-4 rounded-lg transition-colors ${
                             activeSection === item.id
-                              ? 'bg-[#E5DEFF] text-[#7E69AB] font-medium'
-                              : 'hover:bg-[#F1F1F1] text-slate-600'
+                              ? 'bg-packshield-lightGrey text-packshield-orange font-medium'
+                              : 'hover:bg-gray-50 text-packshield-grey'
                           }`}
                         >
                           {item.title}
@@ -303,12 +297,12 @@ const BlogPost = () => {
             </div>
             
             {/* Related Posts */}
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h4 className="text-xl font-semibold text-[#1A1F2C] mb-6">Related Articles</h4>
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+              <h4 className="text-xl font-semibold text-packshield-navy mb-6">Related Articles</h4>
               <div className="space-y-6">
                 {post.relatedPosts.map(relatedPost => (
                   <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="flex items-start space-x-4 group">
-                    <div className="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden">
+                    <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden">
                       <img 
                         src={relatedPost.image} 
                         alt={relatedPost.title}
@@ -316,7 +310,7 @@ const BlogPost = () => {
                       />
                     </div>
                     <div>
-                      <h5 className="font-medium text-[#1A1F2C] group-hover:text-packshield-orange transition-colors">
+                      <h5 className="font-medium text-packshield-navy group-hover:text-packshield-orange transition-colors">
                         {relatedPost.title}
                       </h5>
                       <p className="text-sm text-packshield-grey mt-2">{relatedPost.date}</p>
@@ -324,26 +318,6 @@ const BlogPost = () => {
                   </Link>
                 ))}
               </div>
-            </div>
-            
-            {/* Newsletter */}
-            <div className="bg-[#1A1F2C] p-6 rounded-lg text-white">
-              <h4 className="text-xl font-semibold mb-4">Subscribe to Our Newsletter</h4>
-              <p className="text-gray-300 mb-5">
-                Stay updated with the latest tips and product news.
-              </p>
-              <form>
-                <div className="mb-4">
-                  <input 
-                    type="email" 
-                    placeholder="Your email address" 
-                    className="w-full py-3 px-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-packshield-orange"
-                  />
-                </div>
-                <Button className="w-full py-3 bg-packshield-orange hover:bg-packshield-orange/90 text-white">
-                  Subscribe
-                </Button>
-              </form>
             </div>
           </aside>
         </div>
