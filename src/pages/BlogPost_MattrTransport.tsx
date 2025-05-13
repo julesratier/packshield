@@ -27,9 +27,15 @@ const BlogPostMattrTransport = () => {
       <p>Avant de déplacer votre matelas, quelques précautions sont à prendre :</p>
       
       <ul>
-        <li><strong>Aérez-le</strong> pendant quelques heures.</li>
-        <li><strong>Nettoyez-le rapidement</strong> à l'aide d'un aspirateur pour retirer poussière et acariens.</li>
-        <li>Assurez-vous qu'il est <strong>parfaitement sec</strong>, sans humidité résiduelle.</li>
+        <li>
+          <strong>Aérez-le</strong> pendant quelques heures.
+        </li>
+        <li>
+          <strong>Nettoyez-le rapidement</strong> à l'aide d'un aspirateur pour retirer poussière et acariens.
+        </li>
+        <li>
+          Assurez-vous qu'il est <strong>parfaitement sec</strong>, sans humidité résiduelle.
+        </li>
       </ul>
       
       <p>👉 Cette étape permet d'éviter les odeurs désagréables et réduit les risques de moisissures, surtout si le transport dure plus d'une journée.</p>
@@ -39,9 +45,15 @@ const BlogPostMattrTransport = () => {
       <p>Ne transportez jamais un matelas à nu :</p>
       
       <ul>
-        <li>Optez pour une <strong>housse de déménagement zippée</strong>, résistante et imperméable.</li>
-        <li>Les modèles dotés de <strong>poignées intégrées</strong> facilitent grandement la manutention, notamment dans les escaliers.</li>
-        <li>Choisissez un matériau <strong>épais mais respirant</strong>, qui évite la condensation pendant le trajet.</li>
+        <li>
+          Optez pour une <strong>housse de déménagement zippée</strong>, résistante et imperméable.
+        </li>
+        <li>
+          Les modèles dotés de <strong>poignées intégrées</strong> facilitent grandement la manutention, notamment dans les escaliers.
+        </li>
+        <li>
+          Choisissez un matériau <strong>épais mais respirant</strong>, qui évite la condensation pendant le trajet.
+        </li>
       </ul>
       
       <p>💡 Les housses Packshield sont conçues spécialement pour répondre à ces exigences.</p>
@@ -51,8 +63,12 @@ const BlogPostMattrTransport = () => {
       <p>Si votre véhicule le permet, il est préférable de <strong>placer le matelas à plat</strong> pour éviter qu'il ne se plie ou s'affaisse :</p>
       
       <ul>
-        <li>Positionnez-le sur une surface plane (fond de camion, sommier démonté, etc.).</li>
-        <li><strong>Évitez de poser des objets lourds dessus</strong>, surtout au centre.</li>
+        <li>
+          Positionnez-le sur une surface plane (fond de camion, sommier démonté, etc.).
+        </li>
+        <li>
+          <strong>Évitez de poser des objets lourds dessus</strong>, surtout au centre.
+        </li>
       </ul>
       
       <p>Si vous devez le <strong>transporter debout</strong>, veillez à bien le caler à l'aide de sangles ou entre deux meubles, afin qu'il ne glisse pas ni ne se déforme.</p>
@@ -62,9 +78,15 @@ const BlogPostMattrTransport = () => {
       <p>Durant le transport, plusieurs risques peuvent endommager votre matelas :</p>
       
       <ul>
-        <li><strong>Protégez les coins</strong> avec des renforts ou du carton si vous devez passer par des cages d'escalier étroites.</li>
-        <li><strong>Ne posez jamais le matelas directement au sol</strong>, surtout à l'extérieur.</li>
-        <li><strong>Évitez de déménager par temps de pluie</strong>, ou prévoyez une bâche supplémentaire pour une protection maximale.</li>
+        <li>
+          <strong>Protégez les coins</strong> avec des renforts ou du carton si vous devez passer par des cages d'escalier étroites.
+        </li>
+        <li>
+          <strong>Ne posez jamais le matelas directement au sol</strong>, surtout à l'extérieur.
+        </li>
+        <li>
+          <strong>Évitez de déménager par temps de pluie</strong>, ou prévoyez une bâche supplémentaire pour une protection maximale.
+        </li>
       </ul>
       
       <h2 id="arrivee">✅ 5. Déballez-le rapidement à l'arrivée</h2>
@@ -72,9 +94,15 @@ const BlogPostMattrTransport = () => {
       <p>Une fois le matelas arrivé à destination :</p>
       
       <ul>
-        <li>Retirez la housse de transport dès que possible pour lui permettre de <strong>respirer</strong>.</li>
-        <li>Laissez-le <strong>à plat pendant quelques heures</strong> avant de le réutiliser.</li>
-        <li>Vérifiez qu'il <strong>n'a subi aucune déformation</strong> durant le transport.</li>
+        <li>
+          Retirez la housse de transport dès que possible pour lui permettre de <strong>respirer</strong>.
+        </li>
+        <li>
+          Laissez-le <strong>à plat pendant quelques heures</strong> avant de le réutiliser.
+        </li>
+        <li>
+          Vérifiez qu'il <strong>n'a subi aucune déformation</strong> durant le transport.
+        </li>
       </ul>
       
       <h2 id="resume">🧠 En résumé</h2>
@@ -225,7 +253,7 @@ const BlogPostMattrTransport = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Article Content */}
-          <main className="lg:w-3/4">
+          <main className="lg:w-2/3">
             {/* Back to Blog */}
             <div className="mb-10">
               <Link to="/blog" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
@@ -304,8 +332,8 @@ const BlogPostMattrTransport = () => {
             </div>
           </main>
           
-          {/* Sidebar */}
-          <aside className="lg:w-1/4 space-y-8 lg:sticky lg:top-24 lg:self-start">
+          {/* Sidebar - Increased width from 1/4 to 1/3 */}
+          <aside className="lg:w-1/3 space-y-8 lg:sticky lg:top-24 lg:self-start">
             {/* Table of Contents */}
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="flex items-center space-x-2 mb-4">
