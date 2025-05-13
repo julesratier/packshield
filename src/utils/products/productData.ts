@@ -105,7 +105,7 @@ export const products: Product[] = [
       "/lovable-uploads/f7896086-8d9b-4c51-8457-5d67fbeaeafc.png"
     ],
     price: 37.90,
-    rating: 4.0,
+    rating: 4.2,
     reviews: 450,
     category: "rangementSacs",
     featured: true,
@@ -124,7 +124,7 @@ export const products: Product[] = [
       "/lovable-uploads/de4efd90-a4e0-44a5-90de-d7c58053158a.png"
     ],
     price: 23.90,
-    rating: 4.0,
+    rating: 4.2,
     reviews: 450,
     category: "rangementSacs",
     featured: false,
