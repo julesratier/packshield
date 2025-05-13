@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Star, Package } from 'lucide-react';
@@ -68,7 +67,7 @@ const Index = () => {
               Housses de matelas premium et solutions de stockage conçues pour protéger de la poussière, de la saleté, de l'humidité et des nuisibles.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/products">
+              <Link to="/produits">
                 <Button size="lg" className="bg-packshield-orange hover:bg-packshield-orange/90 text-white">
                   Voir nos produits
                 </Button>
@@ -83,7 +82,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-10">
             <h2 className="text-3xl font-bold text-packshield-navy">Nos meilleures ventes</h2>
-            <Link to="/products" className="text-packshield-orange hover:text-packshield-navy flex items-center gap-1 font-medium">
+            <Link to="/produits" className="text-packshield-orange hover:text-packshield-navy flex items-center gap-1 font-medium">
               Voir tout <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
