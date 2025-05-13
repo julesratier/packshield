@@ -11,7 +11,7 @@ const Logo = ({ className = "h-10 w-auto", variant = 'colored' }: LogoProps) => 
   let logoSrc = "/lovable-uploads/d3fa32c1-109f-44d2-a7fa-1157cc2badad.png";
   
   if (variant === 'white') {
-    logoSrc = "/lovable-uploads/6b5c4769-9005-4cea-bf80-318b61cc853a.png";
+    logoSrc = "/lovable-uploads/90a22ebd-fd00-44e0-b506-8b20ba1d9498.png";
   }
 
   return (

@@ -14,12 +14,12 @@ const ProductGallery = ({ images, title, amazonChoice }: ProductGalleryProps) =>
   const [selectedImage, setSelectedImage] = useState(0);
   const [isLoaded, setIsLoaded] = useState<boolean[]>([]);
 
-  // Preload images
+  // Préchargement des images
   useEffect(() => {
-    // Initialize loading status array
+    // Initialiser le tableau de statut de chargement
     setIsLoaded(new Array(images.length).fill(false));
 
-    // Preload all images
+    // Précharger toutes les images
     images.forEach((src, index) => {
       const img = new Image();
       img.src = src;
@@ -47,17 +47,15 @@ const ProductGallery = ({ images, title, amazonChoice }: ProductGalleryProps) =>
         <DialogTrigger asChild>
           <div className="aspect-square bg-packshield-lightGrey rounded-lg overflow-hidden flex items-center justify-center relative cursor-pointer">
             {amazonChoice && <AmazonChoiceBadge />}
-            {images.length > 0 && (
-              <img 
-                src={images[selectedImage]} 
-                alt={title} 
-                className="w-full h-full object-contain"
-                style={{ 
-                  opacity: isLoaded[selectedImage] ? 1 : 0,
-                  transition: 'opacity 0.3s ease-in-out'
-                }}
-              />
-            )}
+            <img 
+              src={images[selectedImage]} 
+              alt={title} 
+              className="w-full h-full object-contain"
+              style={{ 
+                opacity: isLoaded[selectedImage] ? 1 : 0,
+                transition: 'opacity 0.3s ease-in-out'
+              }}
+            />
             
             {images.length > 1 && (
               <>
@@ -87,13 +85,11 @@ const ProductGallery = ({ images, title, amazonChoice }: ProductGalleryProps) =>
         </DialogTrigger>
         <DialogContent className="max-w-3xl w-[90vw] max-h-[90vh] p-0 bg-white/95 backdrop-blur">
           <div className="w-full h-full flex items-center justify-center p-4">
-            {images.length > 0 && (
-              <img 
-                src={images[selectedImage]} 
-                alt={title} 
-                className="max-w-full max-h-[80vh] object-contain"
-              />
-            )}
+            <img 
+              src={images[selectedImage]} 
+              alt={title} 
+              className="max-w-full max-h-[80vh] object-contain"
+            />
           </div>
         </DialogContent>
       </Dialog>

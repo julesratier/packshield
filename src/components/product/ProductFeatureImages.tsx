@@ -10,13 +10,13 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
-    // Reset images when product changes
+    // Réinitialiser les images à chaque changement de produit
     setImages([]);
     setImagesLoaded(false);
     
-    // Load images based on product
+    // Charger les images en fonction du produit
     if (productId === 3) {
-      // Images for the oxford fabric mattress cover 2 person
+      // Nouvelles images pour la housse matelas tissu oxford 2 personnes
       setImages([
         "/lovable-uploads/52bd6ec2-efc3-4c66-982e-2da1c5b665bf.png",
         "/lovable-uploads/458530f5-7e7d-43ba-9925-97579b38b2ef.png",
@@ -26,7 +26,7 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
         "/lovable-uploads/35c60a39-e526-4061-b634-5c29c0050567.png"
       ]);
     } else if (productId === 4) {
-      // Images for oxford fabric mattress cover 1 person
+      // Images mises à jour pour la housse matelas tissu oxford 1 personne - Nouvel ordre
       setImages([
         "/lovable-uploads/1aa6ffdd-f448-4d28-b6b1-3e756b8f6921.png",
         "/lovable-uploads/fb1fbcbc-914a-4512-bc02-332ec195bf78.png",
@@ -36,7 +36,7 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
         "/lovable-uploads/5b3dfff2-dc47-422b-9dd2-b40528c57f4c.png"
       ]);
     } else if (productId === 5 || productId === 6) {
-      // Images for vacuum storage kits (same for both kits)
+      // Images mises à jour pour les kits de rangement sous vide (les mêmes pour les deux kits)
       setImages([
         "/lovable-uploads/74a95a48-fdb1-4755-b763-46434fd03b83.png",
         "/lovable-uploads/fd0e2984-793a-4baf-a91e-b9e8b105ad7e.png",
@@ -49,7 +49,7 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
   }, [productId]);
 
   useEffect(() => {
-    // Start preloading images
+    // Démarrer le préchargement des images
     if (images.length > 0) {
       const preloadImages = () => {
         let loadedCount = 0;
@@ -71,7 +71,7 @@ const ProductFeatureImages = ({ productId }: ProductFeatureImagesProps) => {
     }
   }, [images]);
 
-  // Don't display anything if there are no images
+  // Ne rien afficher s'il n'y a pas d'images
   if (images.length === 0) return null;
 
   return (
