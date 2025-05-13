@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Star, Package } from 'lucide-react';
@@ -55,6 +56,13 @@ const Index = () => {
     }
   ];
 
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Dans une implémentation réelle, cela enverrait l'email à un service
+    alert(`Merci de vous être abonné avec ${emailInput} !`);
+    setEmailInput('');
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -69,7 +77,7 @@ const Index = () => {
               Housses de matelas premium et solutions de stockage conçues pour protéger de la poussière, de la saleté, de l'humidité et des nuisibles.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/produits">
+              <Link to="/products">
                 <Button size="lg" className="bg-packshield-orange hover:bg-packshield-orange/90 text-white">
                   Voir nos produits
                 </Button>
@@ -84,7 +92,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-10">
             <h2 className="text-3xl font-bold text-packshield-navy">Nos meilleures ventes</h2>
-            <Link to="/produits" className="text-packshield-orange hover:text-packshield-navy flex items-center gap-1 font-medium">
+            <Link to="/products" className="text-packshield-orange hover:text-packshield-navy flex items-center gap-1 font-medium">
               Voir tout <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -92,7 +100,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProducts.map(product => (
               <Card key={product.id} className="product-card overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
-                <Link to={`/produits/housse-matelas-plastique-epais`} className="block">
+                <Link to={`/product/${product.id}`} className="block">
                   <div className="bg-packshield-lightGrey">
                     <AspectRatio ratio={1 / 1}>
                       <img 
@@ -180,7 +188,7 @@ const Index = () => {
       </section>
 
       {/* Testimonial Section */}
-      <section id="temoignages" className="py-16 md:py-20 bg-packshield-navy text-white">
+      <section className="py-16 md:py-20 bg-packshield-navy text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ce que disent nos clients</h2>
@@ -241,7 +249,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map(post => (
-              <Link to={`/blog/comment-transporter-matelas-efficacement`} key={post.id} className="blog-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
+              <Link to={`/blog/${post.id}`} key={post.id} className="blog-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
                 <div className="aspect-video overflow-hidden">
                   <img 
                     src={post.image} 
@@ -270,7 +278,33 @@ const Index = () => {
       {/* FAQ Section */}
       <FAQ />
 
-      {/* Newsletter Section Removed */}
+      {/* Newsletter Section */}
+      <section className="py-16 bg-packshield-lightGrey">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-packshield-navy mb-4">Restez informé</h2>
+            <p className="text-packshield-grey mb-8">
+              Abonnez-vous à notre newsletter pour les dernières mises à jour de produits, offres exclusives et conseils de stockage.
+            </p>
+            <form onSubmit={handleNewsletterSubmit} className="flex max-w-md mx-auto">
+              <input
+                type="email"
+                value={emailInput}
+                onChange={(e) => setEmailInput(e.target.value)}
+                placeholder="Votre adresse email"
+                className="flex-grow py-2 px-4 rounded-l-md border-2 border-r-0 border-packshield-navy focus:outline-none focus:ring-2 focus:ring-packshield-orange"
+                required
+              />
+              <button
+                type="submit"
+                className="bg-packshield-navy hover:bg-packshield-navy/90 text-white py-2 px-6 rounded-r-md transition-colors"
+              >
+                S'abonner
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>

@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { products } from '@/utils/products';
@@ -8,26 +7,6 @@ import ProductFilters from '@/components/products/ProductFilters';
 import ProductSorting from '@/components/products/ProductSorting';
 import ProductGrid from '@/components/products/ProductGrid';
 import ProductHeader from '@/components/products/ProductHeader';
-
-// Helper function to generate product slugs
-const getProductSlug = (product) => {
-  switch (product.id) {
-    case 1:
-      return "/produits/housse-matelas-plastique-epais";
-    case 2:
-      return "/produits/housse-matelas-1-personne";
-    case 3:
-      return "/produits/housse-protection-matelas-tissu";
-    case 4:
-      return "/produits/housse-matelas-tissu-1-personne";
-    case 5:
-      return "/produits/kit-rangement-compact";
-    case 6:
-      return "/produits/kit-rangement-mini";
-    default:
-      return `/produits/${product.id}`;
-  }
-};
 
 const Products = () => {
   const [priceRange, setPriceRange] = useState([0, 50]);
@@ -58,12 +37,6 @@ const Products = () => {
         return b.featured ? 1 : -1;
     }
   });
-
-  // Add URLs to products
-  const productsWithUrls = sortedProducts.map(product => ({
-    ...product,
-    url: getProductSlug(product)
-  }));
 
   const handleCategoryChange = (category: string) => {
     setCategoryFilters({
@@ -96,7 +69,7 @@ const Products = () => {
               onSortChange={setSortOption} 
             />
             
-            <ProductGrid products={productsWithUrls} />
+            <ProductGrid products={sortedProducts} />
           </div>
         </div>
       </div>

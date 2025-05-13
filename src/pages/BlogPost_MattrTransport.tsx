@@ -31,13 +31,13 @@ const BlogPostMattrTransport = () => {
   // Related posts
   const relatedPosts = [
     {
-      id: "top-8-meilleures-housses-matelas-demenagement",
+      id: 11,
       title: "Top 8 des meilleures housses matelas pour les déménagement",
       image: "/lovable-uploads/241f7930-bdd5-4cab-87f2-f5031b99cd9b.png",
       date: "8 Mai 2025"
     },
     {
-      id: "moving-day-tips-protect-furniture",
+      id: 2,
       title: "Moving Day Tips: Protect Your Furniture",
       image: "https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aW5nJTIwZGF5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       date: "5 Mai 2025"
@@ -65,9 +65,9 @@ const BlogPostMattrTransport = () => {
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto px-4 text-center text-white">
-            <div className="max-w-4xl mx-auto">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">🚚 Comment transporter son matelas efficacement ?</h1>
-              <div className="flex flex-wrap items-center justify-center space-x-4 text-sm md:text-base">
+            <div className="max-w-3xl mx-auto">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">🚚 Comment transporter son matelas efficacement ?</h1>
+              <div className="flex items-center justify-center space-x-4 text-sm md:text-base">
                 <div className="flex items-center">
                   <Calendar className="h-4 w-4 mr-1" />
                   <span>10 Mai 2025</span>
@@ -87,8 +87,8 @@ const BlogPostMattrTransport = () => {
       </div>
       
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto">
+      <div className="container mx-auto px-4 py-12">
+        <div className="flex flex-col lg:flex-row gap-8">
           {/* Article Content */}
           <main className="lg:w-2/3">
             {/* Back to Blog */}
@@ -99,123 +99,102 @@ const BlogPostMattrTransport = () => {
               </Link>
             </div>
             
-            {/* Article Introduction */}
-            <div className="bg-packshield-lightGrey/30 p-6 rounded-lg border border-packshield-lightGrey mb-10">
-              <p className="text-lg leading-relaxed">
-                Que ce soit pour un déménagement, un changement de literie ou un simple déplacement ponctuel, transporter un matelas est une étape souvent sous-estimée… jusqu'à ce qu'on s'y confronte. Encombrant, fragile et exposé à la saleté, un matelas mal protégé peut facilement se tacher, se déformer ou s'endommager. Voici nos conseils pour un <strong>transport serein et efficace</strong>.
-              </p>
-            </div>
-            
             {/* Article */}
             <article className="prose prose-lg max-w-none">
-              <hr className="my-10 border-t-2 border-packshield-lightGrey" />
-              
-              <h2 className="text-3xl font-bold text-packshield-navy mb-6">✅ 1. Préparez votre matelas avant le transport</h2>
-              
-              <p className="mb-6">
-                Avant de déplacer votre matelas, quelques précautions sont à prendre :
+              <p>
+                Que ce soit pour un déménagement, un changement de literie ou un simple déplacement ponctuel, transporter un matelas est une étape souvent sous-estimée… jusqu'à ce qu'on s'y confronte. Encombrant, fragile et exposé à la saleté, un matelas mal protégé peut facilement se tacher, se déformer ou s'endommager. Voici nos conseils pour un <strong>transport serein et efficace</strong>.
               </p>
               
-              <ul className="space-y-3 mb-8">
+              <hr />
+              
+              <h2>✅ 1. Préparez votre matelas avant le transport</h2>
+              
+              <p>Avant de déplacer votre matelas, quelques précautions sont à prendre :</p>
+              
+              <ul>
                 <li><strong>Aérez-le</strong> pendant quelques heures.</li>
                 <li><strong>Nettoyez-le rapidement</strong> à l'aide d'un aspirateur pour retirer poussière et acariens.</li>
                 <li>Assurez-vous qu'il est <strong>parfaitement sec</strong>, sans humidité résiduelle.</li>
               </ul>
               
-              <p className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-300 mb-10">
-                👉 Cette étape permet d'éviter les odeurs désagréables et réduit les risques de moisissures, surtout si le transport dure plus d'une journée.
-              </p>
+              <p>👉 Cette étape permet d'éviter les odeurs désagréables et réduit les risques de moisissures, surtout si le transport dure plus d'une journée.</p>
               
-              <hr className="my-10 border-t-2 border-packshield-lightGrey" />
+              <hr />
               
-              <h2 className="text-3xl font-bold text-packshield-navy mb-6">✅ 2. Utilisez une housse de protection adaptée</h2>
+              <h2>✅ 2. Utilisez une housse de protection adaptée</h2>
               
-              <p className="mb-6">
-                Ne transportez jamais un matelas à nu :
-              </p>
+              <p>Ne transportez jamais un matelas à nu :</p>
               
-              <ul className="space-y-3 mb-8">
+              <ul>
                 <li>Optez pour une <strong>housse de déménagement zippée</strong>, résistante et imperméable.</li>
                 <li>Les modèles dotés de <strong>poignées intégrées</strong> facilitent grandement la manutention, notamment dans les escaliers.</li>
                 <li>Choisissez un matériau <strong>épais mais respirant</strong>, qui évite la condensation pendant le trajet.</li>
               </ul>
               
-              <p className="bg-orange-50 p-4 rounded-lg border-l-4 border-packshield-orange mb-10">
-                💡 Les housses Packshield sont conçues spécialement pour répondre à ces exigences.
-              </p>
+              <p>💡 Les housses Packshield sont conçues spécialement pour répondre à ces exigences.</p>
               
-              <hr className="my-10 border-t-2 border-packshield-lightGrey" />
+              <hr />
               
-              <h2 className="text-3xl font-bold text-packshield-navy mb-6">✅ 3. Transportez le matelas à plat si possible</h2>
+              <h2>✅ 3. Transportez le matelas à plat si possible</h2>
               
-              <p className="mb-6">
-                Si votre véhicule le permet, il est préférable de <strong>placer le matelas à plat</strong> pour éviter qu'il ne se plie ou s'affaisse :
-              </p>
+              <p>Si votre véhicule le permet, il est préférable de <strong>placer le matelas à plat</strong> pour éviter qu'il ne se plie ou s'affaisse :</p>
               
-              <ul className="space-y-3 mb-8">
+              <ul>
                 <li>Positionnez-le sur une surface plane (fond de camion, sommier démonté, etc.).</li>
                 <li><strong>Évitez de poser des objets lourds dessus</strong>, surtout au centre.</li>
               </ul>
               
-              <p className="mb-10">
-                Si vous devez le <strong>transporter debout</strong>, veillez à bien le caler à l'aide de sangles ou entre deux meubles, afin qu'il ne glisse pas ni ne se déforme.
-              </p>
+              <p>Si vous devez le <strong>transporter debout</strong>, veillez à bien le caler à l'aide de sangles ou entre deux meubles, afin qu'il ne glisse pas ni ne se déforme.</p>
               
-              <hr className="my-10 border-t-2 border-packshield-lightGrey" />
+              <hr />
               
-              <h2 className="text-3xl font-bold text-packshield-navy mb-6">✅ 4. Protégez-le des chocs, de l'humidité et de la saleté</h2>
+              <h2>✅ 4. Protégez-le des chocs, de l'humidité et de la saleté</h2>
               
-              <p className="mb-6">
-                Durant le transport, plusieurs risques peuvent endommager votre matelas :
-              </p>
+              <p>Durant le transport, plusieurs risques peuvent endommager votre matelas :</p>
               
-              <ul className="space-y-3 mb-8">
+              <ul>
                 <li><strong>Protégez les coins</strong> avec des renforts ou du carton si vous devez passer par des cages d'escalier étroites.</li>
                 <li><strong>Ne posez jamais le matelas directement au sol</strong>, surtout à l'extérieur.</li>
                 <li><strong>Évitez de déménager par temps de pluie</strong>, ou prévoyez une bâche supplémentaire pour une protection maximale.</li>
               </ul>
               
-              <hr className="my-10 border-t-2 border-packshield-lightGrey" />
+              <hr />
               
-              <h2 className="text-3xl font-bold text-packshield-navy mb-6">✅ 5. Déballez-le rapidement à l'arrivée</h2>
+              <h2>✅ 5. Déballez-le rapidement à l'arrivée</h2>
               
-              <p className="mb-6">
-                Une fois le matelas arrivé à destination :
-              </p>
+              <p>Une fois le matelas arrivé à destination :</p>
               
-              <ul className="space-y-3 mb-8">
+              <ul>
                 <li>Retirez la housse de transport dès que possible pour lui permettre de <strong>respirer</strong>.</li>
                 <li>Laissez-le <strong>à plat pendant quelques heures</strong> avant de le réutiliser.</li>
                 <li>Vérifiez qu'il <strong>n'a subi aucune déformation</strong> durant le transport.</li>
               </ul>
               
-              <hr className="my-10 border-t-2 border-packshield-lightGrey" />
+              <hr />
               
-              <h2 className="text-3xl font-bold text-packshield-navy mb-6">🧠 En résumé</h2>
+              <h2>🧠 En résumé</h2>
               
-              <blockquote className="bg-gray-50 p-6 rounded-lg border-l-4 border-packshield-navy my-8">
-                <p className="mb-2">✔️ Nettoyez et aérez le matelas avant le transport</p>
-                <p className="mb-2">✔️ Protégez-le avec une housse zippée et résistante</p>
-                <p className="mb-2">✔️ Transportez-le à plat ou bien calé debout</p>
-                <p className="mb-2">✔️ Évitez les chocs, la pluie et les sols sales</p>
+              <blockquote>
+                <p>✔️ Nettoyez et aérez le matelas avant le transport</p>
+                <p>✔️ Protégez-le avec une housse zippée et résistante</p>
+                <p>✔️ Transportez-le à plat ou bien calé debout</p>
+                <p>✔️ Évitez les chocs, la pluie et les sols sales</p>
                 <p>✔️ Déballez-le rapidement pour qu'il retrouve sa forme</p>
               </blockquote>
               
-              <hr className="my-10 border-t-2 border-packshield-lightGrey" />
+              <hr />
               
-              <p className="text-lg mb-6">
+              <p>
                 Un matelas bien transporté, c'est un matelas préservé. Pour cela, <strong>une housse adaptée est indispensable</strong>. Les <strong>housses Packshield</strong> associent robustesse, praticité et design pensé pour une manutention simplifiée.
               </p>
               
-              <div className="bg-packshield-orange/10 p-6 rounded-lg border border-packshield-orange mb-6">
-                <a href="https://amzn.to/43aXBYX" target="_blank" rel="noopener noreferrer" className="text-packshield-orange hover:underline font-medium text-lg flex items-center">
-                  ➡️ <span className="ml-2">Découvrez nos modèles sur Amazon</span>
-                </a>
-              </div>
+              <p>
+                <a href="https://amzn.to/43aXBYX" target="_blank" rel="noopener noreferrer" className="text-packshield-orange hover:underline">➡️ Découvrez nos modèles sur Amazon</a>
+              </p>
             </article>
             
             {/* Tags */}
-            <div className="mt-12">
+            <div className="mt-8">
               <div className="flex flex-wrap gap-2">
                 <span className="bg-packshield-lightGrey text-packshield-navy px-3 py-1 rounded-md text-sm">
                   Déménagement
