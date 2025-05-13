@@ -1,10 +1,8 @@
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, User, Facebook, Linkedin, ListOrdered } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { extractTableOfContents, prepareBlogContent } from '@/utils/blogUtils';
@@ -271,7 +269,7 @@ const BlogPostTop8Housses = () => {
           </main>
           
           {/* Sidebar */}
-          <aside className="lg:w-1/4 space-y-8 lg:sticky lg:top-24 lg:self-start">
+          <aside className="lg:w-1/3 space-y-8 lg:sticky lg:top-24 lg:self-start">
             {/* Table of Contents */}
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="flex items-center space-x-2 mb-4">
@@ -279,26 +277,24 @@ const BlogPostTop8Housses = () => {
                 <h4 className="text-xl font-semibold text-packshield-navy">Table des matières</h4>
               </div>
               
-              <ScrollArea className="h-[300px] pr-4">
-                <nav>
-                  <ul className="space-y-2">
-                    {tableOfContents.map((item) => (
-                      <li key={item.id}>
-                        <button
-                          onClick={() => scrollToSection(item.id)}
-                          className={`text-left w-full py-2 px-4 rounded-lg transition-colors ${
-                            activeSection === item.id
-                              ? 'bg-packshield-lightGrey text-packshield-orange font-medium'
-                              : 'hover:bg-gray-50 text-packshield-grey'
-                          }`}
-                        >
-                          {item.title}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              </ScrollArea>
+              <nav>
+                <ul className="space-y-2">
+                  {tableOfContents.map((item) => (
+                    <li key={item.id}>
+                      <button
+                        onClick={() => scrollToSection(item.id)}
+                        className={`text-left w-full py-2 px-4 rounded-lg transition-colors ${
+                          activeSection === item.id
+                            ? 'bg-packshield-lightGrey text-packshield-orange font-medium'
+                            : 'hover:bg-gray-50 text-packshield-grey'
+                        }`}
+                      >
+                        {item.title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             </div>
             
             {/* Related Posts */}

@@ -1,10 +1,8 @@
-
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, User, Facebook, Twitter, Linkedin, ListOrdered } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { extractTableOfContents, prepareBlogContent } from '@/utils/blogUtils';
@@ -274,26 +272,24 @@ const BlogPost = () => {
                 <h4 className="text-xl font-semibold text-packshield-navy">Table of Contents</h4>
               </div>
               
-              <ScrollArea className="h-[300px] pr-4">
-                <nav>
-                  <ul className="space-y-2">
-                    {tableOfContents.map((item) => (
-                      <li key={item.id}>
-                        <button
-                          onClick={() => scrollToSection(item.id)}
-                          className={`text-left w-full py-2 px-4 rounded-lg transition-colors ${
-                            activeSection === item.id
-                              ? 'bg-packshield-lightGrey text-packshield-orange font-medium'
-                              : 'hover:bg-gray-50 text-packshield-grey'
-                          }`}
-                        >
-                          {item.title}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              </ScrollArea>
+              <nav>
+                <ul className="space-y-2">
+                  {tableOfContents.map((item) => (
+                    <li key={item.id}>
+                      <button
+                        onClick={() => scrollToSection(item.id)}
+                        className={`text-left w-full py-2 px-4 rounded-lg transition-colors ${
+                          activeSection === item.id
+                            ? 'bg-packshield-lightGrey text-packshield-orange font-medium'
+                            : 'hover:bg-gray-50 text-packshield-grey'
+                        }`}
+                      >
+                        {item.title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             </div>
             
             {/* Related Posts */}
