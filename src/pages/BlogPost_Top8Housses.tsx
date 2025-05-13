@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, User, Facebook, Linkedin, ListOrdered } from 'lucide-react';
@@ -189,7 +190,7 @@ const BlogPostTop8Housses = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Article Content */}
-          <main className="lg:w-3/4">
+          <main className="lg:w-2/3">
             {/* Back to Blog */}
             <div className="mb-10">
               <Link to="/blog" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
@@ -277,7 +278,7 @@ const BlogPostTop8Housses = () => {
                 <h4 className="text-xl font-semibold text-packshield-navy">Table des matières</h4>
               </div>
               
-              <nav>
+              <nav className="mt-4">
                 <ul className="space-y-2">
                   {tableOfContents.map((item) => (
                     <li key={item.id}>

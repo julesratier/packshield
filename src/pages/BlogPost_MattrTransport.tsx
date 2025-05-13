@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, User, Facebook, Linkedin, ListOrdered } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,7 +7,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { extractTableOfContents, prepareBlogContent } from '@/utils/blogUtils';
-import { useState } from 'react';
 
 const BlogPostMattrTransport = () => {
   const [activeSection, setActiveSection] = useState("");
@@ -330,7 +330,7 @@ const BlogPostMattrTransport = () => {
             </div>
           </main>
           
-          {/* Sidebar - Increased width from 1/4 to 1/3 */}
+          {/* Sidebar */}
           <aside className="lg:w-1/3 space-y-8 lg:sticky lg:top-24 lg:self-start">
             {/* Table of Contents */}
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
@@ -339,7 +339,7 @@ const BlogPostMattrTransport = () => {
                 <h4 className="text-xl font-semibold text-packshield-navy">Table des matières</h4>
               </div>
               
-              <nav>
+              <nav className="mt-4">
                 <ul className="space-y-2">
                   {tableOfContents.map((item) => (
                     <li key={item.id}>

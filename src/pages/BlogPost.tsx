@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, User, Facebook, Twitter, Linkedin, ListOrdered } from 'lucide-react';
@@ -190,7 +191,7 @@ const BlogPost = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Article Content */}
-          <main className="lg:w-3/4">
+          <main className="lg:w-2/3">
             {/* Back to Blog */}
             <div className="mb-10">
               <Link to="/blog" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
@@ -264,7 +265,7 @@ const BlogPost = () => {
           </main>
           
           {/* Sidebar */}
-          <aside className="lg:w-1/4 space-y-8 lg:sticky lg:top-24 lg:self-start">
+          <aside className="lg:w-1/3 space-y-8 lg:sticky lg:top-24 lg:self-start">
             {/* Table of Contents */}
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
               <div className="flex items-center space-x-2 mb-4">
@@ -272,7 +273,7 @@ const BlogPost = () => {
                 <h4 className="text-xl font-semibold text-packshield-navy">Table of Contents</h4>
               </div>
               
-              <nav>
+              <nav className="mt-4">
                 <ul className="space-y-2">
                   {tableOfContents.map((item) => (
                     <li key={item.id}>
