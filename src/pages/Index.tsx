@@ -12,8 +12,6 @@ import FAQ from '@/components/FAQ';
 import { products } from '@/utils/products';
 
 const Index = () => {
-  const [emailInput, setEmailInput] = useState('');
-
   // Get featured products from the central product data source
   const featuredProducts = products
     .filter(product => [1, 4, 5].includes(product.id))
@@ -55,13 +53,6 @@ const Index = () => {
       readTime: "4 min de lecture"
     }
   ];
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Dans une implémentation réelle, cela enverrait l'email à un service
-    alert(`Merci de vous être abonné avec ${emailInput} !`);
-    setEmailInput('');
-  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -277,34 +268,6 @@ const Index = () => {
 
       {/* FAQ Section */}
       <FAQ />
-
-      {/* Newsletter Section */}
-      <section className="py-16 bg-packshield-lightGrey">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-packshield-navy mb-4">Restez informé</h2>
-            <p className="text-packshield-grey mb-8">
-              Abonnez-vous à notre newsletter pour les dernières mises à jour de produits, offres exclusives et conseils de stockage.
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex max-w-md mx-auto">
-              <input
-                type="email"
-                value={emailInput}
-                onChange={(e) => setEmailInput(e.target.value)}
-                placeholder="Votre adresse email"
-                className="flex-grow py-2 px-4 rounded-l-md border-2 border-r-0 border-packshield-navy focus:outline-none focus:ring-2 focus:ring-packshield-orange"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-packshield-navy hover:bg-packshield-navy/90 text-white py-2 px-6 rounded-r-md transition-colors"
-              >
-                S'abonner
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>
