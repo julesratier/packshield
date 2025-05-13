@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-packshield-navy text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4 relative">
+          <div className="space-y-4">
             <img 
               src="/lovable-uploads/87541f33-47b5-4643-be36-189e3a57519d.png" 
               alt="Packshield Logo" 
@@ -17,11 +17,11 @@ const Footer = () => {
             <p className="text-sm text-gray-300">
               Protégeons ce qui compte le plus avec des solutions de stockage premium.
             </p>
-            <div className="absolute top-0 right-0 flex items-center space-x-4">
-              <a href="https://www.facebook.com/people/Packshield/100088566477762/" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors flex items-center">
+            <div className="flex space-x-4">
+              <a href="https://www.facebook.com/people/Packshield/100088566477762/" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="https://amzn.to/3GQ0wyC" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors flex items-center">
+              <a href="https://amzn.to/3GQ0wyC" target="_blank" rel="noopener noreferrer" className="hover:text-packshield-orange transition-colors">
                 <img 
                   src="/lovable-uploads/a0050990-b81b-48c8-8924-763122899b4f.png" 
                   alt="Amazon" 
@@ -39,6 +39,7 @@ const Footer = () => {
               <li><Link to="/product/3" className="text-gray-300 hover:text-packshield-orange transition-colors">Housse protection matelas en tissu</Link></li>
               <li><Link to="/product/1" className="text-gray-300 hover:text-packshield-orange transition-colors">Housse matelas en plastique épais</Link></li>
               <li><Link to="/product/5" className="text-gray-300 hover:text-packshield-orange transition-colors">Kit de rangement compact</Link></li>
+              <li><Link to="/products/bundles" className="text-gray-300 hover:text-packshield-orange transition-colors">Packs économiques</Link></li>
             </ul>
           </div>
 
@@ -46,7 +47,7 @@ const Footer = () => {
             <h3 className="font-medium text-lg mb-4">Ressources</h3>
             <ul className="space-y-2">
               <li><Link to="/blog" className="text-gray-300 hover:text-packshield-orange transition-colors">Blog</Link></li>
-              <li><Link to="/#testimonials" className="text-gray-300 hover:text-packshield-orange transition-colors">Témoignages clients</Link></li>
+              <li><Link to="/guides" className="text-gray-300 hover:text-packshield-orange transition-colors">Guides de déménagement</Link></li>
               <li><Link to="/#faq" className="text-gray-300 hover:text-packshield-orange transition-colors">FAQs</Link></li>
               <li><Link to="/contact" className="text-gray-300 hover:text-packshield-orange transition-colors">Nous contacter</Link></li>
             </ul>
