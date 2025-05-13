@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,7 +18,6 @@ import MentionsLegales from "./pages/MentionsLegales";
 import PartenaireAmazon from "./pages/PartenaireAmazon";
 import AuthorProfile from "./pages/AuthorProfile";
 import { ScrollToTop } from "./utils/ScrollToTop";
-import { getBlogIdFromSlug } from "./utils/blogSlug";
 
 const queryClient = new QueryClient();
 
@@ -35,21 +35,11 @@ const App = () => (
           <Route path="/products" element={<Products />} /> {/* Keeping for backward compatibility */}
           <Route path="/product/:id" element={<ProductDetail />} /> {/* Keeping for backward compatibility */}
           <Route path="/blog" element={<Blog />} />
-          
-          {/* New blog post routes with slugs */}
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          
-          {/* Special blog post routes */}
-          <Route path="/blog/comment-transporter-matelas-efficacement-10" element={<BlogPostMattrTransport />} />
-          <Route path="/blog/top-8-meilleures-housses-matelas-demenagement-11" element={<BlogPostTop8Housses />} />
-          
-          {/* Keep backward compatibility */}
           <Route path="/blog/1" element={<BlogPost />} />
           <Route path="/blog/2" element={<BlogPost />} />
           <Route path="/blog/3" element={<BlogPost />} />
           <Route path="/blog/10" element={<BlogPostMattrTransport />} />
           <Route path="/blog/11" element={<BlogPostTop8Housses />} />
-          
           <Route path="/author/helene-mirmande" element={<AuthorProfile />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

@@ -2,7 +2,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { getBlogUrl } from '@/utils/blogSlug';
 
 interface BlogPostCardProps {
   id: number;
@@ -17,7 +16,7 @@ interface BlogPostCardProps {
 
 const BlogPostCard = ({ id, title, excerpt, image, date, readTime, author, category }: BlogPostCardProps) => {
   return (
-    <Link to={getBlogUrl(id, title)} className="blog-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md">
+    <Link to={`/blog/${id}`} className="blog-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md">
       <div className="aspect-video overflow-hidden">
         <img 
           src={image} 
