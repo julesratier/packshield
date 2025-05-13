@@ -17,17 +17,21 @@ import Contact from "./pages/Contact";
 import MentionsLegales from "./pages/MentionsLegales";
 import PartenaireAmazon from "./pages/PartenaireAmazon";
 import AuthorProfile from "./pages/AuthorProfile";
+import { ScrollToTop } from "./utils/ScrollToTop";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
+        <Toaster />
+        <Sonner />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/produits" element={<Products />} />
+          <Route path="/produits/:id" element={<ProductDetail />} />
           <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/blog" element={<Blog />} />
