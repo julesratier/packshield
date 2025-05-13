@@ -39,7 +39,6 @@ const Footer = () => {
               <li><Link to="/product/3" className="text-gray-300 hover:text-packshield-orange transition-colors">Housse protection matelas en tissu</Link></li>
               <li><Link to="/product/1" className="text-gray-300 hover:text-packshield-orange transition-colors">Housse matelas en plastique épais</Link></li>
               <li><Link to="/product/5" className="text-gray-300 hover:text-packshield-orange transition-colors">Kit de rangement compact</Link></li>
-              <li><Link to="/products/bundles" className="text-gray-300 hover:text-packshield-orange transition-colors">Packs économiques</Link></li>
             </ul>
           </div>
 
@@ -47,7 +46,7 @@ const Footer = () => {
             <h3 className="font-medium text-lg mb-4">Ressources</h3>
             <ul className="space-y-2">
               <li><Link to="/blog" className="text-gray-300 hover:text-packshield-orange transition-colors">Blog</Link></li>
-              <li><Link to="/guides" className="text-gray-300 hover:text-packshield-orange transition-colors">Guides de déménagement</Link></li>
+              <li><Link to="/#testimonials" className="text-gray-300 hover:text-packshield-orange transition-colors">Témoignages clients</Link></li>
               <li><Link to="/#faq" className="text-gray-300 hover:text-packshield-orange transition-colors">FAQs</Link></li>
               <li><Link to="/contact" className="text-gray-300 hover:text-packshield-orange transition-colors">Nous contacter</Link></li>
             </ul>
