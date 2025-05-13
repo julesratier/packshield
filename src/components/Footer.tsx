@@ -2,8 +2,15 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Mail } from 'lucide-react';
 import Logo from './Logo';
+import { getProductUrl } from '@/utils/productSlug';
+import { products } from '@/utils/products';
 
 const Footer = () => {
+  // Find products by ID
+  const product1 = products.find(p => p.id === 1) || products[0];
+  const product3 = products.find(p => p.id === 3) || products[0];
+  const product5 = products.find(p => p.id === 5) || products[0];
+
   return (
     <footer className="bg-packshield-navy text-white">
       <div className="container mx-auto px-4 py-12">
@@ -36,9 +43,9 @@ const Footer = () => {
           <div>
             <h3 className="font-medium text-lg mb-4">Produits</h3>
             <ul className="space-y-2">
-              <li><Link to="/product/3" className="text-gray-300 hover:text-packshield-orange transition-colors">Housse protection matelas en tissu</Link></li>
-              <li><Link to="/product/1" className="text-gray-300 hover:text-packshield-orange transition-colors">Housse matelas en plastique épais</Link></li>
-              <li><Link to="/product/5" className="text-gray-300 hover:text-packshield-orange transition-colors">Kit de rangement compact</Link></li>
+              <li><Link to={getProductUrl(product3)} className="text-gray-300 hover:text-packshield-orange transition-colors">Housse protection matelas en tissu</Link></li>
+              <li><Link to={getProductUrl(product1)} className="text-gray-300 hover:text-packshield-orange transition-colors">Housse matelas en plastique épais</Link></li>
+              <li><Link to={getProductUrl(product5)} className="text-gray-300 hover:text-packshield-orange transition-colors">Kit de rangement compact</Link></li>
             </ul>
           </div>
 

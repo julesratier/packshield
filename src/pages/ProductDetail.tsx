@@ -17,24 +17,48 @@ import {
   getProductSpecifications 
 } from '@/utils/products';
 
+// Helper function to create slug from product title
+export const createProductSlug = (product: { id: number, title: string }) => {
+  const slug = product.title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '') // Remove special chars
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+    .trim();
+  
+  return `${slug}-${product.id}`;
+};
+
+// Helper function to extract ID from slug
+const getProductIdFromSlug = (slug: string) => {
+  const parts = slug.split('-');
+  const lastPart = parts[parts.length - 1];
+  const id = parseInt(lastPart);
+  return isNaN(id) ? 1 : id; // Default to 1 if parsing fails
+};
+
 const ProductDetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug, id: legacyId } = useParams<{ slug?: string, id?: string }>();
   const [mattressSize, setMattressSize] = useState("140x200");
   const location = useLocation();
   
   // Scroll to top on page load or when ID changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [id, location.pathname]);
+  }, [slug, legacyId, location.pathname]);
   
-  const productId = parseInt(id || "1");
+  // Parse ID from either the new slug format or the legacy ID parameter
+  const productId = slug 
+    ? getProductIdFromSlug(slug)
+    : parseInt(legacyId || "1");
+  
   const product = products.find(p => p.id === productId) || products[0];
   
-  // Récupérer des produits associés (excluant le produit actuel)
+  // Get related products (excluding the current product)
   const relatedProducts = products
     .filter(p => p.id !== productId)
-    .sort(() => 0.5 - Math.random()) // Mélange aléatoire
-    .slice(0, 3); // Prendre les 3 premiers
+    .sort(() => 0.5 - Math.random()) // Random shuffle
+    .slice(0, 3); // Take first 3
 
   const description = getProductDescription(productId);
   const features = getProductFeatures(productId);
@@ -70,7 +94,7 @@ const ProductDetail = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <div className="flex items-center mb-8">
-          <Link to="/products" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
+          <Link to="/produits" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
             <ArrowLeft className="h-4 w-4 mr-2" />
             <span>Retour aux produits</span>
           </Link>
