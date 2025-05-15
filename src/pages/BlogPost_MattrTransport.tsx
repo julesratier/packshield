@@ -1,12 +1,10 @@
 
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, Clock, User, Facebook, Linkedin, ListOrdered } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { extractTableOfContents, prepareBlogContent } from '@/utils/blogUtils';
+import BlogLayout from '@/components/blog/BlogLayout';
+import { extractTableOfContents } from '@/utils/blogUtils';
+import BlogTags from '@/components/blog/BlogTags';
+import BlogShareButtons from '@/components/blog/BlogShareButtons';
+import BlogAuthorCard from '@/components/blog/BlogAuthorCard';
 
 const BlogPostMattrTransport = () => {
   const [activeSection, setActiveSection] = useState("");
@@ -128,7 +126,9 @@ const BlogPostMattrTransport = () => {
     author: {
       name: "Hélène Mirmande",
       avatar: "/lovable-uploads/552f045e-6d5b-4d23-a7ce-18789ffeb237.png",
-      role: "Responsable Produits chez Packshield"
+      role: "Responsable Produits chez Packshield",
+      slug: "helene-mirmande",
+      bio: "Hélène est spécialisée dans la conception de produits pour la maison et la décoration. Elle accorde une grande importance à la qualité et imagine des solutions simples et pratiques, pensées pour faciliter le quotidien."
     },
     relatedPosts: [
       {
@@ -143,34 +143,12 @@ const BlogPostMattrTransport = () => {
         image: "https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aW5nJTIwZGF5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
         date: "5 Mai 2025"
       }
-    ]
+    ],
+    tags: ["Déménagement", "Matelas", "Protection"]
   };
 
   // Extract table of contents
   const tableOfContents = extractTableOfContents(post.content);
-  
-  // Prepare blog content with consistent styling
-  const preparedContent = prepareBlogContent(post.content);
-
-  // Social sharing functions
-  const shareOnFacebook = () => {
-    const url = window.location.href;
-    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-    window.open(shareUrl, '_blank', 'width=600,height=400');
-  };
-
-  const shareOnTwitter = () => {
-    const url = window.location.href;
-    const text = "🚚 Comment transporter son matelas efficacement ? - Packshield";
-    const shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
-    window.open(shareUrl, '_blank', 'width=600,height=400');
-  };
-
-  const shareOnLinkedIn = () => {
-    const url = window.location.href;
-    const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
-    window.open(shareUrl, '_blank', 'width=600,height=400');
-  };
 
   // Intersection Observer to highlight active section in table of contents
   useEffect(() => {
@@ -211,183 +189,35 @@ const BlogPostMattrTransport = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
+    <>
+      <BlogLayout
+        id={post.id}
+        title={post.title}
+        content={post.content}
+        image={post.image}
+        date={post.date}
+        readTime={post.readTime}
+        category={post.category}
+        author={post.author}
+        relatedPosts={post.relatedPosts}
+        activeSection={activeSection}
+        onSectionClick={scrollToSection}
+        tableOfContents={tableOfContents}
+        language="fr"
+      />
       
-      {/* Hero Section */}
-      <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30"></div>
-        <div className="h-96 md:h-[500px]">
-          <img
-            src={post.image}
-            alt={post.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="container mx-auto px-4 text-center text-white">
-            <div className="max-w-4xl mx-auto">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">{post.title}</h1>
-              <div className="flex items-center justify-center space-x-6 text-sm md:text-base">
-                <div className="flex items-center">
-                  <Calendar className="h-5 w-5 mr-2" />
-                  <span>{post.date}</span>
-                </div>
-                <div className="flex items-center">
-                  <Clock className="h-5 w-5 mr-2" />
-                  <span>{post.readTime}</span>
-                </div>
-                <div className="flex items-center">
-                  <User className="h-5 w-5 mr-2" />
-                  <span>{post.author.name}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-16">
+      {/* Tags, Share Buttons, and Author Card rendered outside of BlogLayout */}
+      <div className="container mx-auto px-4 pb-16">
         <div className="flex flex-col lg:flex-row gap-10">
-          {/* Article Content */}
-          <main className="lg:w-2/3">
-            {/* Back to Blog */}
-            <div className="mb-10">
-              <Link to="/blog" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
-                <ArrowLeft className="h-5 w-5 mr-2" />
-                <span>Retour au Blog</span>
-              </Link>
-            </div>
-            
-            {/* Article */}
-            <article className="prose prose-lg max-w-3xl mx-auto">
-              <div className="bg-packshield-lightGrey p-6 rounded-xl mb-10">
-                <p className="text-slate-700 leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-2">
-                  Que ce soit pour un déménagement, un changement de literie ou un simple déplacement ponctuel, transporter un matelas est une étape souvent sous-estimée… jusqu'à ce qu'on s'y confronte. Encombrant, fragile et exposé à la saleté, un matelas mal protégé peut facilement se tacher, se déformer ou s'endommager.
-                </p>
-              </div>
-              
-              <div 
-                className="blog-content" 
-                dangerouslySetInnerHTML={{ __html: preparedContent }}
-              />
-            </article>
-            
-            {/* Tags */}
-            <div className="mt-12 max-w-3xl mx-auto">
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-packshield-lightGrey text-packshield-navy px-4 py-2 rounded-full text-sm">
-                  Déménagement
-                </span>
-                <span className="bg-packshield-lightGrey text-packshield-navy px-4 py-2 rounded-full text-sm">
-                  Matelas
-                </span>
-                <span className="bg-packshield-lightGrey text-packshield-navy px-4 py-2 rounded-full text-sm">
-                  Protection
-                </span>
-              </div>
-            </div>
-            
-            {/* Share */}
-            <div className="mt-8 max-w-3xl mx-auto">
-              <h4 className="font-medium text-packshield-navy mb-3">Partager cet article</h4>
-              <div className="flex space-x-3">
-                <Button variant="outline" size="icon" onClick={shareOnFacebook} className="hover:bg-packshield-lightGrey hover:text-packshield-orange">
-                  <Facebook className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" onClick={shareOnTwitter} className="hover:bg-packshield-lightGrey hover:text-packshield-orange">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-                    <path d="M4 4h16v16H4z"></path>
-                    <path d="M4 4l16 16"></path>
-                  </svg>
-                </Button>
-                <Button variant="outline" size="icon" onClick={shareOnLinkedIn} className="hover:bg-packshield-lightGrey hover:text-packshield-orange">
-                  <Linkedin className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-            
-            {/* Author */}
-            <div className="mt-16 p-8 bg-packshield-lightGrey rounded-xl max-w-3xl mx-auto">
-              <div className="flex items-center">
-                <Avatar className="h-16 w-16 mr-4">
-                  <AvatarImage src={post.author.avatar} alt={post.author.name} />
-                  <AvatarFallback>HM</AvatarFallback>
-                </Avatar>
-                <div>
-                  <Link to="/author/helene-mirmande" className="text-xl font-semibold text-packshield-navy hover:text-packshield-orange transition-colors">
-                    {post.author.name}
-                  </Link>
-                  <p className="text-packshield-grey">{post.author.role}</p>
-                </div>
-              </div>
-              <p className="mt-4 text-packshield-grey">
-                Hélène est spécialisée dans la conception de produits pour la maison et la décoration. 
-                Elle accorde une grande importance à la qualité et imagine des solutions simples et pratiques, 
-                pensées pour faciliter le quotidien.
-              </p>
-            </div>
-          </main>
-          
-          {/* Sidebar */}
-          <aside className="lg:w-1/3 space-y-8 lg:sticky lg:top-24 lg:self-start">
-            {/* Table of Contents */}
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <div className="flex items-center space-x-2 mb-4">
-                <ListOrdered className="h-5 w-5 text-packshield-orange" />
-                <h4 className="text-xl font-semibold text-packshield-navy">Table des matières</h4>
-              </div>
-              
-              <nav className="mt-4">
-                <ul className="space-y-2">
-                  {tableOfContents.map((item) => (
-                    <li key={item.id}>
-                      <button
-                        onClick={() => scrollToSection(item.id)}
-                        className={`text-left w-full py-2 px-4 rounded-lg transition-colors ${
-                          activeSection === item.id
-                            ? 'bg-packshield-lightGrey text-packshield-orange font-medium'
-                            : 'hover:bg-gray-50 text-packshield-grey'
-                        }`}
-                      >
-                        {item.title}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-            
-            {/* Related Posts */}
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <h4 className="text-xl font-semibold text-packshield-navy mb-6">Articles Similaires</h4>
-              <div className="space-y-6">
-                {post.relatedPosts.map(relatedPost => (
-                  <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="flex items-start space-x-4 group">
-                    <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden">
-                      <img 
-                        src={relatedPost.image} 
-                        alt={relatedPost.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div>
-                      <h5 className="font-medium text-packshield-navy group-hover:text-packshield-orange transition-colors">
-                        {relatedPost.title}
-                      </h5>
-                      <p className="text-sm text-packshield-grey mt-2">{relatedPost.date}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </aside>
+          <div className="lg:w-2/3">
+            <BlogTags tags={post.tags} />
+            <BlogShareButtons title={post.title} language="fr" />
+            <BlogAuthorCard author={post.author} />
+          </div>
+          <div className="lg:w-1/3"></div>
         </div>
       </div>
-      
-      <Footer />
-    </div>
+    </>
   );
 };
 

@@ -1,12 +1,11 @@
 
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, Clock, User, Facebook, Twitter, Linkedin, ListOrdered } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { extractTableOfContents, prepareBlogContent } from '@/utils/blogUtils';
+import { useParams } from 'react-router-dom';
+import BlogLayout from '@/components/blog/BlogLayout';
+import { extractTableOfContents } from '@/utils/blogUtils';
+import BlogTags from '@/components/blog/BlogTags';
+import BlogShareButtons from '@/components/blog/BlogShareButtons';
+import BlogAuthorCard from '@/components/blog/BlogAuthorCard';
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
@@ -66,7 +65,8 @@ const BlogPost = () => {
     author: {
       name: "Sarah Johnson",
       avatar: "https://i.pravatar.cc/150?u=sarah",
-      role: "Storage Expert"
+      role: "Storage Expert",
+      bio: "Sarah is a storage expert with over 10 years of experience in the moving and storage industry. She specializes in creating guides for proper item care and maintenance during storage and relocation."
     },
     relatedPosts: [
       {
@@ -83,34 +83,12 @@ const BlogPost = () => {
         image: "https://images.unsplash.com/photo-1595332230117-8310b582a860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3RvcmFnZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
         date: "May 1, 2025"
       }
-    ]
+    ],
+    tags: ["Storage", "Storage Tips", "Protection"]
   };
 
   // Parse content to extract table of contents
   const tableOfContents = extractTableOfContents(post.content);
-
-  // Prepare blog content with consistent styling
-  const preparedContent = prepareBlogContent(post.content);
-
-  // Function to handle social media sharing
-  const shareOnFacebook = () => {
-    const url = window.location.href;
-    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-    window.open(shareUrl, '_blank', 'width=600,height=400');
-  };
-
-  const shareOnTwitter = () => {
-    const url = window.location.href;
-    const text = post.title + " - Packshield";
-    const shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
-    window.open(shareUrl, '_blank', 'width=600,height=400');
-  };
-
-  const shareOnLinkedIn = () => {
-    const url = window.location.href;
-    const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
-    window.open(shareUrl, '_blank', 'width=600,height=400');
-  };
 
   // Intersection Observer to highlight active section in table of contents
   useEffect(() => {
@@ -151,177 +129,34 @@ const BlogPost = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
+    <>
+      <BlogLayout
+        id={post.id}
+        title={post.title}
+        content={post.content}
+        image={post.image}
+        date={post.date}
+        readTime={post.readTime}
+        category={post.category}
+        author={post.author}
+        relatedPosts={post.relatedPosts}
+        activeSection={activeSection}
+        onSectionClick={scrollToSection}
+        tableOfContents={tableOfContents}
+      />
       
-      {/* Hero Section */}
-      <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50"></div>
-        <div className="h-96 md:h-[500px]">
-          <img
-            src={post.image}
-            alt={post.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="container mx-auto px-4 text-center text-white">
-            <div className="max-w-4xl mx-auto">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">{post.title}</h1>
-              <div className="flex items-center justify-center space-x-6 text-sm md:text-base">
-                <div className="flex items-center">
-                  <Calendar className="h-5 w-5 mr-2" />
-                  <span>{post.date}</span>
-                </div>
-                <div className="flex items-center">
-                  <Clock className="h-5 w-5 mr-2" />
-                  <span>{post.readTime}</span>
-                </div>
-                <div className="flex items-center">
-                  <User className="h-5 w-5 mr-2" />
-                  <span>{post.author.name}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-16">
+      {/* Tags, Share Buttons, and Author Card rendered outside of BlogLayout */}
+      <div className="container mx-auto px-4 pb-16">
         <div className="flex flex-col lg:flex-row gap-10">
-          {/* Article Content */}
-          <main className="lg:w-2/3">
-            {/* Back to Blog */}
-            <div className="mb-10">
-              <Link to="/blog" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
-                <ArrowLeft className="h-5 w-5 mr-2" />
-                <span>Back to Blog</span>
-              </Link>
-            </div>
-            
-            {/* Article */}
-            <article className="prose prose-lg max-w-3xl mx-auto">
-              <div className="bg-packshield-lightGrey p-6 rounded-xl mb-10">
-                <p className="text-slate-700 leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-              </div>
-              
-              <div 
-                className="blog-content" 
-                dangerouslySetInnerHTML={{ __html: preparedContent }}
-              />
-            </article>
-            
-            {/* Tags */}
-            <div className="mt-12 max-w-3xl mx-auto">
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-packshield-lightGrey text-packshield-navy px-4 py-2 rounded-full text-sm">
-                  {post.category}
-                </span>
-                <span className="bg-packshield-lightGrey text-packshield-navy px-4 py-2 rounded-full text-sm">
-                  Storage Tips
-                </span>
-                <span className="bg-packshield-lightGrey text-packshield-navy px-4 py-2 rounded-full text-sm">
-                  Protection
-                </span>
-              </div>
-            </div>
-            
-            {/* Share */}
-            <div className="mt-8 max-w-3xl mx-auto">
-              <h4 className="font-medium text-packshield-navy mb-3">Share this article</h4>
-              <div className="flex space-x-3">
-                <Button variant="outline" size="icon" onClick={shareOnFacebook} className="hover:bg-packshield-lightGrey hover:text-packshield-orange">
-                  <Facebook className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" onClick={shareOnTwitter} className="hover:bg-packshield-lightGrey hover:text-packshield-orange">
-                  <Twitter className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" onClick={shareOnLinkedIn} className="hover:bg-packshield-lightGrey hover:text-packshield-orange">
-                  <Linkedin className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-            
-            {/* Author */}
-            <div className="mt-16 p-8 bg-packshield-lightGrey rounded-xl max-w-3xl mx-auto">
-              <div className="flex items-center">
-                <Avatar className="h-16 w-16 mr-4">
-                  <AvatarImage src={post.author.avatar} alt={post.author.name} />
-                  <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
-                </Avatar>
-                <div>
-                  <h4 className="text-xl font-semibold text-packshield-navy">{post.author.name}</h4>
-                  <p className="text-packshield-grey">{post.author.role}</p>
-                </div>
-              </div>
-              <p className="mt-4 text-packshield-grey">
-                Sarah is a storage expert with over 10 years of experience in the moving and storage industry. 
-                She specializes in creating guides for proper item care and maintenance during storage and relocation.
-              </p>
-            </div>
-          </main>
-          
-          {/* Sidebar */}
-          <aside className="lg:w-1/3 space-y-8 lg:sticky lg:top-24 lg:self-start">
-            {/* Table of Contents */}
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <div className="flex items-center space-x-2 mb-4">
-                <ListOrdered className="h-5 w-5 text-packshield-orange" />
-                <h4 className="text-xl font-semibold text-packshield-navy">Table of Contents</h4>
-              </div>
-              
-              <nav className="mt-4">
-                <ul className="space-y-2">
-                  {tableOfContents.map((item) => (
-                    <li key={item.id}>
-                      <button
-                        onClick={() => scrollToSection(item.id)}
-                        className={`text-left w-full py-2 px-4 rounded-lg transition-colors ${
-                          activeSection === item.id
-                            ? 'bg-packshield-lightGrey text-packshield-orange font-medium'
-                            : 'hover:bg-gray-50 text-packshield-grey'
-                        }`}
-                      >
-                        {item.title}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-            
-            {/* Related Posts */}
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <h4 className="text-xl font-semibold text-packshield-navy mb-6">Related Articles</h4>
-              <div className="space-y-6">
-                {post.relatedPosts.map(relatedPost => (
-                  <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="flex items-start space-x-4 group">
-                    <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden">
-                      <img 
-                        src={relatedPost.image} 
-                        alt={relatedPost.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div>
-                      <h5 className="font-medium text-packshield-navy group-hover:text-packshield-orange transition-colors">
-                        {relatedPost.title}
-                      </h5>
-                      <p className="text-sm text-packshield-grey mt-2">{relatedPost.date}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </aside>
+          <div className="lg:w-2/3">
+            <BlogTags tags={post.tags} />
+            <BlogShareButtons title={post.title} />
+            <BlogAuthorCard author={post.author} />
+          </div>
+          <div className="lg:w-1/3"></div>
         </div>
       </div>
-      
-      <Footer />
-    </div>
+    </>
   );
 };
 
