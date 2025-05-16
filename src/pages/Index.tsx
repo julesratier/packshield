@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Star, Package } from 'lucide-react';
@@ -12,6 +11,7 @@ import FAQ from '@/components/FAQ';
 import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 import { products } from '@/utils/products';
 import { getProductUrl } from '@/utils/productSlug';
+import { TestimonialsFrench } from '@/components/ui/testimonials-french';
 
 const Index = () => {
   // Get featured products from the central product data source
@@ -186,55 +186,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section id="testimonials" className="py-16 md:py-20 bg-packshield-navy text-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ce que disent nos clients</h2>
-            <p className="max-w-2xl mx-auto text-gray-300">
-              Des milliers de clients sont satisfaits partout en France. Merci pour votre confiance ❤️ depuis 10 ans déjà.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" />
-                ))}
-              </div>
-              <p className="mb-4 text-gray-200">
-                "Super qualité pour cette housse qui me permet de laisser mon matelas sous le lit alors que les enfants viennent l'été. Le matelas est super, bien protégé et la housse 'est très solide"
-              </p>
-              <div className="font-medium">Avis sur Amazon - 3 septembre 2024</div>
-            </div>
-            
-            <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" />
-                ))}
-              </div>
-              <p className="mb-4 text-gray-200">
-                "Avec notre matelas de 140*200cm pour le déménagement, cette protection est idéale. Facile à poser sur le matelas et le déplacement nickel. Je recommande"
-              </p>
-              <div className="font-medium">Avis sur Amazon - 21 décembre 2024</div>
-            </div>
-            
-            <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" />
-                ))}
-              </div>
-              <p className="mb-4 text-gray-200">
-                "Je suis hyper satisfaite de mon achat ! Il faut savoir que j'habite un petit appartement donc peu de rangement et grâce à ces housses je peux stocker énormément de vêtements ou autre et Hop dans les placards ! C'est un gain de place considérable."
-              </p>
-              <div className="font-medium">Avis sur Amazon - 10 décembre 2024</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Testimonial Section - now using our animated component */}
+      <TestimonialsFrench />
 
       {/* Blog Section */}
       <section className="py-16 md:py-20">
