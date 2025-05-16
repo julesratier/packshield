@@ -6,7 +6,7 @@ import { createBlogSlug } from '@/utils/blogSlug';
 const BlogPostMattrTransport = () => {
   const navigate = useNavigate();
   
-  // Blog post info
+  // Blog post info - assurons-nous que ces informations correspondent exactement à celles de la page Blog
   const post = {
     id: 10,
     title: "Comment transporter son matelas efficacement ?"

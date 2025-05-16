@@ -6,7 +6,7 @@ import { createBlogSlug } from '@/utils/blogSlug';
 const BlogPostTop8Housses = () => {
   const navigate = useNavigate();
   
-  // Blog post info
+  // Blog post info - assurons-nous que ces informations correspondent exactement à celles de la page Blog
   const post = {
     id: 11,
     title: "Top 8 des meilleures housses matelas pour les déménagement"

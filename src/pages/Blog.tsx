@@ -8,12 +8,13 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BlogPostCard from '@/components/BlogPostCard';
+import { getBlogUrl } from '@/utils/blogSlug';
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
   
-  // Updated blog post data
+  // Updated blog post data - assurons-nous d'avoir les mêmes IDs et titres que dans les redirections
   const blogPosts = [
     {
       id: 10,
