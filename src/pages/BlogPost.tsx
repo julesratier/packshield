@@ -6,7 +6,7 @@ import { extractTableOfContents } from '@/utils/blogUtils';
 import BlogTags from '@/components/blog/BlogTags';
 import BlogShareButtons from '@/components/blog/BlogShareButtons';
 import BlogAuthorCard from '@/components/blog/BlogAuthorCard';
-import { getBlogPostIdFromSlug } from '@/utils/blogSlug';
+import { getBlogPostIdFromSlug, createBlogSlug } from '@/utils/blogSlug';
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -281,7 +281,7 @@ const BlogPost = () => {
         activeSection={activeSection}
         onSectionClick={scrollToSection}
         tableOfContents={tableOfContents}
-        language={post.language || 'en'}
+        language={post.language as 'en' | 'fr' || 'en'}
       />
       
       {/* Tags, Share Buttons, and Author Card rendered outside of BlogLayout */}
