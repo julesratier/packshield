@@ -13,8 +13,8 @@ const BlogRedirector: React.FC<BlogRedirectorProps> = ({ slug, postId, title }) 
   // Calculate the correct slug
   const correctSlug = createBlogSlug({ id: postId, title });
   
-  // Handle direct ID URLs or old slug format - redirect to new slug URLs
-  if (slug && slug !== correctSlug && (slug.includes('-') || !isNaN(Number(slug)))) {
+  // Execute redirection if the current slug doesn't match the correct one
+  if (slug && slug !== correctSlug) {
     return <Navigate to={`/blog/${correctSlug}`} replace />;
   }
   

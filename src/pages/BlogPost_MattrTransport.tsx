@@ -1,16 +1,9 @@
 
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createBlogSlug } from '@/utils/blogSlug';
 
 const BlogPostMattrTransport = () => {
   const navigate = useNavigate();
-  
-  // Blog post info
-  const post = {
-    id: 10,
-    title: "Comment transporter son matelas efficacement ?"
-  };
 
   // Redirect to the new slug URL
   useEffect(() => {
