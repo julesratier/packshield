@@ -9,6 +9,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import Flag from '@/components/Flag';
 import FAQ from '@/components/FAQ';
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 import { products } from '@/utils/products';
 import { getProductUrl } from '@/utils/productSlug';
 
@@ -70,9 +71,10 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/produits">
-                <Button size="lg" className="bg-packshield-orange hover:bg-packshield-orange/90 text-white">
-                  Voir nos produits
-                </Button>
+                <InteractiveHoverButton 
+                  text="Voir nos produits" 
+                  className="bg-packshield-orange hover:bg-packshield-orange text-white w-48"
+                />
               </Link>
             </div>
           </div>
