@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import Flag from '@/components/Flag';
-import FAQ from '@/components/FAQ';
+import CustomFAQ from '@/components/CustomFAQ';
 import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 import { products } from '@/utils/products';
 import { getProductUrl } from '@/utils/productSlug';
@@ -274,8 +274,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQ />
+      {/* FAQ Section - Using our new component */}
+      <CustomFAQ />
 
       <Footer />
     </div>
