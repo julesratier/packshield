@@ -6,17 +6,21 @@ import { extractTableOfContents } from '@/utils/blogUtils';
 import BlogTags from '@/components/blog/BlogTags';
 import BlogShareButtons from '@/components/blog/BlogShareButtons';
 import BlogAuthorCard from '@/components/blog/BlogAuthorCard';
+import { getBlogPostIdFromSlug } from '@/utils/blogSlug';
 
 const BlogPost = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const [activeSection, setActiveSection] = useState("");
+  
+  // Extract ID from slug
+  const id = slug ? getBlogPostIdFromSlug(slug) : 1;
   
   // Simulated blog post data (in a real application, this would come from a CMS)
   const post = {
-    id: parseInt(id || "1"),
-    title: id === "1" 
+    id: id,
+    title: id === 1 
       ? "How to Properly Store a Mattress" 
-      : id === "2" 
+      : id === 2 
         ? "Moving Day Tips: Protect Your Furniture" 
         : "Why Quality Storage Matters",
     content: `
@@ -54,9 +58,9 @@ const BlogPost = () => {
       <h2 id="conclusion">Conclusion</h2>
       <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
     `,
-    image: id === "1" 
+    image: id === 1 
       ? "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
-      : id === "2" 
+      : id === 2 
         ? "https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aW5nJTIwZGF5fGVufDB8fDB8fHww&auto=format&fit=crop&w=870&q=80" 
         : "https://images.unsplash.com/photo-1595332230117-8310b582a860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3RvcmFnZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=870&q=80",
     date: "May 8, 2025",
@@ -70,9 +74,9 @@ const BlogPost = () => {
     },
     relatedPosts: [
       {
-        id: id === "1" ? 2 : 1,
-        title: id === "1" ? "Moving Day Tips: Protect Your Furniture" : "How to Properly Store a Mattress",
-        image: id === "1" 
+        id: id === 1 ? 2 : 1,
+        title: id === 1 ? "Moving Day Tips: Protect Your Furniture" : "How to Properly Store a Mattress",
+        image: id === 1 
           ? "https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aW5nJTIwZGF5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" 
           : "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
         date: "May 5, 2025"
@@ -115,7 +119,7 @@ const BlogPost = () => {
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [slug]);
   
   // Function to handle smooth scroll to section
   const scrollToSection = (sectionId: string) => {

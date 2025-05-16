@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -35,11 +34,14 @@ const App = () => (
           <Route path="/products" element={<Products />} /> {/* Keeping for backward compatibility */}
           <Route path="/product/:id" element={<ProductDetail />} /> {/* Keeping for backward compatibility */}
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/1" element={<BlogPost />} />
-          <Route path="/blog/2" element={<BlogPost />} />
-          <Route path="/blog/3" element={<BlogPost />} />
-          <Route path="/blog/10" element={<BlogPostMattrTransport />} />
-          <Route path="/blog/11" element={<BlogPostTop8Housses />} />
+          
+          {/* Specific blog posts with their titles in the URL */}
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          
+          {/* Specific blog post pages - keeping these routes for direct access */}
+          <Route path="/blog/comment-transporter-son-matelas-efficacement-10" element={<BlogPostMattrTransport />} />
+          <Route path="/blog/top-8-des-meilleures-housses-matelas-pour-les-demenagement-11" element={<BlogPostTop8Housses />} />
+          
           <Route path="/author/helene-mirmande" element={<AuthorProfile />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

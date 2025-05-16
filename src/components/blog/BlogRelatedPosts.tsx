@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { RelatedPost } from './BlogLayout';
+import { getBlogUrl } from '@/utils/blogSlug';
 
 interface BlogRelatedPostsProps {
   posts: RelatedPost[];
@@ -11,7 +12,11 @@ const BlogRelatedPosts: React.FC<BlogRelatedPostsProps> = ({ posts }) => {
   return (
     <div className="space-y-6">
       {posts.map(post => (
-        <Link key={post.id} to={`/blog/${post.id}`} className="flex items-start space-x-4 group">
+        <Link 
+          key={post.id} 
+          to={getBlogUrl({ id: post.id, title: post.title })} 
+          className="flex items-start space-x-4 group"
+        >
           <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden">
             <img 
               src={post.image} 
