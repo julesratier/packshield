@@ -219,10 +219,12 @@ const BlogPost = () => {
   
   const post = getPostData(id);
 
-  // Handle direct ID URLs - redirect to slug URLs
-  if (slug && !isNaN(Number(slug))) {
+  // Handle direct ID URLs or old slug format - redirect to new slug URLs
+  if (slug) {
     const correctSlug = createBlogSlug(post);
-    return <Navigate to={`/blog/${correctSlug}`} replace />;
+    if (slug !== correctSlug && (slug.includes('-') || !isNaN(Number(slug)))) {
+      return <Navigate to={`/blog/${correctSlug}`} replace />;
+    }
   }
 
   // Parse content to extract table of contents

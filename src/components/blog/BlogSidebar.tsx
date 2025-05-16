@@ -22,7 +22,7 @@ const BlogSidebar: React.FC<BlogSidebarProps> = ({
 }) => {
   const translations = {
     tableOfContents: language === 'en' ? 'Table of Contents' : 'Table des matières',
-    relatedArticles: language === 'en' ? 'Related Articles' : 'Articles Similaires'
+    relatedArticles: language === 'en' ? 'Related Articles' : 'Articles similaires'
   };
 
   return (

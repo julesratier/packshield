@@ -1,21 +1,13 @@
 
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createBlogSlug } from '@/utils/blogSlug';
 
 const BlogPostTop8Housses = () => {
   const navigate = useNavigate();
-  
-  // Blog post info - assurons-nous que ces informations correspondent exactement à celles de la page Blog
-  const post = {
-    id: 11,
-    title: "Top 8 des meilleures housses matelas pour les déménagement"
-  };
 
   // Redirect to the new slug URL
   useEffect(() => {
-    const slug = createBlogSlug(post);
-    navigate(`/blog/${slug}`, { replace: true });
+    navigate(`/blog/classement-meilleures-housses-matelas-demenagement`, { replace: true });
   }, [navigate]);
 
   // This is just a loading state while redirecting

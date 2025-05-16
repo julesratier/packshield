@@ -6,7 +6,7 @@ import { createBlogSlug } from '@/utils/blogSlug';
 const BlogPostMattrTransport = () => {
   const navigate = useNavigate();
   
-  // Blog post info - assurons-nous que ces informations correspondent exactement à celles de la page Blog
+  // Blog post info
   const post = {
     id: 10,
     title: "Comment transporter son matelas efficacement ?"
@@ -14,8 +14,7 @@ const BlogPostMattrTransport = () => {
 
   // Redirect to the new slug URL
   useEffect(() => {
-    const slug = createBlogSlug(post);
-    navigate(`/blog/${slug}`, { replace: true });
+    navigate(`/blog/transporter-matelas-efficacement`, { replace: true });
   }, [navigate]);
 
   // This is just a loading state while redirecting
