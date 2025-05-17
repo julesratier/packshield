@@ -24,13 +24,10 @@ const BlogPostFooter: React.FC<BlogPostFooterProps> = ({
   language = 'en'
 }) => {
   return (
-    <div className="flex flex-col lg:flex-row gap-10">
-      <div className="lg:w-2/3">
-        <BlogTags tags={tags} />
-        <BlogShareButtons title={title} language={language} />
-        <BlogAuthorCard author={author} />
-      </div>
-      <div className="lg:w-1/3"></div>
+    <div className="w-full">
+      <BlogTags tags={tags} />
+      <BlogShareButtons title={title} language={language} />
+      <BlogAuthorCard author={author} />
     </div>
   );
 };
