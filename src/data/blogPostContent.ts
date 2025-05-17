@@ -5,7 +5,6 @@ export const getBlogPostById = (id: number): { title: string; content: string; i
     return {
       title: "Comment déménager son matelas sans stress (ni mauvaise surprise)",
       content: `
-          <div>À première vue, déménager un matelas peut sembler simple. Mais quiconque s'est déjà retrouvé à le faire passer dans une cage d'escalier étroite ou à tenter de le glisser dans un coffre trop petit sait combien l'exercice peut devenir complexe. Mal protégé, sans <a href="/blog/classement-meilleures-housses-matelas-demenagement">housse matelas de déménagement</a>, il risque salissures, déchirures, voire déformations. Ce guide vous accompagne pas à pas pour un transport sans accroc, seul ou avec l'aide de professionnels.</div>
           
           <h2 id="preparer-matelas">1. La Préparation du Matelas : Un Prélude Indispensable à un Déménagement Réussi</h2>
           <p>Avant de vous lancer dans le portage ou l'emballage, consacrez une dizaine de minutes à préparer votre matelas avec soin. Ces gestes simples, mais ô combien importants, constituent la pierre angulaire d'un déménagement sans embûches et vous éviteront bien des désagréments par la suite.</p>
