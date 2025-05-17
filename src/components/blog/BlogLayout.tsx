@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Calendar, Clock, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -158,23 +157,19 @@ const BlogLayout: React.FC<BlogPostProps> = ({
             <article className="prose prose-lg max-w-3xl mx-auto">
               {/* Highlight Intro Block */}
               <div className="bg-[#f5f5fb] rounded-xl p-6 mb-8 shadow-sm border border-[#e5deff]">
-                <div className="font-mono text-slate-700">
-                  <span className="text-packshield-navy">&lt;div&gt;</span>
-                  <span className="block ml-4 mt-2 mb-2 font-sans">
-                    {getFirstParagraph().split('housse matelas de déménagement').map((text, index, array) => {
-                      if (index === array.length - 1) return text;
-                      return (
-                        <React.Fragment key={index}>
-                          {text}
-                          <Link to="/blog/classement-meilleures-housses-matelas-demenagement" className="text-packshield-orange hover:underline">
-                            housse matelas de déménagement
-                          </Link>
-                        </React.Fragment>
-                      );
-                    })}
-                  </span>
-                  <span className="text-packshield-navy">&lt;/div&gt;</span>
-                </div>
+                <p className="font-sans text-slate-700 m-0">
+                  {getFirstParagraph().split('housse matelas de déménagement').map((text, index, array) => {
+                    if (index === array.length - 1) return text;
+                    return (
+                      <React.Fragment key={index}>
+                        {text}
+                        <Link to="/blog/classement-meilleures-housses-matelas-demenagement" className="text-packshield-orange hover:underline">
+                          housse matelas de déménagement
+                        </Link>
+                      </React.Fragment>
+                    );
+                  })}
+                </p>
               </div>
               
               <div 
