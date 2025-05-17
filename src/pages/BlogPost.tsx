@@ -38,7 +38,8 @@ const BlogPost = () => {
     if (!post.content) return "";
     
     // Extract first paragraph or first 160 characters
-    let description = post.excerpt || post.content.split('.')[0];
+    // Since 'excerpt' doesn't exist on the post object, we'll create our own from content
+    let description = post.content.split('.')[0];
     if (description.length > 160) {
       description = description.substring(0, 157) + '...';
     }
