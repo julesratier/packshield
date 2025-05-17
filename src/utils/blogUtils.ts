@@ -1,4 +1,5 @@
 
+
 /**
  * Extracts table of contents from blog post HTML content
  */
@@ -35,4 +36,20 @@ export const getFirstParagraph = (content: string): string => {
   const doc = parser.parseFromString(content, 'text/html');
   const firstParagraph = doc.querySelector('p');
   return firstParagraph ? firstParagraph.textContent || '' : '';
+};
+
+/**
+ * Removes the first paragraph from the blog content
+ */
+export const removeFirstParagraph = (content: string): string => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(content, 'text/html');
+  const firstParagraph = doc.querySelector('p');
+  
+  if (firstParagraph && firstParagraph.parentNode) {
+    firstParagraph.parentNode.removeChild(firstParagraph);
+    return doc.body.innerHTML;
+  }
+  
+  return content;
 };

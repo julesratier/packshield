@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BlogSidebar from './BlogSidebar';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
-import { prepareBlogContent } from '@/utils/blogUtils';
+import { prepareBlogContent, removeFirstParagraph } from '@/utils/blogUtils';
 import BlogPostFooter from './BlogPostFooter';
 
 interface Author {
@@ -56,8 +56,8 @@ const BlogLayout: React.FC<BlogPostProps> = ({
   language = 'en',
   tags = ['Transport', 'Matelas', 'Déménagement', 'Protection']
 }) => {
-  // Prepare blog content with consistent styling
-  const preparedContent = prepareBlogContent(content);
+  // Prepare blog content with consistent styling and remove the first paragraph
+  const preparedContent = removeFirstParagraph(prepareBlogContent(content));
 
   // Translation dictionary
   const translations = {
