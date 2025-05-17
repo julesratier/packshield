@@ -17,7 +17,7 @@ interface FaqSectionWithCategoriesProps extends React.HTMLAttributes<HTMLElement
   description?: string;
   items: {
     question: string;
-    answer: string;
+    answer: string | React.ReactNode;  // Updated to accept both string and ReactNode
     category?: string;
   }[];
   contactInfo?: {
@@ -84,9 +84,9 @@ const FaqSectionWithCategories = React.forwardRef<HTMLElement, FaqSectionWithCat
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="px-6 pt-4 pb-6">
-                    <p className="text-muted-foreground leading-relaxed">
+                    <div className="text-muted-foreground leading-relaxed">
                       {item.answer}
-                    </p>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
               ))}
