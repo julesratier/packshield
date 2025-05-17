@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
@@ -67,7 +68,7 @@ const BlogLayout: React.FC<BlogPostProps> = ({
     if (typeof id === 'number') {
       switch (id) {
         case 10:
-          return "Transporter son matelas efficacement";
+          return "Déménager son matelas sans stress";
         case 11:
           return "Meilleures housses pour déménagement";
         case 2:
@@ -91,7 +92,8 @@ const BlogLayout: React.FC<BlogPostProps> = ({
       
       {/* Hero Section */}
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30"></div>
+        {/* Dark blue filter overlay for better title readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-packshield-navy/70 to-packshield-navy/50 z-10"></div>
         <div className="h-96 md:h-[500px]">
           <img
             src={image}
@@ -99,7 +101,7 @@ const BlogLayout: React.FC<BlogPostProps> = ({
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
           <div className="container mx-auto px-4 text-center text-white">
             <div className="max-w-4xl mx-auto">
               <div className="mb-6 flex justify-center">
