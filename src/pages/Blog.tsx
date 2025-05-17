@@ -86,7 +86,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet 
-        title="Le Blog Packshield : Tout savoir sur la Protection de Matelas et le Rangement"
+        title="Tout savoir sur la Protection de Matelas et le Rangement"
         description="Nos experts Packshield partagent leurs conseils pour bien choisir votre housse de matelas et organiser votre intérieur. Déménagement, stockage, entretien : on vous dit tout !"
         structuredData={breadcrumbStructuredData}
       />
