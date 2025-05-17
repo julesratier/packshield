@@ -53,6 +53,9 @@ const BlogPostFooter: React.FC<BlogPostFooterProps> = ({
       .join('');
   };
 
+  // Use the new author image
+  const authorImage = "/lovable-uploads/b5c612a2-0922-4a2b-9d0b-281b0911844d.png";
+
   return (
     <div className="w-full">
       {/* Tags section */}
@@ -104,7 +107,7 @@ const BlogPostFooter: React.FC<BlogPostFooterProps> = ({
       <div className="p-8 bg-packshield-lightGrey rounded-xl shadow-sm">
         <div className="flex items-center">
           <Avatar className="h-16 w-16 mr-4 border-2 border-white shadow-sm">
-            <AvatarImage src={author.avatar} alt={author.name} />
+            <AvatarImage src={authorImage} alt={author.name} />
             <AvatarFallback>{generateFallback(author.name)}</AvatarFallback>
           </Avatar>
           <div>
