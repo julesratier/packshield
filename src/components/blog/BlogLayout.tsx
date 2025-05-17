@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Calendar, Clock, User } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BlogSidebar from './BlogSidebar';
@@ -122,7 +123,13 @@ const BlogLayout: React.FC<BlogPostProps> = ({
                 </div>
                 <div className="flex items-center">
                   <User className="h-5 w-5 mr-2" />
-                  <span>{author.name}</span>
+                  {author.slug ? (
+                    <Link to={`/author/${author.slug}`} className="hover:text-packshield-orange transition-colors">
+                      {author.name}
+                    </Link>
+                  ) : (
+                    <span>{author.name}</span>
+                  )}
                 </div>
               </div>
             </div>

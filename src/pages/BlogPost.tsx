@@ -59,11 +59,91 @@ const BlogPost = () => {
     return ['Déménagement', 'Protection', 'Conseils'];
   };
 
+  // Generate structured data for the blog post
+  const generateStructuredData = () => {
+    const currentUrl = `https://packshield.shop/blog/${slug}`;
+    
+    // Create the structured data objects
+    const structuredData = [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "image": post.image,
+        "datePublished": post.date,
+        "dateModified": post.date,
+        "author": {
+          "@type": "Person",
+          "name": post.author.name
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Packshield",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://packshield.shop/logo.png"
+          }
+        },
+        "description": generateMetaDescription(),
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": currentUrl
+        },
+        "keywords": post.tags?.join(', ')
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://packshield.shop"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://packshield.shop/blog"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": post.title,
+            "item": currentUrl
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Packshield",
+        "url": "https://packshield.shop",
+        "logo": "https://packshield.shop/logo.png",
+        "description": "Packshield offre des solutions innovantes pour la protection et le transport de matelas et meubles lors des déménagements.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+33-X-XX-XX-XX-XX",
+          "contactType": "customer service"
+        },
+        "sameAs": [
+          "https://www.facebook.com/packshield",
+          "https://twitter.com/packshield",
+          "https://www.linkedin.com/company/packshield"
+        ]
+      }
+    ];
+
+    return structuredData;
+  };
+
   return (
     <>
       <Helmet
         title={generatePostTitle()}
         description={generateMetaDescription()}
+        structuredData={generateStructuredData()}
       />
       
       {/* Handle redirects for old slug formats */}

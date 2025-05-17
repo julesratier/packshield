@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Facebook, Linkedin } from 'lucide-react';
+import { Facebook, Linkedin, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface BlogShareButtonsProps {
@@ -40,10 +40,7 @@ const BlogShareButtons: React.FC<BlogShareButtonsProps> = ({
           <Facebook className="h-4 w-4" />
         </Button>
         <Button variant="outline" size="icon" onClick={shareOnTwitter} className="hover:bg-packshield-lightGrey hover:text-packshield-orange">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-            <path d="M4 4h16v16H4z"></path>
-            <path d="M4 4l16 16"></path>
-          </svg>
+          <X className="h-4 w-4" />
         </Button>
         <Button variant="outline" size="icon" onClick={shareOnLinkedIn} className="hover:bg-packshield-lightGrey hover:text-packshield-orange">
           <Linkedin className="h-4 w-4" />

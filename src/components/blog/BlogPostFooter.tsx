@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Facebook, Linkedin, Share } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Facebook, Linkedin, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
@@ -86,7 +87,7 @@ const BlogPostFooter: React.FC<BlogPostFooterProps> = ({
             onClick={shareOnTwitter} 
             className="hover:bg-packshield-lightGrey hover:text-packshield-orange transition-colors"
           >
-            <Share className="h-4 w-4" />
+            <X className="h-4 w-4" />
           </Button>
           <Button 
             variant="outline" 
@@ -107,7 +108,13 @@ const BlogPostFooter: React.FC<BlogPostFooterProps> = ({
             <AvatarFallback>{generateFallback(author.name)}</AvatarFallback>
           </Avatar>
           <div>
-            <h4 className="text-xl font-semibold text-packshield-navy">{author.name}</h4>
+            {author.slug ? (
+              <Link to={`/author/${author.slug}`} className="text-xl font-semibold text-packshield-navy hover:text-packshield-orange transition-colors">
+                {author.name}
+              </Link>
+            ) : (
+              <h4 className="text-xl font-semibold text-packshield-navy">{author.name}</h4>
+            )}
             <p className="text-packshield-grey">{author.role}</p>
           </div>
         </div>

@@ -1,4 +1,3 @@
-
 import { useMemo } from 'react';
 import { getBlogPostIdFromSlug } from '@/utils/blogSlug';
 import { extractTableOfContents } from '@/utils/blogUtils';
@@ -15,7 +14,7 @@ const useBlogPostData = (slug: string | undefined) => {
         id: 10,
         title: "Comment déménager son matelas sans stress (ni mauvaise surprise)",
         content: `
-          <div>Si l'on en croit sa nature apparemment légère et malléable, un matelas pourrait aisément être perçu comme un objet facile à déplacer. Détrompez-vous ! Quiconque a déjà tenté l'expérience de le manœuvrer dans l'étroitesse d'une cage d'escalier sinueuse, sous les assauts d'une averse inattendue, ou de le contraindre à s'insérer dans un coffre de voiture visiblement trop exigu, comprendra immédiatement la complexité de l'entreprise. Un matelas mal protégé durant un déménagement s'expose à une multitude de désagréments : salissures tenaces, déchirures malencontreuses, et même des déformations irréversibles qui compromettraient son confort futur. Fort de ce constat, ce guide exhaustif se propose de vous accompagner pas à pas, que vous envisagiez de relever ce défi en solitaire ou de faire appel à des professionnels aguerris, afin de garantir un transport de votre précieux matelas en toute sécurité et sans le moindre accroc.</div>
+          <div>À première vue, déménager un matelas peut sembler simple. Mais quiconque s'est déjà retrouvé à le faire passer dans une cage d'escalier étroite ou à tenter de le glisser dans un coffre trop petit sait combien l'exercice peut devenir complexe. Mal protégé, sans <a href="/blog/classement-meilleures-housses-matelas-demenagement">housse matelas de déménagement</a>, il risque salissures, déchirures, voire déformations. Ce guide vous accompagne pas à pas pour un transport sans accroc, seul ou avec l'aide de professionnels.</div>
           
           <h2 id="preparer-matelas">1. Préparer Minutieusement Son Matelas : La Clé d'un Déménagement Réussi</h2>
           <p>Avant de céder à la hâte et de vous saisir de votre matelas, accordez-vous une dizaine de minutes pour une préparation méthodique. Ces étapes, bien que simples en apparence, constituent le fondement d'un déménagement sans encombre et préviennent bien des soucis ultérieurs.</p>
@@ -73,9 +72,10 @@ const useBlogPostData = (slug: string | undefined) => {
         category: "blog",
         author: {
           name: "Hélène Mirmande",
-          avatar: "https://i.pravatar.cc/150?u=helene",
+          avatar: "/lovable-uploads/4b62c8ae-6aa6-41f5-924e-b6fd5bd9744d.png", // Updated avatar
           role: "Expert Déménagement",
-          bio: "Hélène est spécialisée dans les conseils de déménagement et de protection des objets fragiles."
+          bio: "Hélène est content writer chez Packshield, spécialisée dans la rédaction de contenus pratiques liés au déménagement et à la protection des objets fragiles.",
+          slug: "helene-mirmande"
         },
         relatedPosts: [
           {
@@ -134,9 +134,10 @@ const useBlogPostData = (slug: string | undefined) => {
         category: "blog",
         author: {
           name: "Hélène Mirmande",
-          avatar: "https://i.pravatar.cc/150?u=helene",
+          avatar: "/lovable-uploads/4b62c8ae-6aa6-41f5-924e-b6fd5bd9744d.png", // Updated avatar
           role: "Expert Déménagement",
-          bio: "Hélène est spécialisée dans les conseils de déménagement et de protection des objets fragiles."
+          bio: "Hélène est content writer chez Packshield, spécialisée dans la rédaction de contenus pratiques liés au déménagement et à la protection des objets fragiles.",
+          slug: "helene-mirmande"
         },
         relatedPosts: [
           {
@@ -212,7 +213,8 @@ const useBlogPostData = (slug: string | undefined) => {
         name: "Sarah Johnson",
         avatar: "https://i.pravatar.cc/150?u=sarah",
         role: "Storage Expert",
-        bio: "Sarah is a storage expert with over 10 years of experience in the moving and storage industry. She specializes in creating guides for proper item care and maintenance during storage and relocation."
+        bio: "Sarah is a storage expert with over 10 years of experience in the moving and storage industry. She specializes in creating guides for proper item care and maintenance during storage and relocation.",
+        slug: "sarah-johnson"
       },
       relatedPosts: [
         {
