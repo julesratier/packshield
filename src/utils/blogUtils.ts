@@ -26,3 +26,13 @@ export const prepareBlogContent = (content: string) => {
     .replace(/<blockquote>/g, '<blockquote class="border-l-4 border-packshield-orange pl-6 italic my-8 text-slate-600 py-2">')
     .replace(/<div class="tip-box">/g, '<div class="bg-packshield-lightGrey border-l-4 border-packshield-orange p-6 rounded-r-lg my-8">');
 };
+
+/**
+ * Gets the first paragraph of a blog post content
+ */
+export const getFirstParagraph = (content: string): string => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(content, 'text/html');
+  const firstParagraph = doc.querySelector('p');
+  return firstParagraph ? firstParagraph.textContent || '' : '';
+};

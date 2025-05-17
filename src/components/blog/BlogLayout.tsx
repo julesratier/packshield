@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Calendar, Clock, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -89,6 +90,18 @@ const BlogLayout: React.FC<BlogPostProps> = ({
     { title: getBreadcrumbTitle() }
   ];
 
+  // Extract first paragraph for the highlight block
+  const getFirstParagraph = () => {
+    // For blog about mattress transport, use the specific text
+    if (id === 10 || (typeof id === 'string' && id.includes('transporter-matelas'))) {
+      return "À première vue, déménager un matelas peut sembler simple. Mais quiconque s'est déjà retrouvé à le faire passer dans une cage d'escalier étroite ou à tenter de le glisser dans un coffre trop petit sait combien l'exercice peut devenir complexe. Mal protégé, sans housse matelas de déménagement, il risque salissures, déchirures, voire déformations. Ce guide vous accompagne pas à pas pour un transport sans accroc, seul ou avec l'aide de professionnels.";
+    }
+    
+    // For other blogs, extract first paragraph or a portion of content
+    const firstSentence = content.split('.')[0] + '.';
+    return firstSentence.length > 30 ? firstSentence : content.substring(0, 150) + '...';
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -143,6 +156,26 @@ const BlogLayout: React.FC<BlogPostProps> = ({
           <main className="lg:w-2/3">            
             {/* Article */}
             <article className="prose prose-lg max-w-3xl mx-auto">
+              {/* Highlight Intro Block */}
+              <div className="bg-[#f5f5fb] rounded-xl p-6 mb-8 shadow-sm border border-[#e5deff]">
+                <div className="font-mono text-slate-700">
+                  <span className="text-packshield-navy">&lt;div&gt;</span>
+                  <span className="block ml-4 mt-2 mb-2 font-sans">
+                    {getFirstParagraph().split('housse matelas de déménagement').map((text, index, array) => {
+                      if (index === array.length - 1) return text;
+                      return (
+                        <React.Fragment key={index}>
+                          {text}
+                          <Link to="/blog/classement-meilleures-housses-matelas-demenagement" className="text-packshield-orange hover:underline">
+                            housse matelas de déménagement
+                          </Link>
+                        </React.Fragment>
+                      );
+                    })}
+                  </span>
+                  <span className="text-packshield-navy">&lt;/div&gt;</span>
+                </div>
+              </div>
               
               <div 
                 className="blog-content" 
