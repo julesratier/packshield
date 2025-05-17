@@ -9,3 +9,18 @@
     background-size: 12px 12px;
   }
 }
+
+/* Rating stars styling */
+.star-rating .star {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.star-rating .star-filled {
+  color: #FFD700;
+}
+
+.star-rating .star-empty {
+  color: #e2e8f0;
+}

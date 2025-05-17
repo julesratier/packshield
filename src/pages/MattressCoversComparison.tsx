@@ -1,14 +1,12 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Badge } from '@/components/ui/badge';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
-import ProductComparisonCard from '@/components/comparison/ProductComparisonCard';
 import ProductDetailComparison from '@/components/comparison/ProductDetailComparison';
 import Helmet from '@/components/SEO/Helmet';
 import { mattressCoversData } from '@/data/mattressCoversData';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 // Product feature data
 const productFeatures = {
@@ -71,8 +69,6 @@ const productFeatures = {
 };
 
 const MattressCoversComparison = () => {
-  const [activeTab, setActiveTab] = useState('cards');
-
   // Breadcrumb items
   const breadcrumbItems = [
     { title: 'Conseils', href: '/blog' },
@@ -149,47 +145,118 @@ const MattressCoversComparison = () => {
           </p>
         </div>
 
-        {/* Toggle view */}
-        <div className="mb-8">
-          <Tabs defaultValue="cards" value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <div className="flex justify-center">
-              <TabsList className="mb-8">
-                <TabsTrigger value="cards" className="px-8 py-2">Vue Carte</TabsTrigger>
-                <TabsTrigger value="list" className="px-8 py-2">Vue Détaillée</TabsTrigger>
-              </TabsList>
-            </div>
-            
-            <TabsContent value="cards" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {mattressCoversData.map(product => (
-                  <ProductComparisonCard
-                    key={product.id}
-                    rank={product.rank}
-                    title={product.title}
-                    price={product.price}
-                    image={product.image}
-                    amazonLink={product.amazonLink}
-                    verdict={product.verdict}
-                    isBestChoice={product.isBestChoice}
-                    isBestValue={product.isBestValue}
-                    rating={product.rating}
-                  />
-                ))}
+        {/* Products List */}
+        <div className="space-y-16 max-w-4xl mx-auto">
+          {mattressCoversData.map((product) => (
+            <div key={product.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+              <div className="md:flex">
+                {/* Left side - Product Image */}
+                <div className="md:w-1/3 p-6 flex items-center justify-center bg-white">
+                  <a 
+                    href={product.amazonLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block relative w-full aspect-square overflow-hidden hover:scale-105 transition-transform duration-300"
+                  >
+                    <img 
+                      src={product.image} 
+                      alt={product.title} 
+                      className="w-full h-full object-contain"
+                    />
+                  </a>
+                </div>
+                
+                {/* Right side - Product Info */}
+                <div className="md:w-2/3 p-6 border-l border-gray-100">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      {/* Badges */}
+                      <div className="flex flex-wrap gap-2 mb-2">
+                        {product.rank <= 3 && (
+                          <Badge className={`${
+                            product.rank === 1 ? 'bg-amber-500' : product.rank === 2 ? 'bg-gray-400' : 'bg-amber-800'
+                          } text-white font-bold px-3 py-1.5`}>
+                            #{product.rank}
+                          </Badge>
+                        )}
+                        {product.isBestChoice && (
+                          <Badge className="bg-packshield-orange text-white font-bold px-3 py-1.5">
+                            Meilleur Choix
+                          </Badge>
+                        )}
+                        {product.isBestValue && (
+                          <Badge className="bg-green-600 text-white font-bold px-3 py-1.5">
+                            Meilleur Rapport Qualité-Prix
+                          </Badge>
+                        )}
+                      </div>
+                      <h2 className="text-2xl font-bold text-packshield-navy mb-2">{product.title}</h2>
+                      <p className="text-xl font-semibold text-packshield-orange mb-4">{product.price}</p>
+                    </div>
+                    {/* Rating */}
+                    <div className="flex items-center">
+                      <div className="flex">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={i < Math.floor(product.rating || 0) ? '#FFD700' : 'none'} stroke="#FFD700" className="w-5 h-5">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Verdict box */}
+                  <div className="bg-packshield-lightGrey rounded-lg p-4 mb-4">
+                    <h3 className="text-sm font-semibold text-packshield-navy mb-1">NOTRE VERDICT</h3>
+                    <p className="text-sm italic text-packshield-grey">{product.verdict}</p>
+                  </div>
+                  
+                  {/* Buy Button */}
+                  <div className="mt-4">
+                    <a 
+                      href={product.amazonLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full block"
+                    >
+                      <button className="group relative w-full cursor-pointer overflow-hidden rounded-md border-0 bg-packshield-orange p-2 text-center font-semibold text-white">
+                        <span className="inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+                          Acheter sur Amazon
+                        </span>
+                        <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-white opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100">
+                          <span>Acheter sur Amazon</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                        <div className="absolute left-[200%] top-[40%] h-0 w-0 scale-[1] rounded-lg bg-packshield-navy transition-all duration-300 group-hover:left-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] group-hover:bg-packshield-navy"></div>
+                        <div className="absolute inset-0 border border-transparent rounded-md transition-colors duration-300 group-hover:border-white pointer-events-none"></div>
+                      </button>
+                    </a>
+                  </div>
+                </div>
               </div>
-            </TabsContent>
-            
-            <TabsContent value="list" className="mt-0 space-y-8">
-              {mattressCoversData.map(product => (
-                <ProductDetailComparison
-                  key={product.id}
-                  title={product.title}
-                  rank={product.rank}
-                  description={product.description}
-                  features={productFeatures[product.id as keyof typeof productFeatures]}
-                />
-              ))}
-            </TabsContent>
-          </Tabs>
+              
+              {/* Product Description */}
+              <div className="p-6 border-t border-gray-100">
+                <div className="prose max-w-none">
+                  <p className="text-packshield-grey mb-6">
+                    {product.description}
+                  </p>
+                  
+                  <div className="mt-6">
+                    <h4 className="font-semibold text-packshield-navy mb-3">Caractéristiques principales :</h4>
+                    <ul className="space-y-2">
+                      {productFeatures[product.id as keyof typeof productFeatures].map((feature, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="inline-block w-2 h-2 flex-shrink-0 bg-packshield-orange rounded-full mt-2.5 mr-3"></span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Conclusion section */}
