@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -171,7 +170,8 @@ const MattressCoversComparison = () => {
             alt="Matelas protégé par une housse de déménagement" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-packshield-navy opacity-85"></div>
+          {/* Modified overlay opacity from opacity-85 to opacity-75 to make it less dark */}
+          <div className="absolute inset-0 bg-packshield-navy opacity-75"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
