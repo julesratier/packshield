@@ -1,3 +1,4 @@
+
 import { useMemo } from 'react';
 import { getBlogPostIdFromSlug } from '@/utils/blogSlug';
 import { extractTableOfContents } from '@/utils/blogUtils';
@@ -14,60 +15,54 @@ const useBlogPostData = (slug: string | undefined) => {
         id: 10,
         title: "Comment déménager son matelas sans stress (ni mauvaise surprise)",
         content: `
-          <p>Un matelas, ça paraît léger… jusqu'à ce qu'il faille le faire passer dans un escalier étroit, sous la pluie, ou dans un coffre trop petit. Mal protégé, il peut se salir, se déchirer ou se déformer. Voici le guide complet pour déménager un matelas en toute sécurité, seul ou avec des pros.</p>
+          <div>Si l'on en croit sa nature apparemment légère et malléable, un matelas pourrait aisément être perçu comme un objet facile à déplacer. Détrompez-vous ! Quiconque a déjà tenté l'expérience de le manœuvrer dans l'étroitesse d'une cage d'escalier sinueuse, sous les assauts d'une averse inattendue, ou de le contraindre à s'insérer dans un coffre de voiture visiblement trop exigu, comprendra immédiatement la complexité de l'entreprise. Un matelas mal protégé durant un déménagement s'expose à une multitude de désagréments : salissures tenaces, déchirures malencontreuses, et même des déformations irréversibles qui compromettraient son confort futur. Fort de ce constat, ce guide exhaustif se propose de vous accompagner pas à pas, que vous envisagiez de relever ce défi en solitaire ou de faire appel à des professionnels aguerris, afin de garantir un transport de votre précieux matelas en toute sécurité et sans le moindre accroc.</div>
           
-          <h2 id="preparer-matelas">1. Avant de bouger quoi que ce soit : préparer son matelas</h2>
-          <p>Avant de le soulever ou de l'emballer, prenez 10 minutes pour bien le préparer. Ce sont des étapes simples, mais essentielles.</p>
+          <h2 id="preparer-matelas">1. Préparer Minutieusement Son Matelas : La Clé d'un Déménagement Réussi</h2>
+          <p>Avant de céder à la hâte et de vous saisir de votre matelas, accordez-vous une dizaine de minutes pour une préparation méthodique. Ces étapes, bien que simples en apparence, constituent le fondement d'un déménagement sans encombre et préviennent bien des soucis ultérieurs.</p>
           
-          <h3>Nettoyer le matelas</h3>
-          <p>Passez l'aspirateur sur les deux faces, y compris sur les côtés. Cela évite de piéger poussières, acariens ou poils d'animaux pendant le transport.</p>
+          <h3>Un Nettoyage Rigoureux : Éliminer les Intrus Invisibles</h3>
+          <p>Commencez par offrir à votre matelas un nettoyage en profondeur. Munissez-vous de votre aspirateur et passez-le méticuleusement sur les deux faces, sans oublier les flancs. Cette action simple permet d'éliminer efficacement les poussières accumulées, les colonies d'acariens souvent invisibles à l'œil nu, ainsi que les éventuels poils laissés par vos compagnons à quatre pattes. En évitant de piéger ces particules durant le transport, vous préservez l'hygiène de votre literie et limitez les risques d'allergies dans votre nouveau foyer.</p>
           
-          <h3>Aérer quelques heures</h3>
-          <p>Si vous le pouvez, laissez le matelas à l'air libre quelques heures (fenêtre ouverte ou extérieur). Cela élimine les odeurs éventuelles et limite les risques de moisissures s'il reste emballé longtemps.</p>
+          <h3>Une Bouffée d'Air Frais : Assainir et Prévenir l'Humidité</h3>
+          <p>Si les conditions météorologiques et votre emploi du temps le permettent, offrez à votre matelas une séance de "respiration" en le laissant à l'air libre pendant quelques heures. Une fenêtre ouverte dans une pièce bien ventilée ou un emplacement extérieur abrité feront parfaitement l'affaire. Cette aération contribue à dissiper les odeurs potentiellement imprégnées dans les fibres du matelas et réduit considérablement les risques de développement de moisissures si celui-ci devait rester emballé pendant une période prolongée.</p>
           
-          <h2 id="proteger-matelas">2. Protéger votre matelas comme un pro</h2>
-          <p>C'est le point le plus critique. Transporter un matelas sans protection, c'est comme expédier une télé sans carton.</p>
+          <h2 id="proteger-matelas">2. L'Art de Protéger Son Matelas : Un Investissement pour la Tranquillité d'Esprit</h2>
+          <p>Considérez cette étape comme absolument cruciale. Transporter un matelas sans une protection adéquate revient à expédier un appareil électronique fragile sans son emballage d'origine. Les conséquences peuvent être coûteuses et frustrantes.</p>
           
-          <h3>Choisir la bonne protection</h3>
-          <p>La meilleure option : la housse en plastique épais avec zip. Étanche à la poussière, à l'eau et à l'humidité. Résistante aux frottements. Réutilisable pour le stockage ou un autre déménagement.</p>
+          <h3>Le Choix Judicieux de la Protection : La Housse, Votre Alliée Incontournable</h3>
+          <p>L'option la plus recommandée, et de loin la plus efficace, est l'utilisation d'une housse de protection en plastique épais, idéalement dotée d'une fermeture éclair robuste. Ce type de housse offre une barrière impénétrable contre la poussière, l'eau et l'humidité, autant d'éléments qui pourraient compromettre la qualité de votre matelas. Sa résistance aux frottements et aux déchirures assure une protection optimale durant les manipulations et le transport. De plus, cet investissement s'avère durable, car la housse peut être réutilisée pour le stockage futur de votre matelas ou lors d'un prochain déménagement.</p>
           
-          <h3>Autres alternatives</h3>
-          <p>Bâches et couvertures, film plastique étirable, draps ou vieux textiles.</p>
+          <h3>Solutions Alternatives : S'Adapter à Vos Besoins et Ressources</h3>
+          <p>Si une housse spécifique n'est pas immédiatement disponible, d'autres solutions peuvent être envisagées, bien qu'elles offrent généralement une protection moindre. Des bâches épaisses et des couvertures peuvent envelopper le matelas, offrant une protection contre les éraflures et une certaine protection contre la saleté. Le film plastique étirable, souvent utilisé pour sécuriser les meubles, peut également être une option, mais veillez à l'appliquer soigneusement en plusieurs couches. Enfin, des draps ou de vieux textiles peuvent offrir une protection de base contre la poussière, mais ils seront moins efficaces contre l'humidité ou les déchirures.</p>
           
-          <h2 id="transporter-matelas">3. Comment porter et transporter un matelas (sans se faire mal)</h2>
+          <h2 id="transporter-matelas">3. Techniques de Port et de Transport : Préserver Votre Dos et Votre Matelas</h2>
           
-          <h3>Faut-il plier un matelas ?</h3>
-          <p>Non, sauf cas exceptionnels. À ressorts ou hybrides : jamais. En mousse / latex : OK temporairement, si fait doucement.</p>
+          <h3>Plier un Matelas : Une Question Délicate</h3>
+          <p>La question de savoir s'il est judicieux de plier un matelas est fréquente, et la réponse est généralement négative, sauf dans des cas très spécifiques et temporaires. Pour les matelas à ressorts ou hybrides (combinant ressorts et mousse), le pliage est formellement déconseillé car il risque d'endommager la structure interne et de compromettre le soutien du matelas. Pour les matelas entièrement en mousse ou en latex, un pliage temporaire et délicat peut être envisagé pour faciliter le passage dans des espaces très restreints, mais il est crucial de le remettre à plat dès que possible pour éviter toute déformation permanente.</p>
           
-          <h3>À deux c'est mieux</h3>
-          <p>Un matelas est encombrant. Faites-le à deux, par les extrémités ou avec des sangles.</p>
+          <h3>L'Union Fait la Force : Le Travail à Deux, une Nécessité</h3>
+          <p>Un matelas, même individuel, est un objet encombrant. Tenter de le porter seul, surtout dans des environnements complexes comme des escaliers, augmente considérablement les risques de blessures pour vous et de dommages pour le matelas. Idéalement, effectuez le portage à deux personnes, en vous saisissant des extrémités opposées. L'utilisation de sangles de portage spécialement conçues peut également faciliter la tâche en répartissant le poids de manière plus uniforme et en offrant une meilleure prise.</p>
           
-          <h3>Camion, coffre ou toit ?</h3>
-          <p>Camion : à plat ou vertical bien calé. Coffre : ok pour 1 place. Toit : déconseillé.</p>
+          <h3>Choisir le Bon Véhicule : Adapter le Transport à la Taille</h3>
+          <p>Le choix du véhicule de transport dépendra de la taille de votre matelas et de la distance à parcourir. Un camion de déménagement offre l'espace idéal pour transporter un matelas à plat ou verticalement, en veillant à ce qu'il soit correctement calé pour éviter tout mouvement durant le trajet. Pour un matelas une place, un grand coffre de voiture peut parfois suffire, mais assurez-vous qu'il ne soit pas plié de manière excessive. Le transport sur le toit d'une voiture est fortement déconseillé en raison des risques de chute, d'exposition aux intempéries et des réglementations de sécurité routière.</p>
           
-          <h2 id="reinstaller-matelas">4. Une fois arrivé : bien le réinstaller</h2>
+          <h2 id="reinstaller-matelas">4. Installation dans le Nouveau Foyer : Les Gestes Qui Comptent</h2>
           
-          <h3>Vérifiez l'état du matelas</h3>
-          <p>Vérifiez s'il est sec, propre, non déformé. Retirez la housse et laissez-le respirer.</p>
+          <h3>Vérification et Aération : Un Rituel Essentiel</h3>
+          <p>Avant de vous précipiter pour installer votre matelas, prenez le temps de vérifier son état. Assurez-vous qu'il est sec, propre et qu'il n'a subi aucune déformation durant le transport. Retirez la housse de protection et laissez-le respirer quelques instants dans la pièce.</p>
           
-          <h3>Laissez-le reprendre sa forme</h3>
-          <p>Si vous l'avez roulé (matelas mousse), attendez quelques heures avant de le réutiliser.</p>
+          <h3>Le Temps de la Récupération : Patience est Mère de Confort</h3>
+          <p>Si votre matelas en mousse a été roulé pour faciliter le transport (une pratique courante pour certains types de matelas), il est crucial de lui accorder le temps nécessaire pour qu'il reprenne sa forme initiale. Suivez les instructions du fabricant, mais en général, quelques heures suffisent pour qu'il retrouve son volume et son confort optimal.</p>
           
-          <h2 id="materiel-recommande">5. Matériel recommandé pour déménager un matelas</h2>
-          <p>Housse de protection, sangles de portage, gants antidérapants, couverture, scotch.</p>
-          
-          <h2 id="faq">6. Questions fréquentes (FAQ)</h2>
-          
-          <div class="tip-box">
-            <p><strong>Puis-je stocker un matelas emballé plusieurs jours ?</strong><br>
-            Oui, si au sec et ventilé.</p>
-            
-            <p><strong>Peut-on dormir dessus tout de suite ?</strong><br>
-            Oui, s'il est sec, propre, non compressé.</p>
-            
-            <p><strong>Et dans l'ascenseur ?</strong><br>
-            Pliez-le légèrement (mousse), ou prenez les escaliers si nécessaire.</p>
-          </div>
+          <h2 id="materiel-recommande">5. L'Équipement Indispensable : Votre Boîte à Outils du Déménageur de Matelas</h2>
+          <p>Pour un déménagement de matelas en toute sérénité, certains accessoires se révèlent particulièrement utiles :</p>
+          <ul>
+            <li>Housse de protection robuste avec fermeture éclair : L'investissement de base pour une protection optimale.</li>
+            <li>Sangles de portage : Pour faciliter le transport à deux et réduire la fatigue.</li>
+            <li>Gants antidérapants : Pour une meilleure prise et une protection des mains.</li>
+            <li>Couvertures épaisses : Pour une protection supplémentaire contre les chocs et les frottements.</li>
+            <li>Ruban adhésif résistant (scotch) : Pour sécuriser les bâches ou les films plastiques.</li>
+          </ul>
           
           <h2 id="conclusion">Conclusion</h2>
           <p>Déménager un matelas peut vite devenir un cauchemar. Mais bien préparé, protégé et transporté, tout se passe sans accroc.</p>
@@ -104,7 +99,7 @@ const useBlogPostData = (slug: string | undefined) => {
         id: 11,
         title: "Top 8 des meilleures housses matelas pour les déménagement",
         content: `
-          <p>Protéger son matelas pendant un déménagement est essentiel pour éviter les salissures, les déchirures, ou l'humidité.</p>
+          <div>Protéger son matelas pendant un déménagement est essentiel pour éviter les salissures, les déchirures, ou l'humidité.</div>
           
           <h2 id="importance-housse">Pourquoi utiliser une housse de matelas ?</h2>
           <p>Une housse de protection est indispensable pour préserver votre matelas des aléas du transport et du stockage temporaire.</p>
@@ -146,8 +141,8 @@ const useBlogPostData = (slug: string | undefined) => {
         relatedPosts: [
           {
             id: 10,
-            title: "Comment transporter son matelas efficacement ?",
-            image: "/lovable-uploads/de586984-0cb1-4c86-8ede-3e1f44572b17.png",
+            title: "Comment déménager son matelas sans stress (ni mauvaise surprise)",
+            image: "/lovable-uploads/4b62c8ae-6aa6-41f5-924e-b6fd5bd9744d.png",
             date: "10 Mai 2025"
           },
           {
@@ -171,7 +166,7 @@ const useBlogPostData = (slug: string | undefined) => {
           ? "Moving Day Tips: Protect Your Furniture" 
           : "Why Quality Storage Matters",
       content: `
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
         
         <h2 id="why-proper-storage">Why Proper Storage Matters</h2>
         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

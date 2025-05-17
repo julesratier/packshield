@@ -23,7 +23,7 @@ const BlogPost = () => {
     // Generate a concise version of the title
     switch (post.id) {
       case 10:
-        return "Comment transporter son matelas efficacement ?";
+        return "Comment déménager son matelas efficacement ?";
       case 11:
         return "Top 8 des meilleures housses matelas pour déménagement";
       case 2:
@@ -47,7 +47,7 @@ const BlogPost = () => {
   };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Helmet
         title={generatePostTitle()}
         description={generateMetaDescription()}
@@ -86,7 +86,7 @@ const BlogPost = () => {
         author={post.author}
         language={(post.language as 'en' | 'fr') || 'en'}
       />
-    </>
+    </div>
   );
 };
 

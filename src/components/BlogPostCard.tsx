@@ -16,12 +16,33 @@ interface BlogPostCardProps {
 }
 
 const BlogPostCard = ({ id, title, excerpt, image, date, readTime, author, category }: BlogPostCardProps) => {
+  // Assurer que le titre et l'image correspondent aux articles réels
+  const getCorrectTitle = () => {
+    if (id === 10) {
+      return "Comment déménager son matelas sans stress (ni mauvaise surprise)";
+    }
+    if (id === 11) {
+      return "Top 8 des meilleures housses matelas pour les déménagement";
+    }
+    return title;
+  };
+
+  const getCorrectImage = () => {
+    if (id === 10) {
+      return "/lovable-uploads/4b62c8ae-6aa6-41f5-924e-b6fd5bd9744d.png";
+    }
+    if (id === 11) {
+      return "/lovable-uploads/241f7930-bdd5-4cab-87f2-f5031b99cd9b.png";
+    }
+    return image;
+  };
+
   return (
     <Link to={getBlogUrl({ id, title })} className="blog-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md">
       <div className="aspect-video overflow-hidden">
         <img 
-          src={image} 
-          alt={title}
+          src={getCorrectImage()} 
+          alt={getCorrectTitle()}
           className="w-full h-full object-cover"
         />
       </div>
@@ -31,7 +52,7 @@ const BlogPostCard = ({ id, title, excerpt, image, date, readTime, author, categ
           <span className="mx-2">•</span>
           <span>{readTime}</span>
         </div>
-        <h3 className="text-xl font-semibold text-packshield-navy mb-2">{title}</h3>
+        <h3 className="text-xl font-semibold text-packshield-navy mb-2">{getCorrectTitle()}</h3>
         <p className="text-packshield-grey mb-4">{excerpt}</p>
         <div className="flex items-center justify-between">
           {author && <span className="text-sm text-packshield-grey">Par {author}</span>}
