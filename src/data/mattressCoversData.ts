@@ -19,7 +19,7 @@ export const mattressCoversData: MattressCover[] = [
     rank: 1,
     title: "Packshield - Housse Matelas Déménagement Oxford",
     price: "À partir de 24,90€",
-    image: "/lovable-uploads/9bf86611-f2e3-4cbb-a7d7-dee74d19e63e.png", // Première image
+    image: "/lovable-uploads/2293ddb8-da4d-43ec-ab4d-4d6773822dea.png", // Image mise à jour
     amazonLink: "https://amzn.to/43aXBYX",
     verdict: "Le choix de la sérénité durable",
     description: "Dès la première prise en main, la housse Packshield en Oxford inspire confiance. Le matériau épais et imperméable est un gage de protection contre les aléas du déménagement : frottements contre les meubles, éclaboussures accidentelles, voire même une exposition rapide à une légère pluie lors du chargement ou du déchargement. Lors de notre test d'imperméabilité, l'eau perlait littéralement à la surface sans laisser la moindre trace d'humidité.",
