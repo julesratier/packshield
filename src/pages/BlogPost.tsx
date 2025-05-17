@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BlogLayout from '@/components/blog/BlogLayout';
-import BlogPostFooter from '@/components/blog/BlogPostFooter';
 import BlogRedirector from '@/components/blog/BlogRedirector';
 import BlogContentObserver from '@/components/blog/BlogContentObserver';
 import { scrollToSection } from '@/utils/scrollUtils';
@@ -79,16 +78,6 @@ const BlogPost = () => {
           tableOfContents={tableOfContents}
           language={(post.language as 'en' | 'fr') || 'en'}
         />
-        
-        {/* Footer content: Tags, Share buttons, Author card */}
-        <div className="container mx-auto px-4 pb-16 relative z-10">
-          <BlogPostFooter 
-            tags={post.tags} 
-            title={post.title} 
-            author={post.author}
-            language={(post.language as 'en' | 'fr') || 'en'}
-          />
-        </div>
       </div>
     </>
   );
