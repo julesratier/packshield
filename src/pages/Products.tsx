@@ -76,7 +76,7 @@ const Products = () => {
     <div className="min-h-screen flex flex-col">
       <Helmet 
         title="Housses de Matelas & Rangement Premium | Packshield"
-        description="Découvrez notre sélection complète de housses de protection pour matelas (plastique, tissu) et de solutions de rangement sous vide Packshield®. Protégez efficacement vos biens !"
+        description="Découvrez notre sélection complète de housses de protection pour matelas (plastique, tissu) et de solutions de rangement sous vide Packshield®."
         structuredData={breadcrumbStructuredData}
       />
       
