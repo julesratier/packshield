@@ -156,7 +156,11 @@ const BlogLayout: React.FC<BlogPostProps> = ({
         </div>
       </div>
       
-      <Footer />
+      {/* This is where BlogPostFooter will be rendered (from BlogPost.tsx) */}
+      
+      <div className="mt-auto">
+        <Footer />
+      </div>
     </div>
   );
 };

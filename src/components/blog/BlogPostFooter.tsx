@@ -24,7 +24,7 @@ const BlogPostFooter: React.FC<BlogPostFooterProps> = ({
   language = 'en'
 }) => {
   return (
-    <div className="container mx-auto px-4 pb-16">
+    <div className="container mx-auto px-4 pb-16 relative z-10">
       <div className="flex flex-col lg:flex-row gap-10">
         <div className="lg:w-2/3">
           <BlogTags tags={tags} />

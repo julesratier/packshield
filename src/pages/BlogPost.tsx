@@ -47,7 +47,7 @@ const BlogPost = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <>
       <Helmet
         title={generatePostTitle()}
         description={generateMetaDescription()}
@@ -62,31 +62,33 @@ const BlogPost = () => {
         content={post.content} 
       />
       
-      {/* Main blog layout */}
-      <BlogLayout
-        id={post.id}
-        title={post.title}
-        content={post.content}
-        image={post.image}
-        date={post.date}
-        readTime={post.readTime}
-        category={post.category}
-        author={post.author}
-        relatedPosts={post.relatedPosts}
-        activeSection={activeSection}
-        onSectionClick={scrollToSection}
-        tableOfContents={tableOfContents}
-        language={(post.language as 'en' | 'fr') || 'en'}
-      />
-      
-      {/* Footer content: Tags, Share buttons, Author card */}
-      <BlogPostFooter 
-        tags={post.tags} 
-        title={post.title} 
-        author={post.author}
-        language={(post.language as 'en' | 'fr') || 'en'}
-      />
-    </div>
+      <div className="flex flex-col min-h-screen">
+        {/* Main blog layout */}
+        <BlogLayout
+          id={post.id}
+          title={post.title}
+          content={post.content}
+          image={post.image}
+          date={post.date}
+          readTime={post.readTime}
+          category={post.category}
+          author={post.author}
+          relatedPosts={post.relatedPosts}
+          activeSection={activeSection}
+          onSectionClick={scrollToSection}
+          tableOfContents={tableOfContents}
+          language={(post.language as 'en' | 'fr') || 'en'}
+        />
+        
+        {/* Footer content: Tags, Share buttons, Author card */}
+        <BlogPostFooter 
+          tags={post.tags} 
+          title={post.title} 
+          author={post.author}
+          language={(post.language as 'en' | 'fr') || 'en'}
+        />
+      </div>
+    </>
   );
 };
 
