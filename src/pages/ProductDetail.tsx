@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, Link, useLocation, Navigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductGallery from '@/components/product/ProductGallery';
@@ -195,14 +194,8 @@ const ProductDetail = () => {
       
       <div className="container mx-auto px-4 py-8">
         {/* Breadcrumb */}
-        <div className="flex items-center mb-8">
-          <div className="flex-1">
-            <BreadcrumbNav items={breadcrumbItems} />
-          </div>
-          <Link to="/produits" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            <span>Retour à la boutique</span>
-          </Link>
+        <div className="mb-6">
+          <BreadcrumbNav items={breadcrumbItems} />
         </div>
 
         {/* Product Detail */}

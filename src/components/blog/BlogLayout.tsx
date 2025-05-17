@@ -103,7 +103,7 @@ const BlogLayout: React.FC<BlogPostProps> = ({
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="container mx-auto px-4 text-center text-white">
             <div className="max-w-4xl mx-auto">
-              <div className="mb-6">
+              <div className="mb-6 flex justify-center">
                 <BreadcrumbNav items={breadcrumbItems} light={true} />
               </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">{title}</h1>

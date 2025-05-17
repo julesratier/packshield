@@ -82,14 +82,17 @@ const Products = () => {
       
       <Navbar />
       
-      <div className="container mx-auto px-4 mt-6 text-center">
-        <BreadcrumbNav items={breadcrumbItems} />
+      <div className="bg-packshield-lightGrey py-10">
+        <div className="container mx-auto px-4">
+          <div className="mb-4 flex justify-center">
+            <BreadcrumbNav items={breadcrumbItems} />
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-packshield-navy text-center">La boutique Packshield</h1>
+          <p className="text-packshield-grey text-center mt-4 max-w-2xl mx-auto">
+            Housses de matelas premium et solutions de stockage conçues pour garder vos biens en sécurité et protégés.
+          </p>
+        </div>
       </div>
-      
-      <ProductHeader 
-        title="La boutique Packshield" 
-        description="Housses de matelas premium et solutions de stockage conçues pour garder vos biens en sécurité et protégés."
-      />
       
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8">

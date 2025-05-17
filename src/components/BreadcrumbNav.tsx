@@ -26,7 +26,7 @@ const BreadcrumbNav: React.FC<BreadcrumbNavProps> = ({ items, className, light =
       <BreadcrumbList className={light ? 'text-gray-300' : undefined}>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link to="/" className={light ? 'hover:text-white' : undefined}>
+            <Link to="/" className={light ? 'hover:text-white' : 'text-[#8A898C] hover:text-[#142947]'}>
               <Home size={16} strokeWidth={2} aria-hidden="true" />
               <span className="sr-only">Accueil</span>
             </Link>
@@ -35,14 +35,16 @@ const BreadcrumbNav: React.FC<BreadcrumbNavProps> = ({ items, className, light =
         
         {items.map((item, index) => (
           <React.Fragment key={index}>
-            <BreadcrumbSeparator />
+            <BreadcrumbSeparator className={light ? undefined : 'text-[#8A898C]'} />
             <BreadcrumbItem>
               {index === items.length - 1 ? (
-                <BreadcrumbPage className={light ? 'text-white' : undefined}>{item.title}</BreadcrumbPage>
+                <BreadcrumbPage className={light ? 'text-white' : 'text-[#142947] font-medium'}>
+                  {item.title}
+                </BreadcrumbPage>
               ) : (
                 <BreadcrumbLink 
                   asChild 
-                  className={light ? 'hover:text-white' : undefined}
+                  className={light ? 'hover:text-white' : 'text-[#8A898C] hover:text-[#142947]'}
                 >
                   <Link to={item.href || '#'}>{item.title}</Link>
                 </BreadcrumbLink>
