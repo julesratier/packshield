@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link, useLocation, Navigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -10,32 +10,21 @@ import ProductTabs from '@/components/product/ProductTabs';
 import CustomerReviews from '@/components/product/CustomerReviews';
 import RelatedProducts from '@/components/product/RelatedProducts';
 import ProductFeatureImages from '@/components/product/ProductFeatureImages';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
+import Helmet from '@/components/SEO/Helmet';
 import { 
   products, 
   getProductDescription, 
   getProductFeatures, 
   getProductSpecifications 
 } from '@/utils/products';
-
-// Helper function to create slug from product title
-export const createProductSlug = (product: { id: number, title: string }) => {
-  const slug = product.title
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // Remove special chars
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
-    .trim();
-  
-  return `${slug}-${product.id}`;
-};
-
-// Helper function to extract ID from slug
-const getProductIdFromSlug = (slug: string) => {
-  const parts = slug.split('-');
-  const lastPart = parts[parts.length - 1];
-  const id = parseInt(lastPart);
-  return isNaN(id) ? 1 : id; // Default to 1 if parsing fails
-};
+import { 
+  createProductSlug, 
+  getProductIdFromSlug, 
+  getProductUrl,
+  getProductShortName,
+  isOldSlug
+} from '@/utils/productSlug';
 
 const ProductDetail = () => {
   const { slug, id: legacyId } = useParams<{ slug?: string, id?: string }>();
@@ -51,7 +40,15 @@ const ProductDetail = () => {
   const productId = slug 
     ? getProductIdFromSlug(slug)
     : parseInt(legacyId || "1");
-  
+
+  // Check if redirect is needed for old slugs
+  if (slug && isOldSlug(slug)) {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+      return <Navigate to={getProductUrl(product)} replace />;
+    }
+  }
+
   const product = products.find(p => p.id === productId) || products[0];
   
   // Get related products (excluding the current product)
@@ -87,16 +84,124 @@ const ProductDetail = () => {
     return product.price;
   };
 
+  // Breadcrumb items
+  const breadcrumbItems = [
+    { title: 'Boutique', href: '/produits' },
+    { title: getProductShortName(product) }
+  ];
+
+  // Product structured data
+  const productStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.title,
+    "image": product.image,
+    "description": description,
+    "brand": {
+      "@type": "Brand",
+      "name": "Packshield"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": product.rating.toString(),
+      "reviewCount": product.reviews
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "EUR",
+      "price": getPrice().toFixed(2),
+      "availability": "https://schema.org/InStock"
+    }
+  };
+
+  // Breadcrumb structured data
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://packshield.shop"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Boutique",
+        "item": "https://packshield.shop/produits"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": getProductShortName(product),
+        "item": `https://packshield.shop/produits/${createProductSlug(product)}`
+      }
+    ]
+  };
+
+  // SEO title and descriptions based on product ID
+  const getSEOData = () => {
+    switch(productId) {
+      case 1:
+        return {
+          title: "Housse transport matelas en plastique épais | Packshield",
+          description: "En déménagement ou stockage, protégez efficacement votre matelas en 140cm 160cm ou 180cm avec notre housse en plastique épais Packshield®. Idéale contre la poussière, la saleté et l'humidité."
+        };
+      case 2:
+        return {
+          title: "Housse de protection déménagement matelas 1 place | Packshield",
+          description: "Protégez efficacement votre matelas 2 personnes avec notre housse en plastique épais Packshield®. Idéale contre la poussière, la saleté et l'humidité."
+        };
+      case 3:
+        return {
+          title: "Housse transport et déménagement matelas 2 places | Packshield",
+          description: "Facilitez le transport et protégez votre matelas 2 personnes avec notre housse en tissu oxford robuste et ses 4 poignées pratiques. Achetez sur Amazon."
+        };
+      case 4:
+        return {
+          title: "Housse de transport & déménagement Matelas 90cm | Packshield",
+          description: "Facilitez le transport et protégez votre matelas 2 personnes avec notre housse en tissu oxford robuste et ses 4 poignées pratiques. Achetez sur Amazon."
+        };
+      case 5:
+        return {
+          title: "Kit Rangement Sous Vide 4 Sacs + 4 Coffres | Packshield",
+          description: "Optimisez votre espace avec le kit de rangement sous vide Packshield : 4 sacs et 4 coffres non tissés. Compression maximale, protection contre poussière et insectes."
+        };
+      case 6:
+        return {
+          title: "Kit Rangement Sous Vide 2 Sacs + 2 Coffres | Packshield",
+          description: "Optimisez votre espace avec le kit de rangement sous vide Packshield : 2 sacs et 2 coffres non tissés. Compression maximale, protection contre poussière et insectes."
+        };
+      default:
+        return {
+          title: product.title,
+          description: "Découvrez nos produits de protection et stockage premium Packshield - qualité garantie pour protéger vos biens."
+        };
+    }
+  };
+
+  const seoData = getSEOData();
+
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet 
+        title={seoData.title}
+        description={seoData.description}
+        structuredData={[productStructuredData, breadcrumbStructuredData]}
+      />
+      
       <Navbar />
       
       <div className="container mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <div className="flex items-center mb-8">
+          <div className="flex-1">
+            <BreadcrumbNav items={breadcrumbItems} />
+          </div>
           <Link to="/produits" className="flex items-center text-packshield-grey hover:text-packshield-orange transition-colors">
             <ArrowLeft className="h-4 w-4 mr-2" />
-            <span>Retour aux produits</span>
+            <span>Retour à la boutique</span>
           </Link>
         </div>
 

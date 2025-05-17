@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Search } from 'lucide-react';
@@ -7,6 +8,8 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BlogPostCard from '@/components/BlogPostCard';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
+import Helmet from '@/components/SEO/Helmet';
 import { getBlogUrl } from '@/utils/blogSlug';
 
 const Blog = () => {
@@ -55,15 +58,49 @@ const Blog = () => {
     return matchesSearch && matchesCategory;
   });
 
+  // Breadcrumb items
+  const breadcrumbItems = [
+    { title: 'Conseils', href: '/blog' }
+  ];
+
+  // Breadcrumb structured data
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://packshield.shop"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Conseils",
+        "item": "https://packshield.shop/blog"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet 
+        title="Le Blog Packshield : Tout savoir sur la Protection de Matelas et le Rangement"
+        description="Nos experts Packshield partagent leurs conseils pour bien choisir votre housse de matelas et organiser votre intérieur. Déménagement, stockage, entretien : on vous dit tout !"
+        structuredData={breadcrumbStructuredData}
+      />
+      
       <Navbar />
 
       {/* Blog Header */}
       <div className="bg-packshield-navy text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">Blog Packshield</h1>
+            <div className="mb-4">
+              <BreadcrumbNav items={breadcrumbItems} light={true} />
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">Nos Conseils</h1>
             <p className="text-lg text-gray-200 mb-8">
               Conseils d'experts et astuces sur le stockage, le déménagement et la protection de vos biens.
             </p>
@@ -146,30 +183,9 @@ const Blog = () => {
         )}
       </div>
       
-      {/* Newsletter Section */}
-      <section className="bg-packshield-lightGrey py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-packshield-navy mb-4">Abonnez-vous à notre Newsletter</h2>
-            <p className="text-packshield-grey mb-6">
-              Recevez les derniers articles, conseils et mises à jour produits directement dans votre boîte mail.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Votre adresse email"
-                className="flex-grow"
-                required
-              />
-              <Button className="bg-packshield-orange hover:bg-packshield-orange/90 text-white">
-                S'abonner
-              </Button>
-            </form>
-          </div>
-        </div>
-      </section>
-      
-      <Footer />
+      <div className="mt-auto">
+        <Footer />
+      </div>
     </div>
   );
 };

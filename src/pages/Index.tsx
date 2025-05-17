@@ -10,6 +10,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import Flag from '@/components/Flag';
 import CustomFAQ from '@/components/CustomFAQ';
 import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
+import Helmet from '@/components/SEO/Helmet';
 import { products } from '@/utils/products';
 import { getProductUrl } from '@/utils/productSlug';
 
@@ -56,8 +57,121 @@ const Index = () => {
     }
   ];
 
+  // Create FAQ structured data
+  const createFaqStructuredData = () => {
+    const faqItems = [
+      {
+        question: "Que propose Packshield ?",
+        answer: "Packshield conçoit et commercialise des produits de qualité pour le déménagement et le stockage, pensés pour protéger vos biens efficacement. Tous nos produits sont imaginés en France, avec une attention particulière portée à la praticité, la résistance des matériaux, et l'esthétique."
+      },
+      {
+        question: "Où puis-je acheter vos produits ?",
+        answer: "Tous nos produits sont disponibles exclusivement sur Amazon. Packshield.shop est notre vitrine officielle, mais l'achat se fait directement via la plateforme Amazon pour vous garantir un paiement sécurisé, une livraison rapide, et un service client fiable."
+      },
+      {
+        question: "Comment accéder à vos produits sur Amazon ?",
+        answer: "Chaque fiche produit sur notre site contient un lien direct vers la page Amazon correspondante. Il vous suffit de cliquer sur le bouton \"Acheter sur Amazon\" pour finaliser votre commande."
+      },
+      {
+        question: "Quels sont les délais de livraison ?",
+        answer: "Les délais de livraison dépendent des conditions Amazon. En général, vous recevez votre commande en 1 à 3 jours ouvrés si vous êtes membre Prime, ou sous 3 à 5 jours en livraison standard."
+      },
+      {
+        question: "Puis-je retourner un produit ?",
+        answer: "Oui, tous les achats effectués sur Amazon bénéficient de leur politique de retour standard. Vous pouvez généralement retourner un produit sous 30 jours après réception."
+      },
+      {
+        question: "Quels moyens de paiement acceptez-vous ?",
+        answer: "Les paiements sont gérés par Amazon. Vous pouvez payer avec carte bancaire, chèques-cadeaux Amazon, ou tout autre moyen proposé par Amazon dans votre région."
+      },
+      {
+        question: "Comment vous contacter ?",
+        answer: "Pour toute question avant ou après votre achat, vous pouvez nous écrire à contact@packshield-official.com. Si votre question concerne une commande en cours, nous vous recommandons également de contacter le service client Amazon pour une prise en charge rapide."
+      }
+    ];
+
+    return {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
+    };
+  };
+
+  // Create organization structured data
+  const organizationStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Packshield",
+    "url": "https://packshield.shop/",
+    "logo": "https://packshield.shop/lovable-uploads/d3fa32c1-109f-44d2-a7fa-1157cc2badad.png",
+    "description": "Packshield est une marque française spécialisée dans la conception de solutions premium pour la protection de matelas et le stockage d'affaires, offrant des produits durables et pratiques pour la maison.",
+    "foundingDate": "2015",
+    "slogan": "Protégeons ce qui compte le plus avec des solutions de stockage premium.",
+    "sameAs": [
+      "https://www.facebook.com/people/Packshield/100088566477762/",
+      "https://amzn.to/3GQ0wyC"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "1248"
+    }
+  };
+
+  // Create website structured data
+  const websiteStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Packshield",
+    "url": "https://packshield.shop/",
+    "description": "Site officiel de Packshield, votre partenaire en solutions de protection et de stockage premium."
+  };
+
+  // Create product structured data for featured products
+  const productsStructuredData = featuredProducts.map(product => ({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.title,
+    "image": product.image,
+    "description": "Produit de protection et stockage premium pour la maison, conçu par Packshield.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Packshield"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": product.rating.toString(),
+      "reviewCount": product.reviews
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": product.amazonUrl,
+      "priceCurrency": "EUR",
+      "price": product.price.toFixed(2),
+      "availability": "https://schema.org/InStock"
+    }
+  }));
+
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet 
+        title="Packshield - Housses de matelas et sacs de rangement premium"
+        description="Protégez vos matelas et affaires avec Packshield. Housses de rangement premium contre la poussière, l'humidité et la saleté. Durables, pratiques, et esthétiques."
+        structuredData={[
+          organizationStructuredData,
+          websiteStructuredData,
+          ...productsStructuredData,
+          createFaqStructuredData()
+        ]}
+      />
+
       <Navbar />
       
       {/* Hero Section */}

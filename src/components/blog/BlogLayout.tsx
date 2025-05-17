@@ -5,6 +5,7 @@ import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BlogSidebar from './BlogSidebar';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { prepareBlogContent } from '@/utils/blogUtils';
 
 interface Author {
@@ -37,6 +38,7 @@ export interface BlogPostProps {
 }
 
 const BlogLayout: React.FC<BlogPostProps> = ({
+  id,
   title,
   content,
   image,
@@ -55,11 +57,34 @@ const BlogLayout: React.FC<BlogPostProps> = ({
 
   // Translation dictionary
   const translations = {
-    backToBlog: language === 'en' ? 'Back to Blog' : 'Retour au Blog',
+    backToBlog: language === 'en' ? 'Back to Blog' : 'Retour aux Conseils',
     shareArticle: language === 'en' ? 'Share this article' : 'Partager cet article',
     relatedArticles: language === 'en' ? 'Related Articles' : 'Articles Similaires',
     tableOfContents: language === 'en' ? 'Table of Contents' : 'Table des matières'
   };
+
+  // Get shortened title for breadcrumb
+  const getBreadcrumbTitle = () => {
+    if (typeof id === 'number') {
+      switch (id) {
+        case 10:
+          return "Transporter son matelas efficacement";
+        case 11:
+          return "Meilleures housses pour déménagement";
+        case 2:
+          return "Protéger vos meubles";
+        default:
+          return title.split(' ').slice(0, 4).join(' ');
+      }
+    }
+    return title.split(' ').slice(0, 4).join(' ');
+  };
+
+  // Breadcrumb items
+  const breadcrumbItems = [
+    { title: 'Conseils', href: '/blog' },
+    { title: getBreadcrumbTitle() }
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -75,9 +100,12 @@ const BlogLayout: React.FC<BlogPostProps> = ({
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="container mx-auto px-4 text-center text-white">
             <div className="max-w-4xl mx-auto">
+              <div className="mb-6">
+                <BreadcrumbNav items={breadcrumbItems} light={true} />
+              </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">{title}</h1>
               <div className="flex items-center justify-center space-x-6 text-sm md:text-base">
                 <div className="flex items-center">

@@ -7,6 +7,8 @@ import ProductFilters from '@/components/products/ProductFilters';
 import ProductSorting from '@/components/products/ProductSorting';
 import ProductGrid from '@/components/products/ProductGrid';
 import ProductHeader from '@/components/products/ProductHeader';
+import BreadcrumbNav from '@/components/BreadcrumbNav';
+import Helmet from '@/components/SEO/Helmet';
 
 const Products = () => {
   const [priceRange, setPriceRange] = useState([0, 50]);
@@ -45,12 +47,47 @@ const Products = () => {
     });
   };
 
+  // Breadcrumb items
+  const breadcrumbItems = [
+    { title: 'Boutique', href: '/produits' }
+  ];
+
+  // Structured data for breadcrumb
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://packshield.shop"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Boutique",
+        "item": "https://packshield.shop/produits"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet 
+        title="Housses de Matelas & Rangement Premium | Packshield"
+        description="Découvrez notre sélection complète de housses de protection pour matelas (plastique, tissu) et de solutions de rangement sous vide Packshield®. Protégez efficacement vos biens !"
+        structuredData={breadcrumbStructuredData}
+      />
+      
       <Navbar />
       
+      <div className="container mx-auto px-4 mt-6 text-center">
+        <BreadcrumbNav items={breadcrumbItems} />
+      </div>
+      
       <ProductHeader 
-        title="Nos produits" 
+        title="La boutique Packshield" 
         description="Housses de matelas premium et solutions de stockage conçues pour garder vos biens en sécurité et protégés."
       />
       
