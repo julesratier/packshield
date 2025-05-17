@@ -68,6 +68,59 @@ const productFeatures = {
   ]
 };
 
+// Descriptions complètes pour chaque produit
+const productDescriptions = {
+  1: [
+    "Dès la première prise en main, la housse Packshield en Oxford inspire confiance. Le **matériau épais et imperméable** est un gage de protection contre les aléas du déménagement : frottements contre les meubles, éclaboussures accidentelles, voire même une exposition rapide à une légère pluie lors du chargement ou du déchargement. Lors de notre test d'imperméabilité, l'eau perlait littéralement à la surface sans laisser la moindre trace d'humidité.",
+    "La **fermeture zippée sur 3 côtés** s'est avérée extrêmement pratique. Elle permet d'insérer et de retirer le matelas sans forcer, une manœuvre qui peut souvent être délicate avec des housses moins bien conçues. On a particulièrement apprécié la qualité de la fermeture éclair, qui semblait robuste et conçue pour durer.",
+    "La disponibilité en **4 tailles classiques de matelas** est un atout non négligeable, assurant de trouver la housse parfaitement adaptée à son couchage. De plus, les **4 poignées** stratégiquement placées sur les côtés ont transformé le transport. On a pu soulever et déplacer le matelas de manière stable et confortable, réduisant considérablement l'effort physique et le risque de l'échapper.",
+    "Enfin, l'aspect **réutilisable et parfaitement adapté pour le stockage** est un avantage économique et écologique. Après notre simulation de déménagement, la housse est restée intacte et prête pour un futur usage ou pour protéger un matelas entreposé au grenier ou à la cave. Pour nous, la Packshield Oxford représente un investissement judicieux pour ceux qui recherchent une protection fiable et durable."
+  ],
+  2: [
+    "Si le modèle Oxford mise sur la durabilité du tissu, cette version en **plastique épais et résistant** offre une barrière impénétrable contre l'humidité et les saletés. Lors de nos tests, même des projections d'eau plus importantes n'ont pas réussi à traverser le matériau. C'est un point crucial pour les déménagements où le risque d'exposition aux éléments est plus élevé.",
+    "La **fermeture zippée sur toute la longueur** est un autre point fort. Elle permet une ouverture totale de la housse, facilitant encore davantage l'installation et le retrait du matelas, en particulier pour les modèles plus grands et plus lourds.",
+    "Cependant, l'**absence de poignée** est un inconvénient notable. Lors de nos simulations de portage, on a senti une différence significative par rapport au modèle Oxford. La manipulation du matelas s'est avérée moins aisée et nécessitait une coordination plus précise entre les personnes.",
+    "Malgré ce manque, la housse en plastique épais de Packshield remplit parfaitement sa fonction de protection. Elle est **parfaite pour les déménagements en intérieur comme en extérieur**, offrant une tranquillité d'esprit quant à l'intégrité du matelas. Son prix plus abordable en fait une option très intéressante pour ceux qui privilégient l'efficacité à un coût plus contenu."
+  ],
+  3: [
+    "Le modèle Mottez se positionne clairement comme une solution **économique à usage unique**. Son prix attractif en fait une option envisageable pour un déménagement rapide et sur une courte distance, où le risque de dommages importants est limité.",
+    "L'adaptation pour un **transport rapide** est son principal atout. La simplicité de la housse, sans fioritures ni fermeture éclair, permet d'envelopper rapidement le matelas. Cependant, cette simplicité est aussi sa principale faiblesse. L'absence de zip signifie que l'ouverture reste exposée à la poussière et aux potentielles saletés.",
+    "Lors de nos tests de manipulation, on a constaté que la housse avait tendance à glisser légèrement et offrait une protection minimale contre les déchirures si elle était soumise à des frottements importants. Son caractère **usage unique** se justifie par la finesse du matériau, qui ne semble pas conçu pour résister à plusieurs manipulations ou à un stockage prolongé.",
+    "En résumé, la housse Mottez est un **bon choix pour les petits budgets** et les déménagements ponctuels et peu risqués. Cependant, pour une protection plus sérieuse et une réutilisation possible, il faudra se tourner vers des options plus robustes."
+  ],
+  4: [
+    "La marque U-Haul est très populaire aux États-Unis pour ses solutions de déménagement, et leur housse de matelas ne fait pas exception en termes de **plastique épais** et de sensation de robustesse. L'existence en **version ventilée ou non** est une fonctionnalité intéressante, permettant de choisir l'option la plus adaptée aux conditions de stockage ou de transport (la version ventilée peut aider à prévenir la condensation).",
+    "Le **plastique très épais** inspire une grande confiance quant à la résistance aux déchirures et aux perforations. Cependant, le principal inconvénient pour le marché français est sa disponibilité, qui passe souvent par une **importation**, entraînant un **prix élevé**.",
+    "Lors de nos tests, la housse a effectivement montré une excellente résistance aux manipulations et une bonne protection contre l'humidité. Cependant, l'absence de fermeture éclair rend l'installation et le retrait du matelas moins pratiques que les modèles zippés.",
+    "En conclusion, la housse U-Haul est indéniablement **pratique** et robuste, mais son prix élevé dû à l'importation la rend moins compétitive face aux options disponibles localement."
+  ],
+  5: [
+    "La housse Weidebach se distingue par son **plastique imperméable**, offrant une bonne protection contre les liquides et l'humidité. L'aspect **lavable et réutilisable** est un avantage économique et écologique, permettant d'amortir l'investissement sur plusieurs déménagements ou périodes de stockage. La mention de **qualité allemande** est souvent un gage de fiabilité et de durabilité.",
+    "Lors de nos tests, le matériau s'est montré résistant aux frottements légers et a bien rempli sa fonction d'imperméabilité. Cependant, l'**absence de poignées** a rendu le transport du matelas moins aisé, similaire au modèle en plastique épais de Packshield. La **fermeture éclair simple** sur un seul côté facilite l'insertion, mais offre une protection moins complète contre la poussière que les fermetures sur trois côtés ou intégrales.",
+    "Malgré l'absence de poignées, la housse Weidebach offre un **bon rapport qualité-prix** pour ceux qui recherchent une protection imperméable et réutilisable sans se ruiner."
+  ],
+  6: [
+    "La housse Garoop propose une **fermeture sur 3 côtés**, un avantage significatif pour faciliter l'installation et le retrait du matelas. Le **plastique PE résistant** de couleur blanche semble suffisamment robuste pour un déménagement standard, et sa compatibilité avec les **matelas jusqu'à 25 cm d'épaisseur** la rend polyvalente.",
+    "Lors de nos tests, la fermeture éclair a fonctionné correctement et le matériau a offert une protection satisfaisante contre la poussière et les saletés. Bien qu'elle n'ait pas la même épaisseur que certaines options plus coûteuses, elle représente une **bonne alternative milieu de gamme** pour ceux qui recherchent un bon compromis entre prix et fonctionnalités. L'**absence de poignées** est cependant un point à considérer si le transport du matelas implique de longues distances ou des escaliers."
+  ],
+  7: [
+    "La housse Joycemall se positionne comme une solution **spécialisée pour le stockage longue durée**. Sa **matière bâche très résistante** inspire une confiance totale quant à sa capacité à protéger le matelas des éléments, de la poussière, et même d'une certaine humidité ambiante pendant une période prolongée.",
+    "Les **8 poignées** sont un atout majeur. Leur nombre et leur disposition offrent une prise en main exceptionnelle, facilitant grandement les manipulations, même pour les matelas les plus lourds et les plus encombrants. C'est particulièrement **idéal si le matelas est exposé à des conditions difficiles** lors du stockage, comme dans un garage ou une cave.",
+    "Bien que son prix soit plus élevé que la plupart des autres options, la robustesse et les fonctionnalités de la housse Joycemall justifient cet investissement pour ceux qui ont besoin d'une protection maximale pour un stockage de longue durée ou dans des environnements potentiellement agressifs."
+  ],
+  8: [
+    "La housse Zouway se présente comme une **solution économique** avec une **double fermeture éclair**, ce qui pourrait théoriquement faciliter l'insertion du matelas. Lors de nos tests, l'utilisation s'est avérée **assez facile**, bien que la fermeture éclair sur un seul côté offre une ouverture moins large que les modèles à trois côtés ou intégrales.",
+    "Son adaptation **plutôt aux matelas en mousse à mémoire de forme** suggère une certaine souplesse du matériau. L'imperméabilité est un avantage, protégeant contre les liquides. Cependant, la finesse du matériau et la fermeture éclair sur un seul côté nous font penser qu'elle serait moins adaptée aux déménagements impliquant de nombreuses manipulations ou des risques de frottements importants."
+  ]
+};
+
+// Fonction pour afficher du texte avec des parties en gras (** **)
+const formatText = (text: string) => {
+  return text.split('**').map((part, index) => {
+    return index % 2 === 1 ? <strong key={index}>{part}</strong> : part;
+  });
+};
+
 const MattressCoversComparison = () => {
   // Breadcrumb items
   const breadcrumbItems = [
@@ -137,10 +190,10 @@ const MattressCoversComparison = () => {
       <div className="container mx-auto px-4 py-12">
         {/* Introduction */}
         <div className="max-w-4xl mx-auto mb-12">
-          <p className="text-lg mb-6">
+          <p className="text-lg mb-6 text-packshield-grey">
             Choisir la housse adéquate est une étape cruciale pour éviter les mauvaises surprises à l'arrivée. Plusieurs critères entrent en jeu : la robustesse du matériau pour prévenir les déchirures, son imperméabilité contre les taches et l'humidité, le type de fermeture pour une protection intégrale, la présence éventuelle de poignées facilitant le transport, et bien sûr, le budget.
           </p>
-          <p className="text-lg mb-6">
+          <p className="text-lg mb-6 text-packshield-grey">
             Notre équipe a récemment mené un test grandeur nature sur une sélection de housses de matelas pour déménagement. L'objectif était simple : évaluer leur résistance en conditions réelles, leur facilité d'utilisation et leur capacité à protéger efficacement un matelas standard lors d'un simulacre de déménagement comprenant des manipulations en intérieur et extérieur.
           </p>
         </div>
@@ -237,10 +290,13 @@ const MattressCoversComparison = () => {
               
               {/* Product Description */}
               <div className="p-6 border-t border-gray-100">
-                <div className="prose max-w-none">
-                  <p className="text-packshield-grey mb-6">
-                    {product.description}
-                  </p>
+                <div className="prose max-w-none text-packshield-grey">
+                  {/* Utiliser les descriptions complètes du produit */}
+                  {productDescriptions[product.id as keyof typeof productDescriptions]?.map((paragraph, idx) => (
+                    <p key={idx} className="mb-4 text-packshield-grey">
+                      {formatText(paragraph)}
+                    </p>
+                  ))}
                   
                   <div className="mt-6">
                     <h4 className="font-semibold text-packshield-navy mb-3">Caractéristiques principales :</h4>
@@ -248,7 +304,7 @@ const MattressCoversComparison = () => {
                       {productFeatures[product.id as keyof typeof productFeatures].map((feature, index) => (
                         <li key={index} className="flex items-start">
                           <span className="inline-block w-2 h-2 flex-shrink-0 bg-packshield-orange rounded-full mt-2.5 mr-3"></span>
-                          <span>{feature}</span>
+                          <span className="text-packshield-grey">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -262,28 +318,28 @@ const MattressCoversComparison = () => {
         {/* Conclusion section */}
         <div className="max-w-4xl mx-auto mt-16 p-8 bg-packshield-lightGrey rounded-xl border border-gray-200">
           <h2 className="text-2xl font-bold text-packshield-navy mb-4">Notre conseil pour bien choisir</h2>
-          <p className="mb-4">
+          <p className="mb-4 text-packshield-grey">
             Après avoir testé ces huit options, notre recommandation dépend largement de vos besoins spécifiques :
           </p>
           <ul className="space-y-3 mb-4">
             <li className="flex items-start">
               <span className="inline-block w-2 h-2 flex-shrink-0 bg-packshield-orange rounded-full mt-2.5 mr-3"></span>
-              <span><strong>Pour un investissement durable</strong> : La housse Packshield Oxford offre le meilleur équilibre entre protection, facilité d'utilisation et durabilité.</span>
+              <span className="text-packshield-grey"><strong>Pour un investissement durable</strong> : La housse Packshield Oxford offre le meilleur équilibre entre protection, facilité d'utilisation et durabilité.</span>
             </li>
             <li className="flex items-start">
               <span className="inline-block w-2 h-2 flex-shrink-0 bg-packshield-orange rounded-full mt-2.5 mr-3"></span>
-              <span><strong>Pour un bon rapport qualité-prix</strong> : La housse Packshield en plastique épais propose une excellente protection à un prix plus accessible.</span>
+              <span className="text-packshield-grey"><strong>Pour un bon rapport qualité-prix</strong> : La housse Packshield en plastique épais propose une excellente protection à un prix plus accessible.</span>
             </li>
             <li className="flex items-start">
               <span className="inline-block w-2 h-2 flex-shrink-0 bg-packshield-orange rounded-full mt-2.5 mr-3"></span>
-              <span><strong>Pour les petits budgets</strong> : La housse Mottez est suffisante pour un déménagement simple et sans risque particulier.</span>
+              <span className="text-packshield-grey"><strong>Pour les petits budgets</strong> : La housse Mottez est suffisante pour un déménagement simple et sans risque particulier.</span>
             </li>
             <li className="flex items-start">
               <span className="inline-block w-2 h-2 flex-shrink-0 bg-packshield-orange rounded-full mt-2.5 mr-3"></span>
-              <span><strong>Pour un stockage de longue durée</strong> : La housse Joycemall offre la meilleure protection contre les éléments et facilite les déplacements occasionnels.</span>
+              <span className="text-packshield-grey"><strong>Pour un stockage de longue durée</strong> : La housse Joycemall offre la meilleure protection contre les éléments et facilite les déplacements occasionnels.</span>
             </li>
           </ul>
-          <p>
+          <p className="text-packshield-grey">
             Quelle que soit votre choix, protéger votre matelas lors d'un déménagement est un investissement judicieux qui prolongera sa durée de vie et vous assurera un sommeil sain dans votre nouveau foyer.
           </p>
         </div>
