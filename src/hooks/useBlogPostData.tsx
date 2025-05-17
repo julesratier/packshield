@@ -17,8 +17,6 @@ const useBlogPostData = (slug: string | undefined) => {
           <div>À première vue, déménager un matelas peut sembler simple. Mais quiconque s'est déjà retrouvé à le faire passer dans une cage d'escalier étroite ou à tenter de le glisser dans un coffre trop petit sait combien l'exercice peut devenir complexe. Mal protégé, sans <a href="/blog/classement-meilleures-housses-matelas-demenagement">housse matelas de déménagement</a>, il risque salissures, déchirures, voire déformations. Ce guide vous accompagne pas à pas pour un transport sans accroc, seul ou avec l'aide de professionnels.</div>
           
           <h2 id="preparer-matelas">1. Préparer Minutieusement Son Matelas : La Clé d'un Déménagement Réussi</h2>
-          <p>Avant de céder à la hâte et de vous saisir de votre matelas, accordez-vous une dizaine de minutes pour une préparation méthodique. Ces étapes, bien que simples en apparence, constituent le fondement d'un déménagement sans encombre et préviennent bien des soucis ultérieurs.</p>
-          
           <h3>Un Nettoyage Rigoureux : Éliminer les Intrus Invisibles</h3>
           <p>Commencez par offrir à votre matelas un nettoyage en profondeur. Munissez-vous de votre aspirateur et passez-le méticuleusement sur les deux faces, sans oublier les flancs. Cette action simple permet d'éliminer efficacement les poussières accumulées, les colonies d'acariens souvent invisibles à l'œil nu, ainsi que les éventuels poils laissés par vos compagnons à quatre pattes. En évitant de piéger ces particules durant le transport, vous préservez l'hygiène de votre literie et limitez les risques d'allergies dans votre nouveau foyer.</p>
           
@@ -92,68 +90,6 @@ const useBlogPostData = (slug: string | undefined) => {
           }
         ],
         tags: ["Transport", "Matelas", "Déménagement", "Protection"],
-        language: 'fr'
-      };
-    } else if (id === 11) {
-      return {
-        id: 11,
-        title: "Top 8 des meilleures housses matelas pour les déménagement",
-        content: `
-          <div>Protéger son matelas pendant un déménagement est essentiel pour éviter les salissures, les déchirures, ou l'humidité.</div>
-          
-          <h2 id="importance-housse">Pourquoi utiliser une housse de matelas ?</h2>
-          <p>Une housse de protection est indispensable pour préserver votre matelas des aléas du transport et du stockage temporaire.</p>
-          
-          <h2 id="top-housses">Notre sélection des 8 meilleures housses</h2>
-          <p>Après des tests rigoureux, voici notre classement des housses les plus performantes du marché :</p>
-          
-          <ul>
-            <li>PackShield Premium - Protection complète imperméable</li>
-            <li>MoveGuard Pro - Résistance aux déchirures</li>
-            <li>MatProtect - Qualité/prix optimal</li>
-            <li>TransportEase - Facilité de manipulation</li>
-            <li>MattressCover Deluxe - Durabilité exceptionnelle</li>
-            <li>EasyMove - Léger et pratique</li>
-            <li>StorageMaster - Idéal pour stockage longue durée</li>
-            <li>SecureWrap - Système de fermeture innovant</li>
-          </ul>
-          
-          <blockquote>
-            <p>"Une bonne housse de matelas est un investissement minime pour protéger un objet coûteux."</p>
-          </blockquote>
-          
-          <h2 id="criteres-choix">Critères de choix d'une housse</h2>
-          <p>Plusieurs facteurs sont à considérer avant d'acheter votre housse de protection :</p>
-          
-          <h2 id="conclusion">Conclusion</h2>
-          <p>Investir dans une housse de qualité vous épargnera bien des soucis et prolongera la durée de vie de votre matelas.</p>
-        `,
-        image: "/lovable-uploads/241f7930-bdd5-4cab-87f2-f5031b99cd9b.png",
-        date: "8 Mai 2025",
-        readTime: "7 min de lecture",
-        category: "blog",
-        author: {
-          name: "Hélène Mirmande",
-          avatar: "/lovable-uploads/4b62c8ae-6aa6-41f5-924e-b6fd5bd9744d.png", // Updated avatar
-          role: "Expert Déménagement",
-          bio: "Hélène est content writer chez Packshield, spécialisée dans la rédaction de contenus pratiques liés au déménagement et à la protection des objets fragiles.",
-          slug: "helene-mirmande"
-        },
-        relatedPosts: [
-          {
-            id: 10,
-            title: "Comment déménager son matelas sans stress (ni mauvaise surprise)",
-            image: "/lovable-uploads/4b62c8ae-6aa6-41f5-924e-b6fd5bd9744d.png",
-            date: "10 Mai 2025"
-          },
-          {
-            id: 2,
-            title: "Moving Day Tips: Protect Your Furniture",
-            image: "https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aW5nJTIwZGF5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-            date: "5 Mai 2025"
-          }
-        ],
-        tags: ["Housses", "Matelas", "Déménagement", "Protection"],
         language: 'fr'
       };
     }
