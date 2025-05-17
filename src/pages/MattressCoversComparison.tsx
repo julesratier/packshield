@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -190,10 +189,10 @@ const MattressCoversComparison = () => {
       <div className="container mx-auto px-4 py-12">
         {/* Introduction */}
         <div className="max-w-4xl mx-auto mb-12">
-          <p className="text-lg mb-6 text-packshield-grey">
+          <p className="text-lg mb-6 text-[#142947]">
             Choisir la housse adéquate est une étape cruciale pour éviter les mauvaises surprises à l'arrivée. Plusieurs critères entrent en jeu : la robustesse du matériau pour prévenir les déchirures, son imperméabilité contre les taches et l'humidité, le type de fermeture pour une protection intégrale, la présence éventuelle de poignées facilitant le transport, et bien sûr, le budget.
           </p>
-          <p className="text-lg mb-6 text-packshield-grey">
+          <p className="text-lg mb-6 text-[#142947]">
             Notre équipe a récemment mené un test grandeur nature sur une sélection de housses de matelas pour déménagement. L'objectif était simple : évaluer leur résistance en conditions réelles, leur facilité d'utilisation et leur capacité à protéger efficacement un matelas standard lors d'un simulacre de déménagement comprenant des manipulations en intérieur et extérieur.
           </p>
         </div>
@@ -261,7 +260,7 @@ const MattressCoversComparison = () => {
                   {/* Verdict box */}
                   <div className="bg-packshield-lightGrey rounded-lg p-4 mb-4">
                     <h3 className="text-sm font-semibold text-packshield-navy mb-1">NOTRE VERDICT</h3>
-                    <p className="text-sm italic text-packshield-grey">{product.verdict}</p>
+                    <p className="text-sm italic text-[#142947]">{product.verdict}</p>
                   </div>
                   
                   {/* Buy Button */}
@@ -290,10 +289,10 @@ const MattressCoversComparison = () => {
               
               {/* Product Description */}
               <div className="p-6 border-t border-gray-100">
-                <div className="prose max-w-none text-packshield-grey">
+                <div className="prose max-w-none">
                   {/* Utiliser les descriptions complètes du produit */}
                   {productDescriptions[product.id as keyof typeof productDescriptions]?.map((paragraph, idx) => (
-                    <p key={idx} className="mb-4 text-packshield-grey">
+                    <p key={idx} className="mb-4 text-[#142947]">
                       {formatText(paragraph)}
                     </p>
                   ))}
@@ -304,7 +303,7 @@ const MattressCoversComparison = () => {
                       {productFeatures[product.id as keyof typeof productFeatures].map((feature, index) => (
                         <li key={index} className="flex items-start">
                           <span className="inline-block w-2 h-2 flex-shrink-0 bg-packshield-orange rounded-full mt-2.5 mr-3"></span>
-                          <span className="text-packshield-grey">{feature}</span>
+                          <span className="text-[#142947]">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -318,28 +317,28 @@ const MattressCoversComparison = () => {
         {/* Conclusion section */}
         <div className="max-w-4xl mx-auto mt-16 p-8 bg-packshield-lightGrey rounded-xl border border-gray-200">
           <h2 className="text-2xl font-bold text-packshield-navy mb-4">Notre conseil pour bien choisir</h2>
-          <p className="mb-4 text-packshield-grey">
+          <p className="mb-4 text-[#142947]">
             Après avoir testé ces huit options, notre recommandation dépend largement de vos besoins spécifiques :
           </p>
           <ul className="space-y-3 mb-4">
             <li className="flex items-start">
               <span className="inline-block w-2 h-2 flex-shrink-0 bg-packshield-orange rounded-full mt-2.5 mr-3"></span>
-              <span className="text-packshield-grey"><strong>Pour un investissement durable</strong> : La housse Packshield Oxford offre le meilleur équilibre entre protection, facilité d'utilisation et durabilité.</span>
+              <span className="text-[#142947]"><strong>Pour un investissement durable</strong> : La housse Packshield Oxford offre le meilleur équilibre entre protection, facilité d'utilisation et durabilité.</span>
             </li>
             <li className="flex items-start">
               <span className="inline-block w-2 h-2 flex-shrink-0 bg-packshield-orange rounded-full mt-2.5 mr-3"></span>
-              <span className="text-packshield-grey"><strong>Pour un bon rapport qualité-prix</strong> : La housse Packshield en plastique épais propose une excellente protection à un prix plus accessible.</span>
+              <span className="text-[#142947]"><strong>Pour un bon rapport qualité-prix</strong> : La housse Packshield en plastique épais propose une excellente protection à un prix plus accessible.</span>
             </li>
             <li className="flex items-start">
               <span className="inline-block w-2 h-2 flex-shrink-0 bg-packshield-orange rounded-full mt-2.5 mr-3"></span>
-              <span className="text-packshield-grey"><strong>Pour les petits budgets</strong> : La housse Mottez est suffisante pour un déménagement simple et sans risque particulier.</span>
+              <span className="text-[#142947]"><strong>Pour les petits budgets</strong> : La housse Mottez est suffisante pour un déménagement simple et sans risque particulier.</span>
             </li>
             <li className="flex items-start">
               <span className="inline-block w-2 h-2 flex-shrink-0 bg-packshield-orange rounded-full mt-2.5 mr-3"></span>
-              <span className="text-packshield-grey"><strong>Pour un stockage de longue durée</strong> : La housse Joycemall offre la meilleure protection contre les éléments et facilite les déplacements occasionnels.</span>
+              <span className="text-[#142947]"><strong>Pour un stockage de longue durée</strong> : La housse Joycemall offre la meilleure protection contre les éléments et facilite les déplacements occasionnels.</span>
             </li>
           </ul>
-          <p className="text-packshield-grey">
+          <p className="text-[#142947]">
             Quelle que soit votre choix, protéger votre matelas lors d'un déménagement est un investissement judicieux qui prolongera sa durée de vie et vous assurera un sommeil sain dans votre nouveau foyer.
           </p>
         </div>
