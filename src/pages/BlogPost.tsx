@@ -81,12 +81,14 @@ const BlogPost = () => {
         />
         
         {/* Footer content: Tags, Share buttons, Author card */}
-        <BlogPostFooter 
-          tags={post.tags} 
-          title={post.title} 
-          author={post.author}
-          language={(post.language as 'en' | 'fr') || 'en'}
-        />
+        <div className="container mx-auto px-4 pb-16 relative z-10">
+          <BlogPostFooter 
+            tags={post.tags} 
+            title={post.title} 
+            author={post.author}
+            language={(post.language as 'en' | 'fr') || 'en'}
+          />
+        </div>
       </div>
     </>
   );
