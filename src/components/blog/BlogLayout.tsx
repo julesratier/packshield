@@ -6,11 +6,14 @@ import Footer from '@/components/Footer';
 import BlogSidebar from './BlogSidebar';
 import BreadcrumbNav from '@/components/BreadcrumbNav';
 import { prepareBlogContent } from '@/utils/blogUtils';
+import BlogPostFooter from './BlogPostFooter';
 
 interface Author {
   name: string;
   avatar: string;
   role: string;
+  bio?: string;
+  slug?: string;
 }
 
 export interface RelatedPost {
@@ -34,6 +37,7 @@ export interface BlogPostProps {
   onSectionClick: (sectionId: string) => void;
   tableOfContents: { id: string; title: string }[];
   language?: 'en' | 'fr';
+  tags?: string[];
 }
 
 const BlogLayout: React.FC<BlogPostProps> = ({
@@ -49,7 +53,8 @@ const BlogLayout: React.FC<BlogPostProps> = ({
   activeSection,
   onSectionClick,
   tableOfContents,
-  language = 'en'
+  language = 'en',
+  tags = ['Transport', 'Matelas', 'Déménagement', 'Protection']
 }) => {
   // Prepare blog content with consistent styling
   const preparedContent = prepareBlogContent(content);
@@ -142,6 +147,16 @@ const BlogLayout: React.FC<BlogPostProps> = ({
                 className="blog-content" 
                 dangerouslySetInnerHTML={{ __html: preparedContent }}
               />
+
+              {/* Author and sharing section */}
+              <div className="mt-16">
+                <BlogPostFooter 
+                  tags={tags} 
+                  title={title} 
+                  author={author}
+                  language={language}
+                />
+              </div>
             </article>
           </main>
           
@@ -155,8 +170,6 @@ const BlogLayout: React.FC<BlogPostProps> = ({
           />
         </div>
       </div>
-      
-      {/* This is where BlogPostFooter will be rendered (from BlogPost.tsx) */}
       
       <div className="mt-auto">
         <Footer />

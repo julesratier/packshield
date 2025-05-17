@@ -45,6 +45,20 @@ const BlogPost = () => {
     return description;
   };
 
+  // Default tags for blog posts
+  const getDefaultTags = () => {
+    if (post.id === 10) {
+      return ['Transport', 'Matelas', 'Déménagement', 'Protection'];
+    }
+    if (post.id === 11) {
+      return ['Housses', 'Matelas', 'Déménagement', 'Comparatif'];
+    }
+    if (post.id === 2) {
+      return ['Protection', 'Meubles', 'Déménagement', 'Conseils'];
+    }
+    return ['Déménagement', 'Protection', 'Conseils'];
+  };
+
   return (
     <>
       <Helmet
@@ -77,6 +91,7 @@ const BlogPost = () => {
           onSectionClick={scrollToSection}
           tableOfContents={tableOfContents}
           language={(post.language as 'en' | 'fr') || 'en'}
+          tags={post.tags || getDefaultTags()}
         />
       </div>
     </>
