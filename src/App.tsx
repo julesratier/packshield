@@ -18,6 +18,7 @@ import Contact from "./pages/Contact";
 import MentionsLegales from "./pages/MentionsLegales";
 import PartenaireAmazon from "./pages/PartenaireAmazon";
 import AuthorProfile from "./pages/AuthorProfile";
+import MattressCoversComparison from "./pages/MattressCoversComparison"; // Added the new page
 import { ScrollToTop } from "./utils/ScrollToTop";
 import Sitemap from "./components/Sitemap";
 
@@ -46,6 +47,7 @@ const App = () => (
             {/* Legacy routes for specific blog posts - redirecting to new URLs */}
             <Route path="/blog/comment-transporter-son-matelas-efficacement-10" element={<BlogPostMattrTransport />} />
             <Route path="/blog/top-8-des-meilleures-housses-matelas-pour-les-demenagement-11" element={<BlogPostTop8Housses />} />
+            <Route path="/blog/classement-meilleures-housses-matelas-demenagement" element={<MattressCoversComparison />} />
             <Route path="/blog/11" element={<BlogPostTop8Housses />} />
             <Route path="/blog/10" element={<BlogPostMattrTransport />} />
             
