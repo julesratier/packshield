@@ -193,9 +193,9 @@ const ProductDetail = () => {
       <Navbar />
       
       <div className="container mx-auto px-4 py-8">
-        {/* Breadcrumb */}
+        {/* Breadcrumb - Repositioned above product details */}
         <div className="mb-6">
-          <BreadcrumbNav items={breadcrumbItems} />
+          <BreadcrumbNav items={breadcrumbItems} textColor="#8A898C" />
         </div>
 
         {/* Product Detail */}
