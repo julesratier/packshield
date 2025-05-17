@@ -1,4 +1,3 @@
-
 import { useMemo } from 'react';
 import { getBlogPostIdFromSlug } from '@/utils/blogSlug';
 import { extractTableOfContents } from '@/utils/blogUtils';
@@ -73,7 +72,7 @@ const useBlogPostData = (slug: string | undefined) => {
           <h2 id="conclusion">Conclusion</h2>
           <p>Déménager un matelas peut vite devenir un cauchemar. Mais bien préparé, protégé et transporté, tout se passe sans accroc.</p>
         `,
-        image: "/lovable-uploads/be71ce46-fa4b-499d-8ef1-64f2962d0dfd.png",
+        image: "/lovable-uploads/4b62c8ae-6aa6-41f5-924e-b6fd5bd9744d.png",
         date: "10 Mai 2025",
         readTime: "6 min de lecture",
         category: "blog",
