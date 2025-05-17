@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
@@ -104,7 +103,7 @@ const BlogLayout: React.FC<BlogPostProps> = ({
           <div className="container mx-auto px-4 text-center text-white">
             <div className="max-w-4xl mx-auto">
               <div className="mb-6 flex justify-center">
-                <BreadcrumbNav items={breadcrumbItems} light={true} />
+                <BreadcrumbNav items={breadcrumbItems} light={true} textColor="#8A898C" />
               </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">{title}</h1>
               <div className="flex items-center justify-center space-x-6 text-sm md:text-base">
