@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -162,8 +163,17 @@ const MattressCoversComparison = () => {
       />
       <Navbar />
 
-      {/* Hero section */}
+      {/* Hero section with background image and overlay */}
       <div className="relative bg-packshield-navy py-16">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/lovable-uploads/ab466eef-3ebc-4f48-988c-a7f10e81fda0.png" 
+            alt="Matelas protégé par une housse de déménagement" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-packshield-navy opacity-85"></div>
+        </div>
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <div className="mb-4 flex justify-center">
@@ -181,8 +191,6 @@ const MattressCoversComparison = () => {
             </p>
           </div>
         </div>
-        {/* Decorative background pattern */}
-        <div className="absolute inset-0 opacity-10 pattern-dots pattern-white pattern-bg-transparent pattern-size-2"></div>
       </div>
 
       {/* Main content */}
