@@ -155,7 +155,22 @@ const BlogLayout: React.FC<BlogPostProps> = ({
           <main className="lg:w-2/3">            
             {/* Article */}
             <article className="prose prose-lg max-w-3xl mx-auto">
-              {/* Removed the Highlight Intro Block here */}
+              {/* Highlight Intro Block */}
+              <div className="bg-[#f5f5fb] rounded-xl p-6 mb-8 shadow-sm border border-[#e5deff]">
+                <p className="font-sans text-slate-700 m-0">
+                  {getFirstParagraph().split('housse matelas de déménagement').map((text, index, array) => {
+                    if (index === array.length - 1) return text;
+                    return (
+                      <React.Fragment key={index}>
+                        {text}
+                        <Link to="/blog/classement-meilleures-housses-matelas-demenagement" className="text-packshield-orange hover:underline">
+                          housse matelas de déménagement
+                        </Link>
+                      </React.Fragment>
+                    );
+                  })}
+                </p>
+              </div>
               
               <div 
                 className="blog-content" 
