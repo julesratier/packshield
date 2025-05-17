@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Calendar, Clock, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -144,11 +143,6 @@ const BlogLayout: React.FC<BlogPostProps> = ({
           <main className="lg:w-2/3">            
             {/* Article */}
             <article className="prose prose-lg max-w-3xl mx-auto">
-              <div className="bg-packshield-lightGrey p-6 rounded-xl mb-10">
-                <div className="text-slate-700 leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-2">
-                  {content.split('.')[0]}.
-                </div>
-              </div>
               
               <div 
                 className="blog-content" 
