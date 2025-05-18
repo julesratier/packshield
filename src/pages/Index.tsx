@@ -211,9 +211,9 @@ const Index = () => {
               const productUrl = fullProduct ? getProductUrl(fullProduct) : `/produits/${product.id}`;
               
               return (
-                <Card key={product.id} className="product-card overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
+                <Card key={product.id} className="product-card overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 rounded-xl">
                   <Link to={productUrl} className="block">
-                    <div className="bg-packshield-lightGrey">
+                    <div className="bg-packshield-lightGrey rounded-xl rounded-b-none">
                       <AspectRatio ratio={1 / 1}>
                         <img 
                           src={product.image} 
@@ -265,7 +265,7 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div className="bg-white p-6 rounded-2xl shadow-sm text-center">
               <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-8 w-8 text-packshield-orange" />
               </div>
@@ -273,7 +273,7 @@ const Index = () => {
               <p className="text-packshield-grey">Matériaux épais et durables qui protègent contre la poussière, l'humidité et les nuisibles.</p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div className="bg-white p-6 rounded-2xl shadow-sm text-center">
               <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
                 <Star className="h-8 w-8 text-packshield-orange" />
               </div>
@@ -281,7 +281,7 @@ const Index = () => {
               <p className="text-packshield-grey">Fabriqués à partir de matériaux de haute qualité conçus pour durer des années.</p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div className="bg-white p-6 rounded-2xl shadow-sm text-center">
               <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
                 <Package className="h-8 w-8 text-packshield-orange" />
               </div>
@@ -289,7 +289,7 @@ const Index = () => {
               <p className="text-packshield-grey">Une conception simple qui rend l'emballage, le stockage et le déménagement sans tracas.</p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+            <div className="bg-white p-6 rounded-2xl shadow-sm text-center">
               <div className="w-16 h-16 rounded-full bg-packshield-lightGrey flex items-center justify-center mx-auto mb-4">
                 <Flag className="h-8 w-8 text-packshield-orange" />
               </div>
@@ -311,7 +311,7 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+            <div className="bg-white/10 p-6 rounded-2xl backdrop-blur-sm">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" />
@@ -323,7 +323,7 @@ const Index = () => {
               <div className="font-medium">Avis sur Amazon - 3 septembre 2024</div>
             </div>
             
-            <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+            <div className="bg-white/10 p-6 rounded-2xl backdrop-blur-sm">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" />
@@ -335,7 +335,7 @@ const Index = () => {
               <div className="font-medium">Avis sur Amazon - 21 décembre 2024</div>
             </div>
             
-            <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+            <div className="bg-white/10 p-6 rounded-2xl backdrop-blur-sm">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400" fill="currentColor" />
@@ -351,7 +351,7 @@ const Index = () => {
       </section>
 
       {/* Blog Section */}
-      <section className="py-16 md:py-20">
+      <section className="pt-4 pb-16 md:pb-20">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-10">
             <h2 className="text-3xl font-bold text-packshield-navy">Notre Blog</h2>
@@ -362,7 +362,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map(post => (
-              <Link to={`/blog/${post.id}`} key={post.id} className="blog-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
+              <Link to={`/blog/${post.id}`} key={post.id} className="blog-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 transition-all duration-300">
                 <div className="aspect-video overflow-hidden">
                   <img 
                     src={post.image} 
@@ -388,8 +388,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section - Using our new component */}
-      <CustomFAQ />
+      {/* FAQ Section - Modern Startup Style */}
+      <div className="mt-0">
+        <CustomFAQ />
+      </div>
 
       <Footer />
     </div>

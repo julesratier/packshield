@@ -46,7 +46,7 @@ const BlogPostCard = ({ id, title, excerpt, image, date, readTime, author, categ
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="p-6">
+      <div className="pt-2 pb-6 px-6">
         <div className="flex items-center text-sm text-packshield-grey mb-3">
           <span>{date}</span>
           <span className="mx-2">•</span>
